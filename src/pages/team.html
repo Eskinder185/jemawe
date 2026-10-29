@@ -1,0 +1,44 @@
+---
+{
+  "title": "Our team",
+  "description": "Meet the Jemawe team: the people who design, build, and support your websites, software, and computers.",
+  "section": "company",
+  "breadcrumb": "Our team",
+  "heading": "The team behind the work",
+  "lead": "Jemawe is a small team, and the people you talk to are the people who do the work. Profiles appear here only for real team members who have approved them."
+}
+---
+<section class="section" aria-labelledby="profiles">
+  <div class="container">
+    <h2 id="profiles" class="section-title">Team members</h2>
+    <div class="grid grid--3">
+      <article class="person">
+        <div class="person__avatar">{{icon:users}}<span class="sr-only">Photo not yet supplied</span></div>
+        <div>
+          <h3>{{todo "Team member name"}}</h3>
+          <p class="person__role">{{todo "Role"}}</p>
+          <p>{{todo "Short biography: background, expertise, what they work on at Jemawe"}}</p>
+        </div>
+      </article>
+    </div>
+    <p class="muted mt-4">We never use generated portraits or stock photos to represent real staff.</p>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="how-we-work">
+  <div class="container grid-12">
+    <div class="span-5">
+      <h2 id="how-we-work">How we collaborate</h2>
+      <p class="lead">Small teams work when everyone can see the whole picture.</p>
+    </div>
+    <div class="span-6 start-7">
+      <div class="reasons" style="grid-template-columns:1fr">
+        <div class="reason"><h3>{{icon:message}}One point of contact</h3><p>You know who is handling your project or request, and how to reach them.</p></div>
+        <div class="reason"><h3>{{icon:book}}Written down, not remembered</h3><p>Scopes, decisions, and setup notes are documented, so nothing depends on one person's memory.</p></div>
+        <div class="reason"><h3>{{icon:eye}}Reviewed before it ships</h3><p>Code, content, and repairs get a second look before they reach you.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Interested in joining?" text="We do not have open positions right now, but you can read about working at Jemawe." primary="Careers" primaryHref="/careers/" secondary="Leadership" secondaryHref="/leadership/"}}

@@ -1,0 +1,63 @@
+---
+{
+  "title": "Hardware upgrades",
+  "description": "Computer hardware upgrades from Jemawe: RAM, SSD and HDD storage, laptop batteries, and desktop power supplies, with compatibility checks and parts priced separately from labor.",
+  "section": "services",
+  "heading": "Upgrades that make an older computer feel new again",
+  "lead": "A memory or storage upgrade often costs far less than a new computer and makes a bigger difference than people expect. We check what your machine supports first.",
+  "actions": [["Book an upgrade", "/book-repair/?service=upgrade", "light"], ["SSD or HDD?", "/insights/ssd-vs-hdd/", "secondary"]],
+  "illustration": "upgrade"
+}
+---
+<section class="section" aria-labelledby="upg-title">
+  <div class="container">
+    <h2 id="upg-title" class="section-title">Upgrades we install</h2>
+    <div class="grid grid--3" data-reveal-group>
+      <div class="card">{{icon:memory}}<h3>RAM</h3><p>More memory for running several apps and browser tabs at once without slowdowns.</p></div>
+      <div class="card">{{icon:drive}}<h3>SSD</h3><p>Replacing a hard drive with a solid-state drive is usually the biggest speed boost an older computer can get.</p></div>
+      <div class="card">{{icon:database}}<h3>HDD</h3><p>Large, affordable hard drives for desktop storage, archives, and backups.</p></div>
+      <div class="card">{{icon:battery}}<h3>Laptop batteries</h3><p>A new battery when the old one drains quickly, will not hold a charge, or has swollen.</p></div>
+      <div class="card">{{icon:plug}}<h3>Power supplies</h3><p>Desktop power supply replacement for failing units or new components that need more power.</p></div>
+      <div class="card">{{icon:layers}}<h3>Storage upgrades</h3><p>Moving your files and system to a larger drive, so you keep everything you had.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="cost-title">
+  <div class="container grid-12">
+    <div class="span-5">
+      <h2 id="cost-title">Parts and labor, priced separately</h2>
+      <p class="lead">You see exactly what you are paying for. Your quote lists the part and the installation as separate lines.</p>
+    </div>
+    <div class="span-6 start-7">
+      <div class="table-wrap">
+        <table class="compare" style="min-width:0">
+          <caption class="sr-only">How an upgrade quote is structured</caption>
+          <thead><tr><th scope="col">Quote line</th><th scope="col">What it covers</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Part</th><td>The component itself, matched to your exact model. You can supply your own part if it is compatible.</td></tr>
+            <tr><th scope="row">Labor</th><td>Installation, data migration where needed, and testing afterwards.</td></tr>
+            <tr><th scope="row">Diagnosis</th><td>Confirming compatibility and whether the upgrade will actually help.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted mt-4">Prices vary by device and part availability: {{todo "Standard labor rates for common upgrades"}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="perf-title">
+  <div class="container grid-12">
+    <div class="span-5"><h2 id="perf-title">Will an upgrade help my computer?</h2></div>
+    <div class="span-6 start-7">
+      <div class="reasons" style="grid-template-columns:1fr">
+        <div class="reason"><h3>{{icon:gauge}}Slow to start and open files</h3><p>Usually storage. An SSD upgrade is often the fix.</p></div>
+        <div class="reason"><h3>{{icon:layers}}Slows down with many tabs or apps open</h3><p>Usually memory. Adding RAM helps if your model supports it.</p></div>
+        <div class="reason"><h3>{{icon:battery}}Dies quickly off the charger</h3><p>Usually the battery, which wears out with age and charge cycles.</p></div>
+        <div class="reason"><h3>{{icon:alert}}Some computers cannot be upgraded</h3><p>Many thin laptops have memory and storage soldered to the board. We will tell you if that is the case before you spend anything.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Find out what your computer can take" text="Send us the make and model. We will check which upgrades it supports and what difference they would make." primary="Book an upgrade" primaryHref="/book-repair/?service=upgrade" secondary="Computer repair" secondaryHref="/services/computer-repair/"}}

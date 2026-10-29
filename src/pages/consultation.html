@@ -1,0 +1,99 @@
+---
+{
+  "title": "Schedule a consultation",
+  "description": "Request a consultation with Jemawe about a website, custom software, IT support for your team, or a repair. Choose a topic and share your availability; we confirm a time with you.",
+  "section": "contact",
+  "breadcrumb": "Schedule a consultation",
+  "heading": "Schedule a consultation",
+  "lead": "A short conversation to understand what you need before anything is quoted. Tell us when suits you and we will confirm a time by email."
+}
+---
+<section class="section">
+  <div class="container form-shell">
+    <form class="form" data-form="consultation" data-endpoint="{{site.formEndpoint}}" novalidate>
+      {{> form-status}}
+
+      <fieldset class="form-step" data-step-title="Topic">
+        <legend>What would you like to discuss?</legend>
+        <div class="field">
+          <span class="field__label" id="c-type-label">Consultation type</span>
+          <div class="choices choices--2" role="radiogroup" aria-labelledby="c-type-label">
+            <label class="choice"><input type="radio" name="type" value="web" required data-error="Choose a consultation topic."><span class="choice__box"><span class="choice__title">Website project</span><span class="choice__desc">New site, redesign, or restaurant menu</span></span></label>
+            <label class="choice"><input type="radio" name="type" value="software"><span class="choice__box"><span class="choice__title">Custom software</span><span class="choice__desc">An application for your team or customers</span></span></label>
+            <label class="choice"><input type="radio" name="type" value="it"><span class="choice__box"><span class="choice__title">IT support for my team</span><span class="choice__desc">Support plans, setup, maintenance</span></span></label>
+            <label class="choice"><input type="radio" name="type" value="general"><span class="choice__box"><span class="choice__title">Something else</span><span class="choice__desc">Not sure where it fits yet</span></span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="c-topic">What should we know before we talk? <span class="field__optional">(optional)</span></label>
+          <textarea id="c-topic" name="summary" rows="4"></textarea>
+        </div>
+        <div class="form-nav"><span class="form-nav__spacer"></span><button type="button" class="btn btn--primary" data-step-next>Continue to availability</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Availability">
+        <legend>When suits you?</legend>
+        <div class="notice">{{icon:calendar}}<div><p>These are preferences, not a booked slot. We will reply with a confirmed time. Online scheduling will be added once a calendar service is connected.</p></div></div>
+        <div class="form-row form-row--2">
+          <div class="field">
+            <label for="c-date1">First preferred date</label>
+            <input id="c-date1" name="preferredDate1" type="date" required data-error="Choose a date that would work for you.">
+          </div>
+          <div class="field">
+            <label for="c-date2">Second preferred date <span class="field__optional">(optional)</span></label>
+            <input id="c-date2" name="preferredDate2" type="date">
+          </div>
+        </div>
+        <div class="form-row form-row--2">
+          <div class="field">
+            <label for="c-time">Time of day</label>
+            <select id="c-time" name="timeOfDay" required>
+              <option value="">Choose one</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+              <option>Any time</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-format">Format</label>
+            <select id="c-format" name="format" required>
+              <option value="">Choose one</option>
+              <option>Video call</option>
+              <option>Phone call</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="c-tz">Your time zone <span class="field__optional">(optional)</span></label>
+          <input id="c-tz" name="timeZone" type="text" data-timezone placeholder="For example: Eastern Time">
+        </div>
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="button" class="btn btn--primary" data-step-next>Continue to contact details</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Contact">
+        <legend>Your details</legend>
+        {{> fields-contact prefix="c"}}
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="button" class="btn btn--primary" data-step-next>Review request</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Confirm" data-review>
+        <legend>Confirm your request</legend>
+        <dl class="review" data-review-list></dl>
+        {{> consent prefix="c"}}
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="submit" class="btn btn--primary">Request consultation</button></div>
+      </fieldset>
+    </form>
+    <aside class="form-shell__aside">
+      {{> forms-not-connected}}
+      <div class="aside-box mt-4">
+        <p class="aside-box__title">What a consultation covers</p>
+        <ul class="check-list">
+          <li>{{icon:check}}<span>Your goals and constraints</span></li>
+          <li>{{icon:check}}<span>Options, including simpler ones</span></li>
+          <li>{{icon:check}}<span>What a quote would include</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>

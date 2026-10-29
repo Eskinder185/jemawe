@@ -1,0 +1,26 @@
+---
+{
+  "title": "Insights",
+  "description": "Articles and guides from Jemawe on web development, small business technology, IT support, computer maintenance, and digital transformation.",
+  "section": "resources",
+  "heading": "Insights",
+  "lead": "Plain-language articles on planning websites, choosing technology, and keeping computers healthy. No sign-up required."
+}
+---
+<section class="section">
+  <div class="container">
+    <div class="filters" data-filter-group="article-list" data-filter-noun="articles" role="group" aria-label="Filter articles by topic">
+      <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All topics</button>
+      <button type="button" class="filter-btn" data-filter="web-development" aria-pressed="false">Web development</button>
+      <button type="button" class="filter-btn" data-filter="small-business" aria-pressed="false">Small business technology</button>
+      <button type="button" class="filter-btn" data-filter="it-support" aria-pressed="false">IT support</button>
+      <button type="button" class="filter-btn" data-filter="computer-maintenance" aria-pressed="false">Computer maintenance</button>
+      <button type="button" class="filter-btn" data-filter="digital-transformation" aria-pressed="false">Digital transformation</button>
+    </div>
+    <p class="filter-status" data-filter-status="article-list" aria-live="polite"></p>
+    <div class="grid grid--3" id="article-list">
+      {{@list type="article" template="article-card"}}
+    </div>
+    <p class="mt-5"><a class="text-link" href="/guides/">Looking for step-by-step planning guides? See all guides</a></p>
+  </div>
+</section>

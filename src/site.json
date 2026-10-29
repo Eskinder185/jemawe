@@ -1,0 +1,478 @@
+{
+  "name": "Jemawe",
+  "tagline": "Technology that works for you.",
+  "siteUrl": null,
+  "formEndpoint": null,
+  "announcement": null,
+  "contact": {
+    "email": null,
+    "phone": null,
+    "hours": null,
+    "serviceArea": null,
+    "social": []
+  },
+  "categories": {
+    "website": "Website",
+    "web-app": "Web application",
+    "web-development": "Web development",
+    "small-business": "Small business technology",
+    "it-support": "IT support",
+    "computer-maintenance": "Computer maintenance",
+    "digital-transformation": "Digital transformation",
+    "guides": "Technology guides",
+    "windows": "Windows",
+    "macos": "macOS",
+    "browsers": "Browsers",
+    "connectivity": "Internet and Wi-Fi",
+    "maintenance": "Computer maintenance",
+    "hardware": "Hardware upgrades"
+  },
+  "utility": [
+    {
+      "label": "Support center",
+      "href": "/support/"
+    },
+    {
+      "label": "Client portal",
+      "href": "/client-portal/",
+      "soon": true
+    },
+    {
+      "label": "Schedule a consultation",
+      "href": "/consultation/"
+    }
+  ],
+  "nav": [
+    {
+      "id": "home",
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "id": "services",
+      "label": "Services",
+      "href": "/services/",
+      "panel": {
+        "title": "Services",
+        "text": "Three divisions that build, run, and repair the technology your work depends on.",
+        "overview": "All services",
+        "columns": [
+          {
+            "heading": "Digital solutions",
+            "links": [
+              {
+                "label": "Website development",
+                "href": "/services/web-development/",
+                "desc": "Business sites, redesigns, landing pages"
+              },
+              {
+                "label": "Custom software",
+                "href": "/services/software-development/",
+                "desc": "Web apps, dashboards, portals"
+              },
+              {
+                "label": "Restaurant websites",
+                "href": "/services/restaurant-solutions/",
+                "desc": "Sites and QR digital menus"
+              },
+              {
+                "label": "Website maintenance",
+                "href": "/services/website-maintenance/",
+                "desc": "Updates, backups, fixes"
+              }
+            ]
+          },
+          {
+            "heading": "IT services",
+            "links": [
+              {
+                "label": "Remote IT support",
+                "href": "/services/remote-it-support/",
+                "desc": "Scheduled, authorized sessions"
+              },
+              {
+                "label": "Windows and Mac support",
+                "href": "/services/operating-system-support/",
+                "desc": "Errors, settings, performance"
+              },
+              {
+                "label": "Device setup",
+                "href": "/services/business-it-support/#workstation-setup",
+                "desc": "New computers, ready to work"
+              },
+              {
+                "label": "Business IT support",
+                "href": "/services/business-it-support/",
+                "desc": "Support for small teams"
+              }
+            ]
+          },
+          {
+            "heading": "Computer services",
+            "links": [
+              {
+                "label": "Computer repair",
+                "href": "/services/computer-repair/",
+                "desc": "Laptops and desktops"
+              },
+              {
+                "label": "Laptop repair",
+                "href": "/services/computer-repair/#laptops",
+                "desc": "Batteries, storage, charging"
+              },
+              {
+                "label": "Hardware upgrades",
+                "href": "/services/hardware-upgrades/",
+                "desc": "RAM, SSD, power supplies"
+              },
+              {
+                "label": "Diagnostics",
+                "href": "/services/computer-repair/#diagnostics",
+                "desc": "Find the cause first"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "industries",
+      "label": "Industries",
+      "href": "/industries/",
+      "panel": {
+        "title": "Industries",
+        "text": "How our services apply to the kind of organization you run.",
+        "overview": "All industries",
+        "columns": [
+          {
+            "links": [
+              {
+                "label": "Restaurants and hospitality",
+                "href": "/industries/restaurants/"
+              },
+              {
+                "label": "Small businesses",
+                "href": "/industries/small-businesses/"
+              },
+              {
+                "label": "Education",
+                "href": "/industries/education/"
+              }
+            ]
+          },
+          {
+            "links": [
+              {
+                "label": "Nonprofits",
+                "href": "/industries/nonprofits/"
+              },
+              {
+                "label": "Startups",
+                "href": "/industries/startups/"
+              },
+              {
+                "label": "Professional services",
+                "href": "/industries/professional-services/"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "solutions",
+      "label": "Solutions",
+      "href": "/solutions/"
+    },
+    {
+      "id": "work",
+      "label": "Our work",
+      "href": "/portfolio/",
+      "panel": {
+        "title": "Our work",
+        "text": "Projects the Jemawe team has designed and built, with the stacks behind them.",
+        "overview": "View the portfolio",
+        "columns": [
+          {
+            "links": [
+              {
+                "label": "Portfolio",
+                "href": "/portfolio/",
+                "desc": "Selected projects"
+              },
+              {
+                "label": "Case studies",
+                "href": "/case-studies/",
+                "desc": "How each project was built"
+              },
+              {
+                "label": "Technologies",
+                "href": "/technologies/",
+                "desc": "Tools we work with"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "resources",
+      "label": "Resources",
+      "panel": {
+        "title": "Resources",
+        "text": "Practical reading for planning projects and keeping computers healthy.",
+        "columns": [
+          {
+            "links": [
+              {
+                "label": "Insights",
+                "href": "/insights/",
+                "desc": "Articles and updates"
+              },
+              {
+                "label": "Guides",
+                "href": "/guides/",
+                "desc": "Step-by-step planning guides"
+              },
+              {
+                "label": "Help center",
+                "href": "/help-center/",
+                "desc": "Fix common problems"
+              }
+            ]
+          },
+          {
+            "links": [
+              {
+                "label": "FAQs",
+                "href": "/faq/",
+                "desc": "Answers before you ask"
+              },
+              {
+                "label": "Checklists",
+                "href": "/resources/",
+                "desc": "Free, printable, no sign-up"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "company",
+      "label": "Company",
+      "href": "/about/",
+      "panel": {
+        "title": "Company",
+        "text": "Who we are, how we started, and where Jemawe is going.",
+        "overview": "About Jemawe",
+        "columns": [
+          {
+            "links": [
+              {
+                "label": "About Jemawe",
+                "href": "/about/"
+              },
+              {
+                "label": "Our story",
+                "href": "/our-story/"
+              },
+              {
+                "label": "Leadership",
+                "href": "/leadership/"
+              }
+            ]
+          },
+          {
+            "links": [
+              {
+                "label": "Our team",
+                "href": "/team/"
+              },
+              {
+                "label": "Careers",
+                "href": "/careers/"
+              },
+              {
+                "label": "Contact",
+                "href": "/contact/"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "support",
+      "label": "Support",
+      "href": "/support/",
+      "panel": {
+        "title": "Support",
+        "text": "Get help with a computer, an error, or something we built for you.",
+        "overview": "Support center",
+        "columns": [
+          {
+            "links": [
+              {
+                "label": "Request IT support",
+                "href": "/support/new/"
+              },
+              {
+                "label": "Computer repair request",
+                "href": "/book-repair/"
+              },
+              {
+                "label": "Check ticket status",
+                "href": "/support/#ticket-status",
+                "soon": true
+              }
+            ]
+          },
+          {
+            "links": [
+              {
+                "label": "Help center",
+                "href": "/help-center/"
+              },
+              {
+                "label": "Support plans",
+                "href": "/support-plans/"
+              },
+              {
+                "label": "Repair status",
+                "href": "/repair-status/",
+                "soon": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "href": "/contact/"
+    }
+  ],
+  "footer": {
+    "about": "Jemawe builds websites and software, provides remote IT support, and repairs computers for small businesses, restaurants, schools, nonprofits, and individuals.",
+    "columns": [
+      {
+        "heading": "Services",
+        "links": [
+          {
+            "label": "Website development",
+            "href": "/services/web-development/"
+          },
+          {
+            "label": "Custom software",
+            "href": "/services/software-development/"
+          },
+          {
+            "label": "Restaurant websites",
+            "href": "/services/restaurant-solutions/"
+          },
+          {
+            "label": "Remote IT support",
+            "href": "/services/remote-it-support/"
+          },
+          {
+            "label": "Computer repair",
+            "href": "/services/computer-repair/"
+          },
+          {
+            "label": "Pricing",
+            "href": "/pricing/"
+          }
+        ]
+      },
+      {
+        "heading": "Industries",
+        "links": [
+          {
+            "label": "Restaurants",
+            "href": "/industries/restaurants/"
+          },
+          {
+            "label": "Small businesses",
+            "href": "/industries/small-businesses/"
+          },
+          {
+            "label": "Education",
+            "href": "/industries/education/"
+          },
+          {
+            "label": "Nonprofits",
+            "href": "/industries/nonprofits/"
+          },
+          {
+            "label": "Startups",
+            "href": "/industries/startups/"
+          },
+          {
+            "label": "Professional services",
+            "href": "/industries/professional-services/"
+          }
+        ]
+      },
+      {
+        "heading": "Company",
+        "links": [
+          {
+            "label": "About",
+            "href": "/about/"
+          },
+          {
+            "label": "Our story",
+            "href": "/our-story/"
+          },
+          {
+            "label": "Leadership",
+            "href": "/leadership/"
+          },
+          {
+            "label": "Our work",
+            "href": "/portfolio/"
+          },
+          {
+            "label": "Careers",
+            "href": "/careers/"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact/"
+          }
+        ]
+      },
+      {
+        "heading": "Resources",
+        "links": [
+          {
+            "label": "Insights",
+            "href": "/insights/"
+          },
+          {
+            "label": "Guides",
+            "href": "/guides/"
+          },
+          {
+            "label": "Help center",
+            "href": "/help-center/"
+          },
+          {
+            "label": "Checklists",
+            "href": "/resources/"
+          },
+          {
+            "label": "Technologies",
+            "href": "/technologies/"
+          },
+          {
+            "label": "System status",
+            "href": "/status/"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+---
+{
+  "title": "Roadmap to Role case study",
+  "description": "How the Jemawe team built Roadmap to Role, a React and TypeScript career-development workspace for new graduates and career changers, with a Spring Boot and PostgreSQL API.",
+  "section": "work",
+  "type": "project",
+  "breadcrumb": "Roadmap to Role",
+  "heading": "Roadmap to Role: professional development for new graduates",
+  "lead": "A browser-based career workspace that takes students and career changers from choosing a direction to applying with confidence.",
+  "category": "web-app",
+  "status": "Published on GitHub Pages",
+  "image": "roadmap-to-role",
+  "imageAlt": "Roadmap to Role home page with the headline Pick a direction. Build real proof. Get hired.",
+  "summary": "Career-development workspace with self-assessments, résumé preparation, interview practice, and application tracking.",
+  "challenge": "Turn scattered career advice into a step-by-step workspace that produces evidence employers can see.",
+  "stack": ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "PostgreSQL"],
+  "order": 2
+}
+---
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>Overview</h2>
+      <p>Roadmap to Role, also described in our portfolio as Professional Development for Fresh Graduates, is a career-development workspace for students and career changers. It combines self-assessments, résumé and LinkedIn preparation, interview practice, application tracking, and learning resources in one place.</p>
+      <h2>The opportunity</h2>
+      <p>New graduates are told to "build a portfolio" and "tailor every résumé" without a clear order to do it in. The aim was a structured path, Discover, Build, Grow, where each stage produces something a hiring team can actually review.</p>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Guide learners through choosing a direction before optimizing their profile.</li>
+        <li>Turn skills and projects into résumé lines, repositories, and interview stories.</li>
+        <li>Keep progress private by default, stored in the learner's own browser.</li>
+      </ul>
+      <h2>The solution</h2>
+      <p>A React and TypeScript single-page application built with Vite and Tailwind CSS. Drafts and progress live in browser storage, and résumé parsing happens in the browser, so personal documents are not uploaded. An additive Java Spring Boot API with PostgreSQL and Flyway serves roadmap data, with authenticated local progress endpoints while production identity is deliberately deferred.</p>
+    </div>
+    <aside class="span-4">
+      <dl class="facts">
+        <div><dt>Audience</dt><dd>Students, new graduates, and career changers</dd></div>
+        <div><dt>Type of work</dt><dd>Web application</dd></div>
+        <div><dt>Status</dt><dd>Published on GitHub Pages; API runs locally</dd></div>
+        <div><dt>Stack</dt><dd>React 18, TypeScript, Vite, React Router, Tailwind CSS, Spring Boot, PostgreSQL, Flyway</dd></div>
+        <div><dt>Testing</dt><dd>Vitest, Playwright, ESLint, GitHub Actions</dd></div>
+        <div><dt>Live app</dt><dd><a href="https://eskinder185.github.io/professionaldev/" rel="noopener">eskinder185.github.io/professionaldev</a></dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="rtr-gallery">
+  <div class="container">
+    <h2 id="rtr-gallery" class="section-title">Screens</h2>
+    <div class="gallery">
+      <figure>
+        <div class="browser"><div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="/assets/img/portfolio/roadmap-to-role-desktop-1440.webp" srcset="/assets/img/portfolio/roadmap-to-role-desktop-720.webp 720w, /assets/img/portfolio/roadmap-to-role-desktop-1440.webp 1440w" sizes="(min-width: 768px) 70vw, 100vw" width="1440" height="900" alt="Roadmap to Role home page on desktop with the Discover, Build, Grow pathway beside the main headline." loading="lazy" decoding="async">
+        </div>
+        <figcaption>Home page at 1440px. Screenshot captured from the project build.</figcaption>
+      </figure>
+      <figure>
+        <div class="phone-shot"><img src="/assets/img/portfolio/roadmap-to-role-mobile-390.webp" width="390" height="844" alt="Roadmap to Role home page on a phone." loading="lazy" decoding="async"></div>
+        <figcaption>Home page at 390px.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>Features delivered</h2>
+      <ul>
+        <li>A Discover, Build, Grow pathway with career path blueprints and certification roadmaps.</li>
+        <li>Résumé tooling with keyword alignment for applicant tracking systems.</li>
+        <li>Portfolio, GitHub, and interview preparation that produces reviewable evidence.</li>
+        <li>Application tracking and learning resources.</li>
+        <li>Light and dark themes, and an in-app coaching panel.</li>
+      </ul>
+      <h2>Design and development decisions</h2>
+      <ul>
+        <li><strong>Private by default.</strong> Browser storage with versioned migrations that preserve data and keep a recovery snapshot.</li>
+        <li><strong>Quality gates in CI.</strong> Lint, type checks, unit tests, browser tests, and a production build run on every pull request.</li>
+        <li><strong>Backend added without breaking the front end.</strong> The API is additive and read-only for catalog data.</li>
+      </ul>
+      <h2>Outcomes</h2>
+      <p>No usage figures or measured outcomes have been published for this project. {{todo "Verified Roadmap to Role outcomes, if any, approved for publication"}}</p>
+      <h2>Lessons learned</h2>
+      <p>{{todo "Lessons learned from Roadmap to Role, written by the team"}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="related">
+  <div class="container">
+    <h2 id="related" class="section-title">More projects</h2>
+    <div class="grid grid--2">{{@list type="project" exclude="self" template="project-card"}}</div>
+  </div>
+</section>
+
+{{> cta-band heading="Building a learning or career tool?" text="Tell us who it is for and what they should achieve. We will help you scope a first version." primary="Schedule a consultation" primaryHref="/consultation/?type=software" secondary="Education solutions" secondaryHref="/industries/education/"}}

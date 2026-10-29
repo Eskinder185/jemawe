@@ -1,0 +1,99 @@
+---
+{
+  "title": "Computer repair",
+  "description": "Laptop and desktop repair from Jemawe: diagnostics first, component replacement, hardware compatibility checks, and a written quote you approve before any repair begins.",
+  "section": "services",
+  "heading": "Laptop and desktop repair that starts with an honest diagnosis",
+  "lead": "We find out what is actually wrong before recommending anything, then quote parts and labor separately so you can decide whether a repair is worth it.",
+  "actions": [["Book a repair", "/book-repair/", "light"], ["Hardware upgrades", "/services/hardware-upgrades/", "secondary"]],
+  "illustration": "repair"
+}
+---
+<section class="section" aria-labelledby="repairs-title">
+  <div class="container">
+    <h2 id="repairs-title" class="section-title">What we repair</h2>
+    <div class="division" id="laptops">
+      <div class="division__intro">
+        <span class="division__icon">{{icon:laptop}}</span>
+        <h3 class="division__name">Laptop repairs</h3>
+        <p class="division__text">The most common laptop problems are batteries, storage, charging, and overheating.</p>
+      </div>
+      <ul class="check-list division__list">
+        <li>{{icon:check}}<span>Battery that drains fast, swells, or no longer charges</span></li>
+        <li>{{icon:check}}<span>Slow or failing hard drives replaced with SSDs</span></li>
+        <li>{{icon:check}}<span>Charging port and power adapter problems</span></li>
+        <li>{{icon:check}}<span>Overheating, fan noise, and internal dust build-up</span></li>
+        <li>{{icon:check}}<span>Keyboard and trackpad issues, where parts are available</span></li>
+      </ul>
+    </div>
+    <div class="division" id="desktops">
+      <div class="division__intro">
+        <span class="division__icon">{{icon:monitor}}</span>
+        <h3 class="division__name">Desktop repairs</h3>
+        <p class="division__text">Desktops are easier to open and upgrade, which often makes repair the cheaper option.</p>
+      </div>
+      <ul class="check-list division__list">
+        <li>{{icon:check}}<span>Computers that will not power on or randomly shut down</span></li>
+        <li>{{icon:check}}<span>Power supply replacement</span></li>
+        <li>{{icon:check}}<span>Storage, memory, and component replacement</span></li>
+        <li>{{icon:check}}<span>Cleaning, cable management, and cooling checks</span></li>
+      </ul>
+    </div>
+    <div class="division" id="diagnostics">
+      <div class="division__intro">
+        <span class="division__icon">{{icon:stethoscope}}</span>
+        <h3 class="division__name">Diagnostics</h3>
+        <p class="division__text">Every repair starts by confirming the cause, so you do not pay for parts that were not the problem.</p>
+      </div>
+      <ul class="check-list division__list">
+        <li>{{icon:check}}<span>Hardware tests for storage, memory, battery health, and temperatures</span></li>
+        <li>{{icon:check}}<span>Software checks to rule out a problem a repair would not fix</span></li>
+        <li>{{icon:check}}<span>A plain-language summary of what we found and your options</span></li>
+      </ul>
+    </div>
+    <div class="division" id="compatibility">
+      <div class="division__intro">
+        <span class="division__icon">{{icon:cpu}}</span>
+        <h3 class="division__name">Components and compatibility</h3>
+        <p class="division__text">Not every part fits every machine. We check compatibility before ordering anything.</p>
+      </div>
+      <ul class="check-list division__list">
+        <li>{{icon:check}}<span>Model-specific part matching for memory, storage, batteries, and power supplies</span></li>
+        <li>{{icon:check}}<span>Honest advice when parts are discontinued or cost more than the device is worth</span></li>
+        <li>{{icon:check}}<span>Operating system reinstallation after storage replacement, with your data plan agreed first</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="workflow-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <h2 id="workflow-title">The repair workflow</h2>
+      <p>You approve the quote before any repair work begins. If the repair is not worth it, you can stop after the diagnosis.</p>
+    </div>
+    <ol class="steps" style="--steps:5">
+      <li class="step"><h3>Request a repair</h3><p>Tell us the device, model, and what is happening.</p></li>
+      <li class="step"><h3>Diagnosis</h3><p>We confirm the cause and check part availability and compatibility.</p></li>
+      <li class="step"><h3>Quote approval</h3><p>A written quote listing parts and labor separately.</p></li>
+      <li class="step"><h3>Repair</h3><p>The approved work, nothing more without asking you first.</p></li>
+      <li class="step"><h3>Testing and return</h3><p>Tested again, then returned or ready for pickup.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="data-title">
+  <div class="container grid-12">
+    <div class="span-5"><h2 id="data-title">Before you hand over a device</h2></div>
+    <div class="span-6 start-7">
+      <ul class="check-list">
+        <li>{{icon:database}}<span><strong>Back up anything important</strong> if the computer still works. Repairs rarely affect data, but storage problems can.</span></li>
+        <li>{{icon:lock}}<span><strong>Do not write your password on the device or the form.</strong> If we need to sign in to test, we will arrange it with you directly.</span></li>
+        <li>{{icon:file}}<span><strong>Note the exact model</strong>, usually on a label underneath or in the system settings.</span></li>
+      </ul>
+      <div class="notice mt-4">{{icon:info}}<div><strong>Availability and pricing depend on the diagnosis</strong><p>Final pricing, part availability, and turnaround depend on what the diagnosis finds and on your device's compatibility. {{todo "Repair drop-off, pickup, or mail-in arrangements and location"}}</p></div></div>
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Computer acting up?" text="Book a repair and tell us what is happening. We will confirm the next step and how to get the device to us." primary="Book a repair" primaryHref="/book-repair/" secondary="Try remote support first" secondaryHref="/services/remote-it-support/"}}

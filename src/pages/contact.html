@@ -1,0 +1,60 @@
+---
+{
+  "title": "Contact",
+  "description": "Contact Jemawe with a general question, or go straight to a quote request, IT support request, or repair booking.",
+  "section": "contact",
+  "heading": "Contact Jemawe",
+  "lead": "Send a message and we will reply by email. If you already know what you need, the quick links below go straight to the right form.",
+  "illustration": "contact"
+}
+---
+<section class="section">
+  <div class="container form-shell">
+    <div>
+      <h2>Send a message</h2>
+      <form class="form mt-4" data-form="contact" data-endpoint="{{site.formEndpoint}}" novalidate>
+        {{> form-status}}
+        {{> fields-contact prefix="ct"}}
+        <div class="field">
+          <label for="ct-topic">Topic</label>
+          <select id="ct-topic" name="topic" required>
+            <option value="">Choose a topic</option>
+            <option value="general">General question</option>
+            <option value="web">Website or software project</option>
+            <option value="maintenance">Website maintenance or review</option>
+            <option value="it">IT support</option>
+            <option value="repair">An existing or planned repair</option>
+            <option value="partnership">Partnership or press</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ct-message">Message</label>
+          <textarea id="ct-message" name="message" required minlength="10"></textarea>
+        </div>
+        {{> consent prefix="ct"}}
+        <div><button class="btn btn--primary" type="submit">Send message</button></div>
+      </form>
+    </div>
+    <aside class="form-shell__aside">
+      {{> forms-not-connected}}
+      <div class="aside-box mt-4">
+        <p class="aside-box__title">Go straight to</p>
+        <ul class="check-list">
+          <li>{{icon:file}}<span><a href="/quote/">Request a quote</a></span></li>
+          <li>{{icon:calendar}}<span><a href="/consultation/">Schedule a consultation</a></span></li>
+          <li>{{icon:headset}}<span><a href="/support/new/">Request IT support</a></span></li>
+          <li>{{icon:wrench}}<span><a href="/book-repair/">Book a repair</a></span></li>
+        </ul>
+      </div>
+      <div class="aside-box">
+        <p class="aside-box__title">Other details</p>
+        <ul class="check-list">
+          <li>{{icon:mail}}<span>Business email: {{todo "Business email address"}}</span></li>
+          <li>{{icon:clock}}<span>Business hours: {{todo "Business hours"}}</span></li>
+          <li>{{icon:map-pin}}<span>Service area: {{todo "Service area for on-site and repair work"}}</span></li>
+        </ul>
+        <p class="muted">We do not publish a street address. Repair drop-off details are shared when a repair is confirmed.</p>
+      </div>
+    </aside>
+  </div>
+</section>

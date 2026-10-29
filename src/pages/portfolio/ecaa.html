@@ -1,0 +1,100 @@
+---
+{
+  "title": "ECAA community website case study",
+  "description": "How the Jemawe team built a mobile-first community website for the Ethiopian Community Association in Atlanta with React, Vite, Tailwind CSS, and a Decap CMS editor for volunteers.",
+  "section": "work",
+  "type": "project",
+  "breadcrumb": "ECAA",
+  "heading": "Ethiopian Community Association in Atlanta",
+  "lead": "A mobile-first community website for programs, membership, events, leadership, and documents, with a content editor so non-technical volunteers can update key pages.",
+  "category": "website",
+  "status": "Built, editor sign-in setup pending",
+  "image": "ecaa",
+  "imageAlt": "ECAA website home page with the headline Welcome Home, Ethiopians in Atlanta.",
+  "summary": "Mobile-first community website with programs, membership, events, and a volunteer-friendly content editor.",
+  "challenge": "Give a community association a modern website that volunteers can keep current without touching code.",
+  "stack": ["React 19", "Vite", "Tailwind CSS", "Decap CMS"],
+  "order": 1
+}
+---
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>Overview</h2>
+      <p>The Ethiopian Community Association in Atlanta (ECAA) needed a single, trustworthy home online for its programs, membership, events, leadership, and documents. The site is designed mobile-first, because most community members reach it from a phone.</p>
+      <h2>The opportunity</h2>
+      <p>Community information was spread across places that were hard to keep current. The association runs on volunteers, so any solution had to let non-technical people update the most time-sensitive content, such as events and the home page, without asking a developer.</p>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Present the association, its programs, and how to join on a fast, mobile-friendly site.</li>
+        <li>Make events, home page features, and leadership listings editable by volunteers.</li>
+        <li>Keep content in a simple structured format that is easy to back up and review.</li>
+      </ul>
+      <h2>The solution</h2>
+      <p>A React and Vite website styled with Tailwind CSS, with content stored as structured JSON files. A Decap CMS editor at <code>/admin</code> lets editors change three areas: the home page, events and news, and leadership. Other pages stay code-managed so the structure remains tidy. Membership registration links to the association's existing Jotform form rather than rebuilding it.</p>
+    </div>
+    <aside class="span-4">
+      <dl class="facts">
+        <div><dt>Organization</dt><dd>Ethiopian Community Association in Atlanta</dd></div>
+        <div><dt>Type of work</dt><dd>Community website with content editor</dd></div>
+        <div><dt>Status</dt><dd>Built. Production sign-in for the content editor still needs to be configured.</dd></div>
+        <div><dt>Stack</dt><dd>React 19, Vite, Tailwind CSS 4, React Router, Decap CMS, JSON content</dd></div>
+        <div><dt>Engagement</dt><dd>{{todo "Confirm the project relationship with ECAA and permission to publish"}}</dd></div>
+        <div><dt>Live site</dt><dd>{{todo "Public ECAA website address"}}</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="ecaa-gallery">
+  <div class="container">
+    <h2 id="ecaa-gallery" class="section-title">Screens</h2>
+    <div class="gallery">
+      <figure>
+        <div class="browser"><div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="/assets/img/portfolio/ecaa-desktop-1440.webp" srcset="/assets/img/portfolio/ecaa-desktop-720.webp 720w, /assets/img/portfolio/ecaa-desktop-1440.webp 1440w" sizes="(min-width: 768px) 70vw, 100vw" width="1440" height="900" alt="ECAA home page on desktop: a welcome headline over a photo of the community center, with Become a Member and See Upcoming Events buttons." loading="lazy" decoding="async">
+        </div>
+        <figcaption>Home page at 1440px. Screenshot captured from the project build.</figcaption>
+      </figure>
+      <figure>
+        <div class="phone-shot"><img src="/assets/img/portfolio/ecaa-mobile-390.webp" width="390" height="844" alt="ECAA home page on a phone with a compact header and the welcome headline." loading="lazy" decoding="async"></div>
+        <figcaption>Home page at 390px.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>Features delivered</h2>
+      <ul>
+        <li>Ten sections: Home, About, Programs and Services, Membership, Events and News, Leadership, Documents, Media, Support ECAA, and Contact.</li>
+        <li>An English and Amharic language switch in the header.</li>
+        <li>Curated home page sections editors can show or hide without deleting content.</li>
+        <li>Event lists by status: upcoming, announcements, community news, and past events.</li>
+        <li>Leadership listings grouped by committee, editable in the CMS.</li>
+        <li>Image uploads saved into the site's own uploads folder.</li>
+      </ul>
+      <h2>Design and development decisions</h2>
+      <ul>
+        <li><strong>Start the editor small.</strong> Only three content areas are editable at first, which keeps training simple and the rest of the site consistent.</li>
+        <li><strong>Hide, do not delete.</strong> "Show this item?" switches let editors retire content safely.</li>
+        <li><strong>Verify before publishing.</strong> Editors are guided not to invent names or roles and to mark unconfirmed details.</li>
+      </ul>
+      <h2>Outcomes</h2>
+      <p>No measured outcomes have been published for this project yet. {{todo "Verified ECAA outcomes, if any, approved for publication"}}</p>
+      <h2>Lessons learned</h2>
+      <p>{{todo "Lessons learned from the ECAA project, written by the team"}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="related">
+  <div class="container">
+    <h2 id="related" class="section-title">More projects</h2>
+    <div class="grid grid--2">{{@list type="project" exclude="self" template="project-card"}}</div>
+  </div>
+</section>
+
+{{> cta-band heading="Need a website your volunteers can update?" text="Tell us about your organization and who will keep the content current." primary="Talk about your project" primaryHref="/consultation/" secondary="Nonprofit websites" secondaryHref="/industries/nonprofits/"}}

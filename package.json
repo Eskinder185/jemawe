@@ -1,0 +1,25 @@
+{
+  "name": "jemawe-website",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Jemawe public website: static HTML/CSS/TypeScript built with a zero-dependency generator.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs && tsc && node scripts/build-3d.mjs",
+    "build:html": "node scripts/build.mjs",
+    "build:ts": "tsc",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.hero.json",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/serve.mjs --watch",
+    "build:3d": "node scripts/build-3d.mjs"
+  },
+  "devDependencies": {
+    "@types/three": "^0.186.0",
+    "esbuild": "^0.28.2",
+    "three": "^0.186.1",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

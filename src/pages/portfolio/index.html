@@ -1,0 +1,35 @@
+---
+{
+  "title": "Our work",
+  "description": "Projects designed and built by the Jemawe team, including the ECAA community website, Roadmap to Role, and Tewahedo Daily, with real screenshots and the technology behind each.",
+  "section": "work",
+  "breadcrumb": "Our work",
+  "heading": "Work from the Jemawe team",
+  "lead": "Every project below is shown with screenshots captured from its real build. Select a project for the full case study: the problem, the approach, and the stack.",
+  "actions": [["Read the case studies", "/case-studies/", "light"], ["Technologies we use", "/technologies/", "secondary"]]
+}
+---
+<section class="section">
+  <div class="container">
+    <div class="filters" data-filter-group="project-list" data-filter-noun="projects" role="group" aria-label="Filter projects by type">
+      <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All projects</button>
+      <button type="button" class="filter-btn" data-filter="website" aria-pressed="false">Websites</button>
+      <button type="button" class="filter-btn" data-filter="web-app" aria-pressed="false">Web applications</button>
+    </div>
+    <p class="filter-status" data-filter-status="project-list" aria-live="polite"></p>
+    <div class="grid grid--2" id="project-list">
+      {{@list type="project" template="project-card"}}
+      <article class="card project-card" data-filter-item data-category="pending">
+        <div class="project-card__media project-card__media--pending">{{icon:file}}<span class="sr-only">Screenshot not yet available</span></div>
+        <div class="project-card__body">
+          <span class="post-card__cat">Details pending</span>
+          <h3>Study EOTC</h3>
+          <p>{{todo "Study EOTC: description, project type, screenshots, technologies, status, and link"}}</p>
+          <p class="post-card__meta">This project is listed by name only until its details are verified.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Want your project to be next?" text="Tell us what you want to build. We will reply with questions, then a written scope and quote." primary="Get a quote" primaryHref="/quote/" secondary="Schedule a consultation" secondaryHref="/consultation/"}}

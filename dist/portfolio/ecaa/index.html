@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECAA community website case study | Jemawe</title>
+  <meta name="description" content="How the Jemawe team built a mobile-first community website for the Ethiopian Community Association in Atlanta with React, Vite, Tailwind CSS, and a Decap CMS editor for volunteers.">
+  
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jemawe">
+  <meta property="og:title" content="ECAA community website case study">
+  <meta property="og:description" content="How the Jemawe team built a mobile-first community website for the Ethiopian Community Association in Atlanta with React, Vite, Tailwind CSS, and a Decap CMS editor for volunteers.">
+  
+  
+  <meta name="theme-color" content="#071226">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="module" src="/js/main.js"></script>
+  
+</head>
+<body class="page-default type-project">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  
+  
+  <div class="utility-bar">
+    <div class="container utility-bar__inner">
+      <p class="utility-bar__tagline">Technology that works for you.</p>
+      <ul class="utility-bar__links">
+        <li><a href="/support/">Support center</a></li><li><a href="/client-portal/">Client portal <span class="badge">Coming soon</span></a></li><li><a href="/consultation/">Schedule a consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <header class="site-header" data-site-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="Jemawe home">
+        <svg class="brand__mark" width="32" height="32" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+    <rect width="40" height="40" rx="9" fill="#2563EB"/>
+    <path d="M24.5 9.5v14.2a6.8 6.8 0 0 1-12.6 3.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="24.5" cy="9.5" r="2.6" fill="#071226" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="11.9" cy="27.3" r="2.6" fill="#071226" stroke="#fff" stroke-width="1.6"/>
+  </svg><span class="brand__name">Jemawe</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <ul class="main-nav__list"><li class="main-nav__item"><a class="main-nav__link" href="/">Home</a></li>
+        <li class="main-nav__item has-panel" data-nav-item>
+          <button type="button" class="main-nav__link main-nav__trigger" aria-expanded="false" aria-controls="panel-services" data-nav-trigger>
+            Services<svg class="icon main-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="mega" id="panel-services" data-nav-panel hidden>
+            <div class="container mega__inner mega__inner--3">
+              <div class="mega__intro">
+                <p class="mega__title">Services</p>
+                <p class="mega__text">Three divisions that build, run, and repair the technology your work depends on.</p>
+                <a class="text-link" href="/services/">All services</a>
+              </div>
+              
+            <div class="mega__col">
+              <p class="mega__heading">Digital solutions</p>
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/services/web-development/">
+      <span class="mega__link-title">Website development</span>
+      <span class="mega__link-desc">Business sites, redesigns, landing pages</span>
+    </a></li><li><a class="mega__link" href="/services/software-development/">
+      <span class="mega__link-title">Custom software</span>
+      <span class="mega__link-desc">Web apps, dashboards, portals</span>
+    </a></li><li><a class="mega__link" href="/services/restaurant-solutions/">
+      <span class="mega__link-title">Restaurant websites</span>
+      <span class="mega__link-desc">Sites and QR digital menus</span>
+    </a></li><li><a class="mega__link" href="/services/website-maintenance/">
+      <span class="mega__link-title">Website maintenance</span>
+      <span class="mega__link-desc">Updates, backups, fixes</span>
+    </a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <p class="mega__heading">IT services</p>
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/services/remote-it-support/">
+      <span class="mega__link-title">Remote IT support</span>
+      <span class="mega__link-desc">Scheduled, authorized sessions</span>
+    </a></li><li><a class="mega__link" href="/services/operating-system-support/">
+      <span class="mega__link-title">Windows and Mac support</span>
+      <span class="mega__link-desc">Errors, settings, performance</span>
+    </a></li><li><a class="mega__link" href="/services/business-it-support/#workstation-setup">
+      <span class="mega__link-title">Device setup</span>
+      <span class="mega__link-desc">New computers, ready to work</span>
+    </a></li><li><a class="mega__link" href="/services/business-it-support/">
+      <span class="mega__link-title">Business IT support</span>
+      <span class="mega__link-desc">Support for small teams</span>
+    </a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <p class="mega__heading">Computer services</p>
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/services/computer-repair/">
+      <span class="mega__link-title">Computer repair</span>
+      <span class="mega__link-desc">Laptops and desktops</span>
+    </a></li><li><a class="mega__link" href="/services/computer-repair/#laptops">
+      <span class="mega__link-title">Laptop repair</span>
+      <span class="mega__link-desc">Batteries, storage, charging</span>
+    </a></li><li><a class="mega__link" href="/services/hardware-upgrades/">
+      <span class="mega__link-title">Hardware upgrades</span>
+      <span class="mega__link-desc">RAM, SSD, power supplies</span>
+    </a></li><li><a class="mega__link" href="/services/computer-repair/#diagnostics">
+      <span class="mega__link-title">Diagnostics</span>
+      <span class="mega__link-desc">Find the cause first</span>
+    </a></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </li>
+        <li class="main-nav__item has-panel" data-nav-item>
+          <button type="button" class="main-nav__link main-nav__trigger" aria-expanded="false" aria-controls="panel-industries" data-nav-trigger>
+            Industries<svg class="icon main-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="mega" id="panel-industries" data-nav-panel hidden>
+            <div class="container mega__inner mega__inner--2">
+              <div class="mega__intro">
+                <p class="mega__title">Industries</p>
+                <p class="mega__text">How our services apply to the kind of organization you run.</p>
+                <a class="text-link" href="/industries/">All industries</a>
+              </div>
+              
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/industries/restaurants/">
+      <span class="mega__link-title">Restaurants and hospitality</span>
+      
+    </a></li><li><a class="mega__link" href="/industries/small-businesses/">
+      <span class="mega__link-title">Small businesses</span>
+      
+    </a></li><li><a class="mega__link" href="/industries/education/">
+      <span class="mega__link-title">Education</span>
+      
+    </a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/industries/nonprofits/">
+      <span class="mega__link-title">Nonprofits</span>
+      
+    </a></li><li><a class="mega__link" href="/industries/startups/">
+      <span class="mega__link-title">Startups</span>
+      
+    </a></li><li><a class="mega__link" href="/industries/professional-services/">
+      <span class="mega__link-title">Professional services</span>
+      
+    </a></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </li><li class="main-nav__item"><a class="main-nav__link" href="/solutions/">Solutions</a></li>
+        <li class="main-nav__item has-panel" data-nav-item>
+          <button type="button" class="main-nav__link main-nav__trigger is-section" aria-expanded="false" aria-controls="panel-work" data-nav-trigger>
+            Our work<svg class="icon main-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="mega" id="panel-work" data-nav-panel hidden>
+            <div class="container mega__inner mega__inner--1">
+              <div class="mega__intro">
+                <p class="mega__title">Our work</p>
+                <p class="mega__text">Projects the Jemawe team has designed and built, with the stacks behind them.</p>
+                <a class="text-link" href="/portfolio/">View the portfolio</a>
+              </div>
+              
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/portfolio/">
+      <span class="mega__link-title">Portfolio</span>
+      <span class="mega__link-desc">Selected projects</span>
+    </a></li><li><a class="mega__link" href="/case-studies/">
+      <span class="mega__link-title">Case studies</span>
+      <span class="mega__link-desc">How each project was built</span>
+    </a></li><li><a class="mega__link" href="/technologies/">
+      <span class="mega__link-title">Technologies</span>
+      <span class="mega__link-desc">Tools we work with</span>
+    </a></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </li>
+        <li class="main-nav__item has-panel" data-nav-item>
+          <button type="button" class="main-nav__link main-nav__trigger" aria-expanded="false" aria-controls="panel-resources" data-nav-trigger>
+            Resources<svg class="icon main-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="mega" id="panel-resources" data-nav-panel hidden>
+            <div class="container mega__inner mega__inner--2">
+              <div class="mega__intro">
+                <p class="mega__title">Resources</p>
+                <p class="mega__text">Practical reading for planning projects and keeping computers healthy.</p>
+                
+              </div>
+              
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/insights/">
+      <span class="mega__link-title">Insights</span>
+      <span class="mega__link-desc">Articles and updates</span>
+    </a></li><li><a class="mega__link" href="/guides/">
+      <span class="mega__link-title">Guides</span>
+      <span class="mega__link-desc">Step-by-step planning guides</span>
+    </a></li><li><a class="mega__link" href="/help-center/">
+      <span class="mega__link-title">Help center</span>
+      <span class="mega__link-desc">Fix common problems</span>
+    </a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/faq/">
+      <span class="mega__link-title">FAQs</span>
+      <span class="mega__link-desc">Answers before you ask</span>
+    </a></li><li><a class="mega__link" href="/resources/">
+      <span class="mega__link-title">Checklists</span>
+      <span class="mega__link-desc">Free, printable, no sign-up</span>
+    </a></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </li>
+        <li class="main-nav__item has-panel" data-nav-item>
+          <button type="button" class="main-nav__link main-nav__trigger" aria-expanded="false" aria-controls="panel-company" data-nav-trigger>
+            Company<svg class="icon main-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="mega" id="panel-company" data-nav-panel hidden>
+            <div class="container mega__inner mega__inner--2">
+              <div class="mega__intro">
+                <p class="mega__title">Company</p>
+                <p class="mega__text">Who we are, how we started, and where Jemawe is going.</p>
+                <a class="text-link" href="/about/">About Jemawe</a>
+              </div>
+              
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/about/">
+      <span class="mega__link-title">About Jemawe</span>
+      
+    </a></li><li><a class="mega__link" href="/our-story/">
+      <span class="mega__link-title">Our story</span>
+      
+    </a></li><li><a class="mega__link" href="/leadership/">
+      <span class="mega__link-title">Leadership</span>
+      
+    </a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/team/">
+      <span class="mega__link-title">Our team</span>
+      
+    </a></li><li><a class="mega__link" href="/careers/">
+      <span class="mega__link-title">Careers</span>
+      
+    </a></li><li><a class="mega__link" href="/contact/">
+      <span class="mega__link-title">Contact</span>
+      
+    </a></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </li>
+        <li class="main-nav__item has-panel" data-nav-item>
+          <button type="button" class="main-nav__link main-nav__trigger" aria-expanded="false" aria-controls="panel-support" data-nav-trigger>
+            Support<svg class="icon main-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="mega" id="panel-support" data-nav-panel hidden>
+            <div class="container mega__inner mega__inner--2">
+              <div class="mega__intro">
+                <p class="mega__title">Support</p>
+                <p class="mega__text">Get help with a computer, an error, or something we built for you.</p>
+                <a class="text-link" href="/support/">Support center</a>
+              </div>
+              
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/support/new/">
+      <span class="mega__link-title">Request IT support</span>
+      
+    </a></li><li><a class="mega__link" href="/book-repair/">
+      <span class="mega__link-title">Computer repair request</span>
+      
+    </a></li><li><a class="mega__link" href="/support/#ticket-status">
+      <span class="mega__link-title">Check ticket status <span class="badge">Coming soon</span></span>
+      
+    </a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              
+              <ul class="mega__list">
+                <li><a class="mega__link" href="/help-center/">
+      <span class="mega__link-title">Help center</span>
+      
+    </a></li><li><a class="mega__link" href="/support-plans/">
+      <span class="mega__link-title">Support plans</span>
+      
+    </a></li><li><a class="mega__link" href="/repair-status/">
+      <span class="mega__link-title">Repair status <span class="badge">Coming soon</span></span>
+      
+    </a></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </li><li class="main-nav__item"><a class="main-nav__link" href="/contact/">Contact</a></li></ul>
+      </nav>
+      <a class="btn btn--primary site-header__cta" href="/quote/">Get a quote</a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
+        <span class="nav-toggle__box" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+    </div>
+  </header>
+  
+    <div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
+      <nav class="mobile-nav__inner container" aria-label="Main">
+        <ul class="mobile-nav__list"><li><a class="mobile-nav__link" href="/">Home</a></li><li>
+        <details class="mobile-nav__group">
+          <summary class="mobile-nav__link">Services<svg class="icon mobile-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul class="mobile-nav__sub">
+            <li><a href="/services/">All services</a></li>
+            <li class="mobile-nav__heading">Digital solutions</li><li><a href="/services/web-development/">Website development</a></li><li><a href="/services/software-development/">Custom software</a></li><li><a href="/services/restaurant-solutions/">Restaurant websites</a></li><li><a href="/services/website-maintenance/">Website maintenance</a></li><li class="mobile-nav__heading">IT services</li><li><a href="/services/remote-it-support/">Remote IT support</a></li><li><a href="/services/operating-system-support/">Windows and Mac support</a></li><li><a href="/services/business-it-support/#workstation-setup">Device setup</a></li><li><a href="/services/business-it-support/">Business IT support</a></li><li class="mobile-nav__heading">Computer services</li><li><a href="/services/computer-repair/">Computer repair</a></li><li><a href="/services/computer-repair/#laptops">Laptop repair</a></li><li><a href="/services/hardware-upgrades/">Hardware upgrades</a></li><li><a href="/services/computer-repair/#diagnostics">Diagnostics</a></li>
+          </ul>
+        </details>
+      </li><li>
+        <details class="mobile-nav__group">
+          <summary class="mobile-nav__link">Industries<svg class="icon mobile-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul class="mobile-nav__sub">
+            <li><a href="/industries/">All industries</a></li>
+            <li><a href="/industries/restaurants/">Restaurants and hospitality</a></li><li><a href="/industries/small-businesses/">Small businesses</a></li><li><a href="/industries/education/">Education</a></li><li><a href="/industries/nonprofits/">Nonprofits</a></li><li><a href="/industries/startups/">Startups</a></li><li><a href="/industries/professional-services/">Professional services</a></li>
+          </ul>
+        </details>
+      </li><li><a class="mobile-nav__link" href="/solutions/">Solutions</a></li><li>
+        <details class="mobile-nav__group" open>
+          <summary class="mobile-nav__link">Our work<svg class="icon mobile-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul class="mobile-nav__sub">
+            <li><a href="/portfolio/">View the portfolio</a></li>
+            <li><a href="/portfolio/">Portfolio</a></li><li><a href="/case-studies/">Case studies</a></li><li><a href="/technologies/">Technologies</a></li>
+          </ul>
+        </details>
+      </li><li>
+        <details class="mobile-nav__group">
+          <summary class="mobile-nav__link">Resources<svg class="icon mobile-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul class="mobile-nav__sub">
+            
+            <li><a href="/insights/">Insights</a></li><li><a href="/guides/">Guides</a></li><li><a href="/help-center/">Help center</a></li><li><a href="/faq/">FAQs</a></li><li><a href="/resources/">Checklists</a></li>
+          </ul>
+        </details>
+      </li><li>
+        <details class="mobile-nav__group">
+          <summary class="mobile-nav__link">Company<svg class="icon mobile-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul class="mobile-nav__sub">
+            <li><a href="/about/">About Jemawe</a></li>
+            <li><a href="/about/">About Jemawe</a></li><li><a href="/our-story/">Our story</a></li><li><a href="/leadership/">Leadership</a></li><li><a href="/team/">Our team</a></li><li><a href="/careers/">Careers</a></li><li><a href="/contact/">Contact</a></li>
+          </ul>
+        </details>
+      </li><li>
+        <details class="mobile-nav__group">
+          <summary class="mobile-nav__link">Support<svg class="icon mobile-nav__chevron" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul class="mobile-nav__sub">
+            <li><a href="/support/">Support center</a></li>
+            <li><a href="/support/new/">Request IT support</a></li><li><a href="/book-repair/">Computer repair request</a></li><li><a href="/support/#ticket-status">Check ticket status <span class="badge">Coming soon</span></a></li><li><a href="/help-center/">Help center</a></li><li><a href="/support-plans/">Support plans</a></li><li><a href="/repair-status/">Repair status <span class="badge">Coming soon</span></a></li>
+          </ul>
+        </details>
+      </li><li><a class="mobile-nav__link" href="/contact/">Contact</a></li></ul>
+        <div class="mobile-nav__actions">
+          <a class="btn btn--primary btn--block" href="/quote/">Get a quote</a>
+          <a class="btn btn--ghost btn--block" href="/consultation/">Schedule a consultation</a>
+        </div>
+        <ul class="mobile-nav__utility">
+          <li><a href="/support/">Support center</a></li><li><a href="/client-portal/">Client portal <span class="badge">Coming soon</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  <main id="main" tabindex="-1">
+    
+  <section class="banner">
+    <div class="container banner__inner">
+      <div class="banner__copy">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/portfolio/">Our work</a></li><li><span aria-current="page">ECAA</span></li></ol></nav>
+        <p class="banner__meta"><span>Website</span><span aria-hidden="true">/</span><span>Built, editor sign-in setup pending</span></p>
+        <h1 class="banner__title">Ethiopian Community Association in Atlanta</h1>
+        <p class="banner__lead">A mobile-first community website for programs, membership, events, leadership, and documents, with a content editor so non-technical volunteers can update key pages.</p>
+        
+      </div>
+      
+    </div>
+  </section>
+    
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>Overview</h2>
+      <p>The Ethiopian Community Association in Atlanta (ECAA) needed a single, trustworthy home online for its programs, membership, events, leadership, and documents. The site is designed mobile-first, because most community members reach it from a phone.</p>
+      <h2>The opportunity</h2>
+      <p>Community information was spread across places that were hard to keep current. The association runs on volunteers, so any solution had to let non-technical people update the most time-sensitive content, such as events and the home page, without asking a developer.</p>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Present the association, its programs, and how to join on a fast, mobile-friendly site.</li>
+        <li>Make events, home page features, and leadership listings editable by volunteers.</li>
+        <li>Keep content in a simple structured format that is easy to back up and review.</li>
+      </ul>
+      <h2>The solution</h2>
+      <p>A React and Vite website styled with Tailwind CSS, with content stored as structured JSON files. A Decap CMS editor at <code>/admin</code> lets editors change three areas: the home page, events and news, and leadership. Other pages stay code-managed so the structure remains tidy. Membership registration links to the association's existing Jotform form rather than rebuilding it.</p>
+    </div>
+    <aside class="span-4">
+      <dl class="facts">
+        <div><dt>Organization</dt><dd>Ethiopian Community Association in Atlanta</dd></div>
+        <div><dt>Type of work</dt><dd>Community website with content editor</dd></div>
+        <div><dt>Status</dt><dd>Built. Production sign-in for the content editor still needs to be configured.</dd></div>
+        <div><dt>Stack</dt><dd>React 19, Vite, Tailwind CSS 4, React Router, Decap CMS, JSON content</dd></div>
+        <div><dt>Engagement</dt><dd><span class="placeholder" data-placeholder>Confirm the project relationship with ECAA and permission to publish<span class="sr-only"> (placeholder, not yet confirmed)</span></span></dd></div>
+        <div><dt>Live site</dt><dd><span class="placeholder" data-placeholder>Public ECAA website address<span class="sr-only"> (placeholder, not yet confirmed)</span></span></dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="ecaa-gallery">
+  <div class="container">
+    <h2 id="ecaa-gallery" class="section-title">Screens</h2>
+    <div class="gallery">
+      <figure>
+        <div class="browser"><div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="/assets/img/portfolio/ecaa-desktop-1440.webp" srcset="/assets/img/portfolio/ecaa-desktop-720.webp 720w, /assets/img/portfolio/ecaa-desktop-1440.webp 1440w" sizes="(min-width: 768px) 70vw, 100vw" width="1440" height="900" alt="ECAA home page on desktop: a welcome headline over a photo of the community center, with Become a Member and See Upcoming Events buttons." loading="lazy" decoding="async">
+        </div>
+        <figcaption>Home page at 1440px. Screenshot captured from the project build.</figcaption>
+      </figure>
+      <figure>
+        <div class="phone-shot"><img src="/assets/img/portfolio/ecaa-mobile-390.webp" width="390" height="844" alt="ECAA home page on a phone with a compact header and the welcome headline." loading="lazy" decoding="async"></div>
+        <figcaption>Home page at 390px.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>Features delivered</h2>
+      <ul>
+        <li>Ten sections: Home, About, Programs and Services, Membership, Events and News, Leadership, Documents, Media, Support ECAA, and Contact.</li>
+        <li>An English and Amharic language switch in the header.</li>
+        <li>Curated home page sections editors can show or hide without deleting content.</li>
+        <li>Event lists by status: upcoming, announcements, community news, and past events.</li>
+        <li>Leadership listings grouped by committee, editable in the CMS.</li>
+        <li>Image uploads saved into the site's own uploads folder.</li>
+      </ul>
+      <h2>Design and development decisions</h2>
+      <ul>
+        <li><strong>Start the editor small.</strong> Only three content areas are editable at first, which keeps training simple and the rest of the site consistent.</li>
+        <li><strong>Hide, do not delete.</strong> "Show this item?" switches let editors retire content safely.</li>
+        <li><strong>Verify before publishing.</strong> Editors are guided not to invent names or roles and to mark unconfirmed details.</li>
+      </ul>
+      <h2>Outcomes</h2>
+      <p>No measured outcomes have been published for this project yet. <span class="placeholder" data-placeholder>Verified ECAA outcomes, if any, approved for publication<span class="sr-only"> (placeholder, not yet confirmed)</span></span></p>
+      <h2>Lessons learned</h2>
+      <p><span class="placeholder" data-placeholder>Lessons learned from the ECAA project, written by the team<span class="sr-only"> (placeholder, not yet confirmed)</span></span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="related">
+  <div class="container">
+    <h2 id="related" class="section-title">More projects</h2>
+    <div class="grid grid--2"><article class="card card--link project-card" data-filter-item data-category="web-app">
+  <div class="project-card__media">
+    <img src="/assets/img/portfolio/roadmap-to-role-desktop-720.webp" srcset="/assets/img/portfolio/roadmap-to-role-desktop-720.webp 720w, /assets/img/portfolio/roadmap-to-role-desktop-1440.webp 1440w" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" width="720" height="450" alt="Roadmap to Role home page with the headline Pick a direction. Build real proof. Get hired." loading="lazy" decoding="async">
+  </div>
+  <div class="project-card__body">
+    <span class="post-card__cat">Web application</span>
+    <h3><a class="card__link" href="/portfolio/roadmap-to-role/">Roadmap to Role</a></h3>
+    <p>Career-development workspace with self-assessments, résumé preparation, interview practice, and application tracking.</p>
+    <p class="post-card__meta">React, TypeScript, Tailwind CSS, Spring Boot, PostgreSQL</p>
+  </div>
+</article>
+
+<article class="card card--link project-card" data-filter-item data-category="web-app">
+  <div class="project-card__media">
+    <img src="/assets/img/portfolio/tewahedo-daily-desktop-720.webp" srcset="/assets/img/portfolio/tewahedo-daily-desktop-720.webp 720w, /assets/img/portfolio/tewahedo-daily-desktop-1440.webp 1440w" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" width="720" height="450" alt="Tewahedo Daily home page with Bible, Hymns, Prayer, and Calendar shortcuts around today's date." loading="lazy" decoding="async">
+  </div>
+  <div class="project-card__body">
+    <span class="post-card__cat">Web application</span>
+    <h3><a class="card__link" href="/portfolio/tewahedo-daily/">Tewahedo Daily</a></h3>
+    <p>Prayer, chant practice, and Church calendar app with multilingual search and a role-based editorial CMS.</p>
+    <p class="post-card__meta">React, TypeScript, Supabase, Cloudflare Pages, FastAPI</p>
+  </div>
+</article>
+</div>
+  </div>
+</section>
+
+<section class="cta-band on-dark">
+  <div class="container cta-band__inner">
+    <div>
+      <h2>Need a website your volunteers can update?</h2>
+      <p>Tell us about your organization and who will keep the content current.</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn--light" href="/consultation/">Talk about your project</a>
+      <a class="btn btn--ghost" href="/industries/nonprofits/">Nonprofit websites</a>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--light" href="/"><svg class="brand__mark" width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+    <rect width="40" height="40" rx="9" fill="#2563EB"/>
+    <path d="M24.5 9.5v14.2a6.8 6.8 0 0 1-12.6 3.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="24.5" cy="9.5" r="2.6" fill="#071226" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="11.9" cy="27.3" r="2.6" fill="#071226" stroke="#fff" stroke-width="1.6"/>
+  </svg><span class="brand__name">Jemawe</span></a>
+        <p class="site-footer__tagline">Technology that works for you.</p>
+        <p class="site-footer__about">Jemawe builds websites and software, provides remote IT support, and repairs computers for small businesses, restaurants, schools, nonprofits, and individuals.</p>
+        <ul class="site-footer__contact">
+          
+          <li><a href="/contact/">Send us a message</a></li>
+          <li><a href="/support/new/">Request IT support</a></li>
+        </ul>
+        
+      </div>
+      
+      <nav class="site-footer__col" aria-label="Services">
+        <h2 class="site-footer__heading">Services</h2>
+        <ul><li><a href="/services/web-development/">Website development</a></li><li><a href="/services/software-development/">Custom software</a></li><li><a href="/services/restaurant-solutions/">Restaurant websites</a></li><li><a href="/services/remote-it-support/">Remote IT support</a></li><li><a href="/services/computer-repair/">Computer repair</a></li><li><a href="/pricing/">Pricing</a></li></ul>
+      </nav>
+      <nav class="site-footer__col" aria-label="Industries">
+        <h2 class="site-footer__heading">Industries</h2>
+        <ul><li><a href="/industries/restaurants/">Restaurants</a></li><li><a href="/industries/small-businesses/">Small businesses</a></li><li><a href="/industries/education/">Education</a></li><li><a href="/industries/nonprofits/">Nonprofits</a></li><li><a href="/industries/startups/">Startups</a></li><li><a href="/industries/professional-services/">Professional services</a></li></ul>
+      </nav>
+      <nav class="site-footer__col" aria-label="Company">
+        <h2 class="site-footer__heading">Company</h2>
+        <ul><li><a href="/about/">About</a></li><li><a href="/our-story/">Our story</a></li><li><a href="/leadership/">Leadership</a></li><li><a href="/portfolio/">Our work</a></li><li><a href="/careers/">Careers</a></li><li><a href="/contact/">Contact</a></li></ul>
+      </nav>
+      <nav class="site-footer__col" aria-label="Resources">
+        <h2 class="site-footer__heading">Resources</h2>
+        <ul><li><a href="/insights/">Insights</a></li><li><a href="/guides/">Guides</a></li><li><a href="/help-center/">Help center</a></li><li><a href="/resources/">Checklists</a></li><li><a href="/technologies/">Technologies</a></li><li><a href="/status/">System status</a></li></ul>
+      </nav>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>&copy; <span data-year>2026</span> Jemawe. All rights reserved.</p>
+      <ul>
+        <li><a href="/privacy/">Privacy policy</a></li>
+        <li><a href="/terms/">Terms of service</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+      </ul>
+    </div>
+  </footer>
+  <button type="button" class="back-to-top" data-back-to-top aria-label="Back to top" hidden><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+</body>
+</html>

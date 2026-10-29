@@ -1,0 +1,100 @@
+---
+{
+  "title": "Tewahedo Daily case study",
+  "description": "How the Jemawe team built Tewahedo Daily, a React and TypeScript companion for Ethiopian Orthodox prayer, chant practice, and the Church calendar, with Supabase, an editorial CMS, and multilingual search.",
+  "section": "work",
+  "type": "project",
+  "breadcrumb": "Tewahedo Daily",
+  "heading": "Tewahedo Daily: a daily companion for prayer, chant, and the Church calendar",
+  "lead": "A progressive web app for Ethiopian Orthodox prayer, Mezmur chant practice, and the Church calendar, backed by a role-based editorial system.",
+  "category": "web-app",
+  "status": "Published on Cloudflare Pages",
+  "image": "tewahedo-daily",
+  "imageAlt": "Tewahedo Daily home page with Bible, Hymns, Prayer, and Calendar shortcuts around today's date.",
+  "summary": "Prayer, chant practice, and Church calendar app with multilingual search and a role-based editorial CMS.",
+  "challenge": "Bring prayer, chant practice, and the Church calendar into one reliable daily app, with content managed by trusted editors.",
+  "stack": ["React", "TypeScript", "Supabase", "Cloudflare Pages", "FastAPI"],
+  "order": 3
+}
+---
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>Overview</h2>
+      <p>Tewahedo Daily is a React and TypeScript companion for Ethiopian Orthodox prayer, chant practice, and the Church calendar. Each day opens to that day's date in both the Ethiopian and Gregorian calendars, with shortcuts to Scripture, prayers, hymns, and the calendar.</p>
+      <h2>The opportunity</h2>
+      <p>Prayers, Mezmur (hymns), saints, feasts, and teachings are spread across books, recordings, and websites. The goal was one daily destination that works on a phone, supports more than one language, and lets trusted editors publish and review content.</p>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Make daily prayer, Scripture, hymns, and the calendar reachable in one or two taps.</li>
+        <li>Support practice, with chant pages, persistent audio, and favorites for signed-in users.</li>
+        <li>Give administrators a safe way to publish saints, feasts, prayers, and articles.</li>
+      </ul>
+      <h2>The solution</h2>
+      <p>A Vite-built progressive web app hosted on Cloudflare Pages, with Pages Functions for server-side tasks. Supabase provides authentication, Postgres storage, and row level security, so the public can only read published content while all writes go through trusted server or command-line environments. A separate FastAPI service powers search assistance, and the app still works from bundled JSON data during local development.</p>
+    </div>
+    <aside class="span-4">
+      <dl class="facts">
+        <div><dt>Audience</dt><dd>Ethiopian Orthodox faithful and learners</dd></div>
+        <div><dt>Type of work</dt><dd>Progressive web application and editorial CMS</dd></div>
+        <div><dt>Status</dt><dd>Published on Cloudflare Pages</dd></div>
+        <div><dt>Stack</dt><dd>React, TypeScript, Vite, Supabase (Auth, Postgres, RLS), Cloudflare Pages Functions, FastAPI</dd></div>
+        <div><dt>Languages</dt><dd>English and Amharic interface options</dd></div>
+        <div><dt>Live app</dt><dd><a href="https://tewahedodaily.pages.dev/" rel="noopener">tewahedodaily.pages.dev</a></dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="td-gallery">
+  <div class="container">
+    <h2 id="td-gallery" class="section-title">Screens</h2>
+    <div class="gallery">
+      <figure>
+        <div class="browser"><div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="/assets/img/portfolio/tewahedo-daily-desktop-1440.webp" srcset="/assets/img/portfolio/tewahedo-daily-desktop-720.webp 720w, /assets/img/portfolio/tewahedo-daily-desktop-1440.webp 1440w" sizes="(min-width: 768px) 70vw, 100vw" width="1440" height="900" alt="Tewahedo Daily home page on desktop over a photo of a rock-hewn church, with daily shortcuts around a calendar card." loading="lazy" decoding="async">
+        </div>
+        <figcaption>Home page at 1440px, captured offline from the project build, so the day's observances show their loading state.</figcaption>
+      </figure>
+      <figure>
+        <div class="phone-shot"><img src="/assets/img/portfolio/tewahedo-daily-mobile-390.webp" width="390" height="844" alt="Tewahedo Daily home page on a phone." loading="lazy" decoding="async"></div>
+        <figcaption>Home page at 390px.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>Features delivered</h2>
+      <ul>
+        <li>Daily home page with Ethiopian and Gregorian dates and previous, today, and next day navigation.</li>
+        <li>Libraries for saints, feasts, prayers, and teachings, with published detail pages.</li>
+        <li>Mezmur practice pages with pagination, multilingual search, discovery filters, and persistent audio.</li>
+        <li>Signed-in favorites and site-wide search across published content.</li>
+        <li>An admin CMS with role-aware access, media uploads, and dated home page selections.</li>
+        <li>Reviewed community submissions protected by a bot check.</li>
+      </ul>
+      <h2>Design and development decisions</h2>
+      <ul>
+        <li><strong>Least privilege by default.</strong> The browser only ever receives a publishable key; secret keys stay in trusted environments.</li>
+        <li><strong>Safe content migration.</strong> Importers run as dry-run reports first and leave source data untouched.</li>
+        <li><strong>Separate front end and backend deployments.</strong> Static hosting builds only the front end, so the backend and private content are never published by accident.</li>
+      </ul>
+      <h2>Outcomes</h2>
+      <p>No usage figures or measured outcomes have been published for this project. {{todo "Verified Tewahedo Daily outcomes, if any, approved for publication"}}</p>
+      <h2>Lessons learned</h2>
+      <p>{{todo "Lessons learned from Tewahedo Daily, written by the team"}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="related">
+  <div class="container">
+    <h2 id="related" class="section-title">More projects</h2>
+    <div class="grid grid--2">{{@list type="project" exclude="self" template="project-card"}}</div>
+  </div>
+</section>
+
+{{> cta-band heading="Planning an app with editors and members?" text="Content workflows, sign-in, and permissions are where careful planning pays off. Let us talk it through." primary="Schedule a consultation" primaryHref="/consultation/?type=software" secondary="Custom software" secondaryHref="/services/software-development/"}}

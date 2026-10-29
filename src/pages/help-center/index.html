@@ -1,0 +1,29 @@
+---
+{
+  "title": "Help center",
+  "description": "Free step-by-step help articles from Jemawe for common Windows, macOS, browser, Wi-Fi, computer maintenance, and hardware upgrade questions.",
+  "section": "support",
+  "breadcrumb": "Help center",
+  "heading": "Help center",
+  "lead": "Practical fixes you can try yourself. If an article does not solve it, request a support session and tell us what you already tried."
+}
+---
+<section class="section">
+  <div class="container">
+    <div class="filters" data-filter-group="help-list" data-filter-noun="articles" role="group" aria-label="Filter help articles by topic">
+      <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All topics</button>
+      <button type="button" class="filter-btn" data-filter="windows" aria-pressed="false">Windows</button>
+      <button type="button" class="filter-btn" data-filter="macos" aria-pressed="false">macOS</button>
+      <button type="button" class="filter-btn" data-filter="browsers" aria-pressed="false">Browsers</button>
+      <button type="button" class="filter-btn" data-filter="connectivity" aria-pressed="false">Internet and Wi-Fi</button>
+      <button type="button" class="filter-btn" data-filter="maintenance" aria-pressed="false">Maintenance</button>
+      <button type="button" class="filter-btn" data-filter="hardware" aria-pressed="false">Hardware</button>
+    </div>
+    <p class="filter-status" data-filter-status="help-list" aria-live="polite"></p>
+    <div class="grid grid--3" id="help-list">
+      {{@list type="help" template="help-card"}}
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Did not find your answer?" text="Submit a ticket and we will schedule a remote session." primary="Request IT support" primaryHref="/support/new/" secondary="Read the FAQ" secondaryHref="/faq/"}}

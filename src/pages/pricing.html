@@ -1,0 +1,45 @@
+---
+{
+  "title": "Pricing",
+  "description": "How Jemawe prices website development, website maintenance, remote IT support, computer repair, and business support. Prices vary by scope, so every job starts with a written quote.",
+  "section": "services",
+  "heading": "Pricing",
+  "lead": "Our prices depend on the work involved, so we do not publish a price list we would then have to explain away. Here is how each service is priced and what affects the cost.",
+  "actions": [["Request a quote", "/quote/", "light"], ["Schedule a consultation", "/consultation/", "secondary"]]
+}
+---
+<section class="section">
+  <div class="container">
+    <div class="notice notice--amber" style="margin-bottom: var(--s-5)">{{icon:info}}<div><strong>Published prices are not available yet</strong><p>Prices will be listed here once they are approved. Until then, every job gets a written quote before work begins. {{todo "Approved starting prices or rates for each service category"}}</p></div></div>
+    <div class="table-wrap">
+      <table class="compare">
+        <caption class="sr-only">How each service is priced</caption>
+        <thead><tr><th scope="col">Service</th><th scope="col">How it is priced</th><th scope="col">What affects the cost</th><th scope="col">Price</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="/services/web-development/">Website development</a></th><td>Fixed quote per project</td><td>Number of pages, custom features, content editing, integrations, timeline</td><td><a href="/quote/?service=web">Request a quote</a></td></tr>
+          <tr><th scope="row"><a href="/services/software-development/">Custom software</a></th><td>Quote per phase, starting with the first version</td><td>User roles, data, integrations, security requirements</td><td><a href="/quote/?service=software">Request a quote</a></td></tr>
+          <tr><th scope="row"><a href="/services/website-maintenance/">Website maintenance</a></th><td>Recurring arrangement with a defined scope</td><td>Site size, update frequency, included change work</td><td><a href="/quote/?service=maintenance">Request a quote</a></td></tr>
+          <tr><th scope="row"><a href="/services/remote-it-support/">Remote IT support</a></th><td>Per session, or as part of a support plan</td><td>Complexity of the problem, number of devices</td><td><a href="/support/new/">Request support</a></td></tr>
+          <tr><th scope="row"><a href="/services/computer-repair/">Computer repair</a></th><td>Diagnosis, then a quote for parts and labor</td><td>Device model, part cost and availability, labor time</td><td><a href="/book-repair/">Book a repair</a></td></tr>
+          <tr><th scope="row"><a href="/support-plans/">Business support</a></th><td>Recurring plan or custom arrangement</td><td>Team size, devices, response window, included services</td><td><a href="/consultation/?type=it">Discuss a plan</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="promise">
+  <div class="container grid-12">
+    <div class="span-5"><h2 id="promise">What you can count on</h2></div>
+    <div class="span-6 start-7">
+      <ul class="check-list">
+        <li>{{icon:check}}<span>A written quote before any paid work begins</span></li>
+        <li>{{icon:check}}<span>Parts and labor listed separately on repair and upgrade quotes</span></li>
+        <li>{{icon:check}}<span>Third-party costs, such as hosting, domains, and subscriptions, shown separately and paid to the provider</span></li>
+        <li>{{icon:check}}<span>Changes to scope quoted and approved before they are done</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Get a price for your project" text="Share what you need and we will reply with questions and a written quote." primary="Request a quote" primaryHref="/quote/" secondary="Schedule a consultation" secondaryHref="/consultation/"}}

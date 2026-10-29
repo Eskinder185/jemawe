@@ -1,0 +1,145 @@
+---
+{
+  "title": "Request a quote",
+  "description": "Request a quote from Jemawe for a website, custom software, restaurant digital menu, website maintenance, IT support, or computer repair.",
+  "section": "contact",
+  "breadcrumb": "Request a quote",
+  "heading": "Request a quote",
+  "lead": "Four short steps. The more you tell us, the more accurate our first reply will be, but only the marked fields are required."
+}
+---
+<section class="section">
+  <div class="container form-shell">
+    <form class="form" data-form="quote" data-endpoint="{{site.formEndpoint}}" novalidate>
+      {{> form-status}}
+
+      <fieldset class="form-step" data-step-title="Service">
+        <legend>What do you need?</legend>
+        <div class="field">
+          <span class="field__label" id="q-service-label">Service category</span>
+          <div class="choices choices--2" role="radiogroup" aria-labelledby="q-service-label">
+            <label class="choice"><input type="radio" name="service" value="web" required data-error="Choose the service you need."><span class="choice__box"><span class="choice__title">Website</span><span class="choice__desc">New site, redesign, or landing page</span></span></label>
+            <label class="choice"><input type="radio" name="service" value="software"><span class="choice__box"><span class="choice__title">Custom software</span><span class="choice__desc">Web app, dashboard, or portal</span></span></label>
+            <label class="choice"><input type="radio" name="service" value="restaurant"><span class="choice__box"><span class="choice__title">Restaurant website or menu</span><span class="choice__desc">Digital menu with QR access</span></span></label>
+            <label class="choice"><input type="radio" name="service" value="maintenance"><span class="choice__box"><span class="choice__title">Website maintenance</span><span class="choice__desc">Updates and changes to an existing site</span></span></label>
+            <label class="choice"><input type="radio" name="service" value="it"><span class="choice__box"><span class="choice__title">IT support</span><span class="choice__desc">One-time help or a support plan</span></span></label>
+            <label class="choice"><input type="radio" name="service" value="repair"><span class="choice__box"><span class="choice__title">Repair or upgrade</span><span class="choice__desc">Laptop or desktop hardware</span></span></label>
+          </div>
+        </div>
+        <div class="form-nav"><span class="form-nav__spacer"></span><button type="button" class="btn btn--primary" data-step-next>Continue to project details</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Details">
+        <legend>Tell us about the project</legend>
+
+        <div class="form-row form-row--2" data-show-when="service=web|restaurant|maintenance">
+          <div class="field">
+            <label for="q-site">Current website <span class="field__optional">(optional)</span></label>
+            <input id="q-site" name="currentWebsite" type="url" inputmode="url" placeholder="https://" data-error="Enter the full address, starting with https://">
+          </div>
+          <div class="field">
+            <label for="q-category">Business category <span class="field__optional">(optional)</span></label>
+            <input id="q-category" name="businessCategory" type="text" placeholder="For example: café, tutoring, accounting">
+          </div>
+        </div>
+
+        <div class="field" data-show-when="service=web|restaurant">
+          <span class="field__label" id="q-features-label">Features you need <span class="field__optional">(optional)</span></span>
+          <div class="choices choices--2" aria-labelledby="q-features-label" role="group">
+            <label class="choice"><input type="checkbox" name="features[]" value="contact-form"><span class="choice__box"><span class="choice__title">Contact or inquiry form</span></span></label>
+            <label class="choice"><input type="checkbox" name="features[]" value="editor"><span class="choice__box"><span class="choice__title">Edit content myself</span></span></label>
+            <label class="choice"><input type="checkbox" name="features[]" value="menu"><span class="choice__box"><span class="choice__title">Digital menu</span></span></label>
+            <label class="choice"><input type="checkbox" name="features[]" value="booking"><span class="choice__box"><span class="choice__title">Booking or ordering links</span></span></label>
+            <label class="choice"><input type="checkbox" name="features[]" value="events"><span class="choice__box"><span class="choice__title">Events or news</span></span></label>
+            <label class="choice"><input type="checkbox" name="features[]" value="languages"><span class="choice__box"><span class="choice__title">More than one language</span></span></label>
+          </div>
+        </div>
+
+        <div class="form-row form-row--2" data-show-when="service=it|repair">
+          <div class="field">
+            <label for="q-os">Operating system</label>
+            <select id="q-os" name="operatingSystem" required>
+              <option value="">Choose one</option>
+              <option>Windows</option>
+              <option>macOS</option>
+              <option>Both, or several computers</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="q-devices">Number of computers</label>
+            <select id="q-devices" name="deviceCount" required>
+              <option value="">Choose one</option>
+              <option>1</option>
+              <option>2 to 5</option>
+              <option>6 to 15</option>
+              <option>More than 15</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="q-desc">Describe what you need</label>
+          <p class="field__hint" id="q-desc-hint">Goals, problems, examples you like, or anything we should know. Please do not include passwords.</p>
+          <textarea id="q-desc" name="description" required minlength="20" aria-describedby="q-desc-hint"></textarea>
+        </div>
+
+        <div class="form-row form-row--2">
+          <div class="field">
+            <label for="q-timeline">Preferred timeline</label>
+            <select id="q-timeline" name="timeline" required>
+              <option value="">Choose one</option>
+              <option>As soon as possible</option>
+              <option>Within a month</option>
+              <option>1 to 3 months</option>
+              <option>More than 3 months</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+          <div class="field" data-show-when="service=web|software|restaurant|maintenance">
+            <label for="q-budget">Budget range <span class="field__optional">(optional)</span></label>
+            <select id="q-budget" name="budget">
+              <option value="">Prefer not to say</option>
+              <option>Under $1,000</option>
+              <option>$1,000 to $3,000</option>
+              <option>$3,000 to $7,500</option>
+              <option>$7,500 to $15,000</option>
+              <option>Over $15,000</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="button" class="btn btn--primary" data-step-next>Continue to contact details</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Contact">
+        <legend>How should we reach you?</legend>
+        {{> fields-contact prefix="q"}}
+        <div class="field">
+          <span class="field__label" id="q-pref-label">Preferred contact method</span>
+          <div class="choices choices--2" role="radiogroup" aria-labelledby="q-pref-label">
+            <label class="choice"><input type="radio" name="contactPreference" value="email" required checked><span class="choice__box"><span class="choice__title">Email</span></span></label>
+            <label class="choice"><input type="radio" name="contactPreference" value="phone"><span class="choice__box"><span class="choice__title">Phone</span></span></label>
+          </div>
+        </div>
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="button" class="btn btn--primary" data-step-next>Review your request</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Review" data-review>
+        <legend>Review and send</legend>
+        <p class="muted">Check your answers. Use Back to change anything.</p>
+        <dl class="review" data-review-list></dl>
+        {{> consent prefix="q"}}
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="submit" class="btn btn--primary">Send quote request</button></div>
+      </fieldset>
+    </form>
+    <aside class="form-shell__aside">
+      {{> forms-not-connected}}
+      <div class="aside-box mt-4">
+        <p class="aside-box__title">Prefer to talk first?</p>
+        <p>Book a consultation to discuss your needs before requesting a quote.</p>
+        <a class="btn btn--secondary btn--block" href="/consultation/">Schedule a consultation</a>
+      </div>
+      <div class="mt-4">{{> privacy-note}}</div>
+    </aside>
+  </div>
+</section>

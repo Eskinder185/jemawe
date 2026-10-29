@@ -1,0 +1,35 @@
+---
+{
+  "title": "Services",
+  "description": "Jemawe's services across three divisions: digital solutions (websites, custom software, restaurant menus, maintenance), IT services (remote support, Windows and Mac help, business IT), and computer services (repair and upgrades).",
+  "section": "services",
+  "heading": "Services for building, running, and repairing your technology",
+  "lead": "Pick the division that matches your need, or tell us the problem and we will point you to the right service.",
+  "actions": [["Get a quote", "/quote/", "light"], ["Not sure what you need?", "/solutions/", "secondary"]],
+  "illustration": "services"
+}
+---
+<section class="section">
+  <div class="container">
+    {{> divisions}}
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="pricing-note">
+  <div class="container grid-12">
+    <div class="span-5">
+      <h2 id="pricing-note">How pricing works</h2>
+      <p class="lead">Every project, support request, and repair is different, so we quote after we understand the work rather than publishing one-size-fits-all prices.</p>
+    </div>
+    <div class="span-6 start-7">
+      <ul class="check-list">
+        <li>{{icon:check}}<span><strong>Websites and software:</strong> a written quote after an initial consultation, based on scope, features, and timeline.</span></li>
+        <li>{{icon:check}}<span><strong>IT support:</strong> one-time sessions or a recurring arrangement for your team, agreed before the first session.</span></li>
+        <li>{{icon:check}}<span><strong>Repairs and upgrades:</strong> diagnosis first, then a quote that lists parts and labor separately for your approval.</span></li>
+      </ul>
+      <p class="mt-4"><a class="text-link" href="/pricing/">Read about pricing</a></p>
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Describe the problem, we will find the service" text="You do not need to know the right term for what you need. Tell us what is going on and we will suggest a sensible next step." primary="Get a quote" primaryHref="/quote/" secondary="Request IT support" secondaryHref="/support/new/"}}

@@ -1,0 +1,90 @@
+---
+{
+  "title": "Submit a support ticket",
+  "description": "Submit an IT support ticket to Jemawe. Describe the issue, your device and operating system, and urgency; we reply to schedule a remote session. We never ask for passwords.",
+  "section": "support",
+  "breadcrumb": "New support ticket",
+  "heading": "Submit a support ticket",
+  "lead": "Tell us what is going wrong. We reply to confirm the details and schedule a remote session at a time that suits you."
+}
+---
+<section class="section">
+  <div class="container form-shell">
+    <div>
+      <form class="form" data-form="support-ticket" data-endpoint="{{site.formEndpoint}}" novalidate>
+        {{> form-status}}
+        <fieldset>
+          <legend>Contact information</legend>
+          {{> fields-contact prefix="st"}}
+        </fieldset>
+        <fieldset>
+          <legend>The issue</legend>
+          <div class="form-row form-row--2">
+            <div class="field">
+              <label for="st-category">Issue category</label>
+              <select id="st-category" name="category" required>
+                <option value="">Choose a category</option>
+                <option>Software error or crash</option>
+                <option>Slow performance</option>
+                <option>Internet or Wi-Fi</option>
+                <option>Printer or other device</option>
+                <option>Email or accounts</option>
+                <option>Settings or configuration</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="st-device">Device type</label>
+              <select id="st-device" name="deviceType" required>
+                <option value="">Choose one</option>
+                <option>Laptop</option>
+                <option>Desktop</option>
+                <option>Tablet or phone</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row form-row--2">
+            <div class="field">
+              <label for="st-os">Operating system</label>
+              <select id="st-os" name="operatingSystem" required>
+                <option value="">Choose one</option>
+                <option>Windows 11</option>
+                <option>Windows 10</option>
+                <option>macOS</option>
+                <option>Other or not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <span class="field__label" id="st-urgency-label">Urgency</span>
+              <div class="choices choices--3" role="radiogroup" aria-labelledby="st-urgency-label">
+                <label class="choice"><input type="radio" name="urgency" value="low" required data-error="Choose how urgent this is."><span class="choice__box"><span class="choice__title">Low</span></span></label>
+                <label class="choice"><input type="radio" name="urgency" value="normal"><span class="choice__box"><span class="choice__title">Normal</span></span></label>
+                <label class="choice"><input type="radio" name="urgency" value="high"><span class="choice__box"><span class="choice__title">Blocking work</span></span></label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="st-desc">Description</label>
+            <p class="field__hint" id="st-desc-hint">What happens, when it started, and any error message. Do not include passwords, PINs, or recovery codes.</p>
+            <textarea id="st-desc" name="description" required minlength="20" aria-describedby="st-desc-hint"></textarea>
+          </div>
+          <div class="field">
+            <span class="field__label">Attachments</span>
+            <p class="field__hint">File uploads will be available once secure file handling is in place. If a screenshot would help, we will ask for it by email after we reply.</p>
+          </div>
+        </fieldset>
+        {{> consent prefix="st"}}
+        <div><button class="btn btn--primary" type="submit">Submit ticket</button></div>
+      </form>
+    </div>
+    <aside class="form-shell__aside">
+      {{> forms-not-connected}}
+      <div class="aside-box mt-4">
+        <p class="aside-box__title">How sessions work</p>
+        <p>Remote sessions start only when you approve them on your screen, and you can end them at any time. <a href="/services/remote-it-support/#privacy">Read our session rules</a>.</p>
+      </div>
+      <div class="mt-4">{{> privacy-note}}</div>
+    </aside>
+  </div>
+</section>

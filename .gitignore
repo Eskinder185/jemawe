@@ -1,0 +1,6 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+# dist/ is committed on purpose so the site can be previewed without a build.
+# Remove this comment and add "dist/" here if a host builds it for you (e.g. Vercel/Netlify).

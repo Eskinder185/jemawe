@@ -1,0 +1,77 @@
+---
+{
+  "title": "Remote IT support",
+  "description": "Scheduled remote IT support from Jemawe for Windows and Mac: troubleshooting software errors, system configuration, and connectivity problems, with explicit permission for every session.",
+  "section": "services",
+  "heading": "Remote IT support, scheduled around you and started only with your permission",
+  "lead": "Describe the problem, pick a time, and we work through it together on your screen. No unattended access, and we never ask for your passwords.",
+  "actions": [["Request IT support", "/support/new/", "light"], ["See support plans", "/support-plans/", "secondary"]],
+  "illustration": "support"
+}
+---
+<section class="section" aria-labelledby="help-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <h2 id="help-title">Problems we can usually fix remotely</h2>
+      <p>If the computer turns on and can reach the internet, many problems can be solved without anyone visiting or shipping the device.</p>
+    </div>
+    <div class="grid grid--3" data-reveal-group>
+      <div class="card">{{icon:alert}}<h3>Software errors</h3><p>Programs that crash, freeze, will not open, or show error messages.</p></div>
+      <div class="card">{{icon:gauge}}<h3>Slow performance</h3><p>Start-up programs, storage clean-up, updates, and background processes.</p></div>
+      <div class="card">{{icon:settings}}<h3>System configuration</h3><p>Settings, user accounts, display, sound, backups, and default apps.</p></div>
+      <div class="card">{{icon:monitor}}<h3>Windows support</h3><p>Windows Update problems, drivers, and common Windows errors.</p></div>
+      <div class="card">{{icon:laptop}}<h3>macOS support</h3><p>System settings, updates, storage, and app issues on a Mac.</p></div>
+      <div class="card">{{icon:wifi}}<h3>Connectivity issues</h3><p>Wi-Fi drops, network settings, email setup, and printer connections.</p></div>
+    </div>
+    <p class="mt-4"><a class="text-link" href="/services/operating-system-support/">See common Windows and macOS issues</a></p>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="flow-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <h2 id="flow-title">How a support request works</h2>
+      <p>Five steps from your first message to a confirmed fix.</p>
+    </div>
+    <ol class="steps" style="--steps:5">
+      <li class="step"><h3>Submit a request</h3><p>Use the support form to tell us your device, operating system, and what is going wrong.</p></li>
+      <li class="step"><h3>Explain the problem</h3><p>We may ask a few follow-up questions, or for a screenshot of the error.</p></li>
+      <li class="step"><h3>Schedule a session</h3><p>We agree a time that suits you. Sessions are scheduled, not round the clock.</p></li>
+      <li class="step"><h3>Receive assistance</h3><p>You start the remote session, watch every step, and can end it at any time.</p></li>
+      <li class="step"><h3>Confirm resolution</h3><p>We check the problem is gone and explain what was changed.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="privacy" aria-labelledby="auth-title">
+  <div class="container grid-12">
+    <div class="span-5">
+      <h2 id="auth-title">Privacy and session authorization</h2>
+      <p class="lead">Giving someone access to your computer requires trust. These rules apply to every remote session.</p>
+    </div>
+    <div class="span-6 start-7">
+      <ul class="check-list">
+        <li>{{icon:lock}}<span><strong>You start every session.</strong> We send a session code; nothing connects until you approve it on your own screen.</span></li>
+        <li>{{icon:eye}}<span><strong>You can watch and stop at any time.</strong> Closing the session ends our access immediately.</span></li>
+        <li>{{icon:shield}}<span><strong>No unattended access.</strong> We do not install tools that let us connect later without you.</span></li>
+        <li>{{icon:close}}<span><strong>We never ask for your passwords</strong> through forms, email, or chat. If a step needs one, you type it yourself.</span></li>
+        <li>{{icon:file}}<span><strong>We only open what the problem requires</strong> and tell you before looking at anything else.</span></li>
+        <li>{{icon:headset}}<span><strong>Reputable remote support software</strong> is used for every session. {{todo "Name of the remote support tool Jemawe uses"}}</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="limits-title">
+  <div class="container grid-12">
+    <div class="span-5">
+      <h2 id="limits-title">When remote support is not the right fit</h2>
+    </div>
+    <div class="span-6 start-7">
+      <p>Some problems need hands on the hardware. If the computer will not power on, has physical damage, or a failing part, remote support cannot fix it. In those cases we will tell you so and suggest a <a href="/book-repair/">repair booking</a> instead of charging for a session that cannot help.</p>
+      <p>Remote support also requires the computer to start and connect to the internet.</p>
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Describe the problem and pick a time" text="Most requests start with a short form. We reply to confirm the details and schedule your session." primary="Request IT support" primaryHref="/support/new/" secondary="Browse the help center" secondaryHref="/help-center/"}}

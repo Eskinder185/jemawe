@@ -1,0 +1,11 @@
+<article class="card card--link project-card" data-filter-item data-category="{{item.category}}">
+  <div class="project-card__media">
+    <img src="/assets/img/portfolio/{{item.image}}-desktop-720.webp" srcset="/assets/img/portfolio/{{item.image}}-desktop-720.webp 720w, /assets/img/portfolio/{{item.image}}-desktop-1440.webp 1440w" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" width="720" height="450" alt="{{item.imageAlt}}" loading="lazy" decoding="async">
+  </div>
+  <div class="project-card__body">
+    <span class="post-card__cat">{{item.categoryLabel}}</span>
+    <h3><a class="card__link" href="{{item.route}}">{{item.breadcrumb}}</a></h3>
+    <p>{{item.summary}}</p>
+    <p class="post-card__meta">{{item.stackLabel}}</p>
+  </div>
+</article>

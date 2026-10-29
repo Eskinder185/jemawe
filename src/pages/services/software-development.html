@@ -1,0 +1,79 @@
+---
+{
+  "title": "Custom software development",
+  "description": "Custom web applications from Jemawe: internal dashboards, customer portals, workflow tools, API integrations, and database-backed applications, built and maintained for small organizations.",
+  "section": "services",
+  "breadcrumb": "Custom software",
+  "heading": "Custom software for the work a spreadsheet can no longer handle",
+  "lead": "When your process has outgrown email threads and shared spreadsheets, we build web applications that fit the way your team and customers actually work.",
+  "actions": [["Discuss your application", "/consultation/?type=software", "light"], ["Get a quote", "/quote/?service=software", "secondary"]],
+  "illustration": "software"
+}
+---
+<section class="section" aria-labelledby="diff-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <h2 id="diff-title">Website or web application?</h2>
+      <p>The difference decides cost, timeline, and maintenance. A website mostly presents information. An application lets people sign in, save data, and get work done.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="compare">
+        <caption class="sr-only">Comparison of a business website and a custom web application</caption>
+        <thead><tr><th scope="col">Question</th><th scope="col">Business website</th><th scope="col">Custom web application</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Main purpose</th><td>Explain who you are and help visitors contact or find you</td><td>Let users complete tasks: book, track, submit, manage</td></tr>
+          <tr><th scope="row">Who uses it</th><td>Anyone on the internet</td><td>Signed-in customers, staff, or members, often with different roles</td></tr>
+          <tr><th scope="row">Data</th><td>Mostly content you publish</td><td>Records users create and change, stored in a database</td></tr>
+          <tr><th scope="row">Examples</th><td>Company site, restaurant site, event landing page</td><td>Client portal, booking system, internal dashboard, member directory</td></tr>
+          <tr><th scope="row">Security needs</th><td>Secure hosting and forms</td><td>Authentication, permissions per role, audit trails, data protection</td></tr>
+          <tr><th scope="row">Ongoing care</th><td>Content updates and periodic maintenance</td><td>Regular maintenance, monitoring, backups, and feature updates</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 muted">Not sure which you need? Read <a href="/insights/website-or-web-application/">Choosing between a website and a web application</a>.</p>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="cap-title">
+  <div class="container">
+    <h2 id="cap-title" class="section-title">What we develop</h2>
+    <div class="grid grid--4" data-reveal-group>
+      <div class="card">{{icon:layers}}<h3>Web applications</h3><p>Browser-based tools that work on any device without installing anything.</p></div>
+      <div class="card">{{icon:dashboard}}<h3>Internal dashboards</h3><p>One place for the numbers and records your team checks every day.</p></div>
+      <div class="card">{{icon:users}}<h3>Customer portals</h3><p>Secure areas where clients see their projects, documents, or requests.</p></div>
+      <div class="card">{{icon:checklist}}<h3>Workflow tools</h3><p>Intake forms, approvals, and task tracking that replace manual follow-ups.</p></div>
+      <div class="card">{{icon:link}}<h3>API integrations</h3><p>Connect the services you already use so data moves without retyping.</p></div>
+      <div class="card">{{icon:database}}<h3>Database-backed apps</h3><p>Structured records with search, filters, and permissions instead of loose files.</p></div>
+      <div class="card">{{icon:wrench}}<h3>Software maintenance</h3><p>Dependency updates, fixes, and improvements after launch.</p></div>
+      <div class="card">{{icon:lightbulb}}<h3>Technology consultation</h3><p>Advice on whether to build, buy, or adapt an existing tool.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="approach-title">
+  <div class="container grid-12">
+    <div class="span-5">
+      <h2 id="approach-title">How we approach custom software</h2>
+      <p class="lead">Applications hold real data and real responsibilities, so we build them carefully and in small steps.</p>
+    </div>
+    <div class="span-6 start-7">
+      <div class="reasons" style="grid-template-columns:1fr">
+        <div class="reason"><h3>{{icon:flag}}Start with the smallest useful version</h3><p>We agree the core workflow first, launch it, and add features once people are using it.</p></div>
+        <div class="reason"><h3>{{icon:shield}}Security by default</h3><p>Sign-in, role-based permissions enforced on the server, and only the data the app needs.</p></div>
+        <div class="reason"><h3>{{icon:check}}Tested before you see it</h3><p>Automated and browser testing on the key flows, so changes do not break what already works.</p></div>
+        <div class="reason"><h3>{{icon:book}}Documented for the long run</h3><p>Setup notes and architecture docs so the application is not tied to one person's memory.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="sw-work">
+  <div class="container">
+    <h2 id="sw-work" class="section-title">Applications the team has built</h2>
+    <div class="grid grid--2">
+      {{@list type="project" category="web-app" template="project-card"}}
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Have a process that needs its own tool?" text="Walk us through how the work happens today. We will tell you honestly whether custom software is worth it, or if an existing product will do." primary="Schedule a consultation" primaryHref="/consultation/?type=software" secondary="Get a quote" secondaryHref="/quote/?service=software"}}

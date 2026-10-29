@@ -1,0 +1,127 @@
+---
+{
+  "title": "Book a computer repair",
+  "description": "Book a laptop or desktop repair or hardware upgrade with Jemawe. Tell us about the device and the problem; we confirm the next steps and never ask for your password.",
+  "section": "support",
+  "breadcrumb": "Book a repair",
+  "heading": "Book a repair or upgrade",
+  "lead": "Four short steps. We use this to plan the diagnosis, then contact you to confirm timing and how to get the device to us.",
+  "layout": "default"
+}
+---
+<section class="section">
+  <div class="container form-shell">
+    <form class="form" data-form="repair-booking" data-endpoint="{{site.formEndpoint}}" novalidate>
+      {{> form-status}}
+
+      <fieldset class="form-step" data-step-title="Device">
+        <legend>Your device</legend>
+        <div class="field">
+          <span class="field__label" id="dev-type-label">Device type</span>
+          <div class="choices choices--3" role="radiogroup" aria-labelledby="dev-type-label">
+            <label class="choice"><input type="radio" name="deviceType" value="laptop" required data-error="Choose the type of device."><span class="choice__box"><span class="choice__title">Laptop</span></span></label>
+            <label class="choice"><input type="radio" name="deviceType" value="desktop"><span class="choice__box"><span class="choice__title">Desktop</span></span></label>
+            <label class="choice"><input type="radio" name="deviceType" value="other"><span class="choice__box"><span class="choice__title">Other</span></span></label>
+          </div>
+        </div>
+        <div class="form-row form-row--2">
+          <div class="field">
+            <label for="rb-brand">Manufacturer</label>
+            <input id="rb-brand" name="manufacturer" type="text" required placeholder="For example Dell, HP, Apple, Lenovo">
+          </div>
+          <div class="field">
+            <label for="rb-model">Model <span class="field__optional">(optional)</span></label>
+            <input id="rb-model" name="model" type="text" aria-describedby="rb-model-hint">
+            <p class="field__hint" id="rb-model-hint">Usually on a label underneath the laptop or in system settings.</p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="rb-os">Operating system <span class="field__optional">(optional)</span></label>
+          <select id="rb-os" name="operatingSystem">
+            <option value="">Not sure</option>
+            <option>Windows 11</option>
+            <option>Windows 10</option>
+            <option>macOS</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-nav"><span class="form-nav__spacer"></span><button type="button" class="btn btn--primary" data-step-next>Continue to the problem</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Problem">
+        <legend>What is happening</legend>
+        <div class="field">
+          <label for="rb-service">Service type</label>
+          <select id="rb-service" name="service" required data-prefill>
+            <option value="">Choose one</option>
+            <option value="diagnosis">Diagnosis: I am not sure what is wrong</option>
+            <option value="repair">Repair a specific problem</option>
+            <option value="upgrade">Hardware upgrade (RAM, SSD, battery, power supply)</option>
+            <option value="os">Operating system reinstall</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rb-problem">Describe the problem</label>
+          <p class="field__hint" id="rb-problem-hint">When did it start, what happens, and any error messages you see. Do not include passwords.</p>
+          <textarea id="rb-problem" name="problem" required minlength="15" aria-describedby="rb-problem-hint"></textarea>
+        </div>
+        <div class="field">
+          <span class="field__label" id="rb-data-label">Is there data on the device you cannot lose?</span>
+          <div class="choices choices--3" role="radiogroup" aria-labelledby="rb-data-label">
+            <label class="choice"><input type="radio" name="dataBackup" value="backed-up" required data-error="Tell us about backups so we can plan safely."><span class="choice__box"><span class="choice__title">It is backed up</span></span></label>
+            <label class="choice"><input type="radio" name="dataBackup" value="not-backed-up"><span class="choice__box"><span class="choice__title">Not backed up</span></span></label>
+            <label class="choice"><input type="radio" name="dataBackup" value="unsure"><span class="choice__box"><span class="choice__title">Not sure</span></span></label>
+          </div>
+        </div>
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="button" class="btn btn--primary" data-step-next>Continue to contact details</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Contact">
+        <legend>Contact and timing</legend>
+        {{> fields-contact prefix="rb"}}
+        <div class="form-row form-row--2">
+          <div class="field">
+            <label for="rb-date">Preferred date <span class="field__optional">(optional)</span></label>
+            <input id="rb-date" name="preferredDate" type="date" aria-describedby="rb-date-hint">
+            <p class="field__hint" id="rb-date-hint">This is a preference, not a booking. We will confirm an appointment with you.</p>
+          </div>
+          <div class="field">
+            <label for="rb-time">Preferred time of day <span class="field__optional">(optional)</span></label>
+            <select id="rb-time" name="preferredTime">
+              <option value="">No preference</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="button" class="btn btn--primary" data-step-next>Review request</button></div>
+      </fieldset>
+
+      <fieldset class="form-step" data-step-title="Review" data-review>
+        <legend>Review and send</legend>
+        <dl class="review" data-review-list></dl>
+        <div class="field">
+          <label class="check" for="rb-terms">
+            <input id="rb-terms" name="termsAccepted" type="checkbox" value="yes" required data-error="Confirm you have read how repairs work.">
+            <span>I understand that a diagnosis comes first, that I will approve a written quote before any repair, and that final pricing depends on the diagnosis and part availability. See the <a href="/terms/">terms of service</a>.</span>
+          </label>
+        </div>
+        {{> consent prefix="rb"}}
+        <div class="form-nav"><button type="button" class="btn btn--secondary" data-step-back>Back</button><button type="submit" class="btn btn--primary">Send repair request</button></div>
+      </fieldset>
+    </form>
+    <aside class="form-shell__aside">
+      {{> forms-not-connected}}
+      <div class="aside-box mt-4">
+        <p class="aside-box__title">What happens next</p>
+        <ol class="demo-flow">
+          <li><div><h3>We review the request</h3><p>and may ask a follow-up question.</p></div></li>
+          <li><div><h3>We confirm timing</h3><p>and how to get the device to us.</p></div></li>
+          <li><div><h3>Diagnosis and quote</h3><p>before any repair work begins.</p></div></li>
+        </ol>
+      </div>
+      <div class="mt-4">{{> privacy-note}}</div>
+    </aside>
+  </div>
+</section>

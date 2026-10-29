@@ -1,0 +1,76 @@
+---
+{
+  "title": "IT support plans",
+  "description": "Jemawe IT support plan options for individuals and small businesses, from one-time remote help to recurring business support. Features, response windows, and pricing are being finalized.",
+  "section": "support",
+  "breadcrumb": "Support plans",
+  "heading": "IT support plans",
+  "lead": "From a single remote session to ongoing support for a small team. Plan details are being finalized, so for now every plan starts with a short conversation and a written quote.",
+  "actions": [["Ask about a plan", "/consultation/?type=it", "light"], ["Request one-time help", "/support/new/", "secondary"]]
+}
+---
+<section class="section" aria-labelledby="plans-title">
+  <div class="container">
+    <h2 id="plans-title" class="section-title">Plan options</h2>
+    <div class="notice notice--amber" style="margin-bottom: var(--s-5)">{{icon:info}}<div><strong>Scope and pricing are not published yet</strong><p>We will not show features, response windows, or prices until they are confirmed. Each plan below describes who it is for. Ask us and we will quote your situation in writing.</p></div></div>
+    <div class="plans">
+      <article class="plan">
+        <h3>One-time support</h3>
+        <p class="plan__for">For individuals and teams with a single problem to solve.</p>
+        <p class="plan__price">Quoted per request</p>
+        <dl>
+          <dt>Typical use</dt><dd>A software error, a slow computer, or a new device setup.</dd>
+          <dt>Scope and response</dt><dd>{{todo "One-time support scope, session length, and response window"}}</dd>
+        </dl>
+        <a class="btn btn--primary btn--block" href="/support/new/">Request support</a>
+      </article>
+      <article class="plan">
+        <h3>Business Essentials</h3>
+        <p class="plan__for">For small offices that want regular check-ups and someone to call.</p>
+        <p class="plan__price">Pricing to be announced</p>
+        <dl>
+          <dt>Typical use</dt><dd>Scheduled maintenance and help with day-to-day issues.</dd>
+          <dt>Scope and response</dt><dd>{{todo "Business Essentials devices covered, inclusions, exclusions, and response window"}}</dd>
+        </dl>
+        <a class="btn btn--secondary btn--block" href="/consultation/?type=it">Ask about this plan</a>
+      </article>
+      <article class="plan">
+        <h3>Business Plus</h3>
+        <p class="plan__for">For growing teams with more devices, onboarding, and setup needs.</p>
+        <p class="plan__price">Pricing to be announced</p>
+        <dl>
+          <dt>Typical use</dt><dd>Recurring support plus employee onboarding and device inventory.</dd>
+          <dt>Scope and response</dt><dd>{{todo "Business Plus devices covered, inclusions, exclusions, and response window"}}</dd>
+        </dl>
+        <a class="btn btn--secondary btn--block" href="/consultation/?type=it">Ask about this plan</a>
+      </article>
+      <article class="plan">
+        <h3>Custom business support</h3>
+        <p class="plan__for">For organizations whose needs do not fit a standard plan.</p>
+        <p class="plan__price">Quoted individually</p>
+        <dl>
+          <dt>Typical use</dt><dd>A mix of IT support, website care, and project work under one arrangement.</dd>
+          <dt>Scope and response</dt><dd>Agreed in writing for your organization.</dd>
+        </dl>
+        <a class="btn btn--secondary btn--block" href="/consultation/?type=it">Discuss your needs</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="every-title">
+  <div class="container grid-12">
+    <div class="span-5"><h2 id="every-title">What every plan will include</h2></div>
+    <div class="span-6 start-7">
+      <ul class="check-list">
+        <li>{{icon:check}}<span>A written description of scope, inclusions, and exclusions</span></li>
+        <li>{{icon:check}}<span>A stated response window for business hours</span></li>
+        <li>{{icon:check}}<span>Remote sessions that start only with your permission</span></li>
+        <li>{{icon:check}}<span>A clear process for work outside the plan, quoted before it starts</span></li>
+      </ul>
+      <p class="muted mt-4">Support is not offered around the clock unless a plan explicitly says so.</p>
+    </div>
+  </div>
+</section>
+
+{{> cta-band heading="Not sure which plan fits?" text="Tell us how many people and devices you support. We will recommend one-time help or a recurring arrangement." primary="Schedule a consultation" primaryHref="/consultation/?type=it" secondary="See pricing" secondaryHref="/pricing/"}}
