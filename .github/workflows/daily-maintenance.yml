@@ -32,7 +32,7 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Lint
+      - name: Production build
         run: npm run build
 
       - name: Audit high-severity dependency issues
