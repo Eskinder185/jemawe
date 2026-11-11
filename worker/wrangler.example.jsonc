@@ -1,0 +1,13 @@
+{
+  "name": "jemawe-enquiries",
+  "main": "./enquiries.mjs",
+  "compatibility_date": "2026-11-11",
+  "vars": {
+    "SITE_ORIGIN": "https://eskinder185.github.io"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "jemawe-enquiries",
+    "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+  }]
+}
