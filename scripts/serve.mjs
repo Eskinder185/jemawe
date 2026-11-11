@@ -5,6 +5,8 @@
  *   node scripts/serve.mjs --watch    -> also rebuilds HTML/CSS on changes in src/ and assets/
  *                                        (run `npx tsc --watch` alongside for TypeScript)
  * PORT=5600 node scripts/serve.mjs   -> different port
+ * BASE_PATH=/jemawe node scripts/serve.mjs -> serve dist/ under /jemawe/ to preview a
+ *                                        GitHub Pages build (npm run build:pages first)
  */
 import http from "node:http";
 import fs from "node:fs";
@@ -16,6 +18,11 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
 const PORT = Number(process.env.PORT || 5500);
 const HOST = process.env.HOST || "127.0.0.1";
+const BASE = (() => {
+  const flag = process.argv.find((a) => a.startsWith("--base="))?.slice(7);
+  const v = String(flag ?? process.env.BASE_PATH ?? "").replace(/^\/+|\/+$/g, "");
+  return v ? "/" + v : "";
+})();
 
 const TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -44,12 +51,24 @@ function resolveFile(urlPath) {
 }
 
 const server = http.createServer((req, res) => {
-  const urlPath = req.url || "/";
+  let urlPath = req.url || "/";
+  if (BASE) {
+    // Mirror GitHub Pages project hosting: only BASE/... exists.
+    if (urlPath === "/" || urlPath === BASE) {
+      res.writeHead(301, { Location: BASE + "/" });
+      return res.end();
+    }
+    if (!urlPath.startsWith(BASE + "/")) {
+      res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+      return res.end(`Not found (this server only serves ${BASE}/)`);
+    }
+    urlPath = urlPath.slice(BASE.length);
+  }
   // Redirect /about -> /about/ so relative behaviour matches production hosts.
   if (!path.extname(urlPath.split("?")[0]) && !urlPath.split("?")[0].endsWith("/")) {
     const withSlash = urlPath.split("?")[0] + "/";
     if (resolveFile(withSlash)) {
-      res.writeHead(301, { Location: withSlash });
+      res.writeHead(301, { Location: BASE + withSlash });
       return res.end();
     }
   }
@@ -67,7 +86,7 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(file).pipe(res);
 });
 
-server.listen(PORT, HOST, () => console.log(`Jemawe dev server: http://${HOST}:${PORT}/`));
+server.listen(PORT, HOST, () => console.log(`Jemawe dev server: http://${HOST}:${PORT}${BASE}/`));
 
 if (process.argv.includes("--watch")) {
   let timer = null;

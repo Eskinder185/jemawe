@@ -188,4 +188,3 @@ function initMobileMenu(header) {
             close();
     });
 }
-//# sourceMappingURL=nav.js.map

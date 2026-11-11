@@ -12,7 +12,8 @@
 type EcoModule = { mountEcosystem: (root: HTMLElement, options: EcoOptions) => Promise<() => void> };
 export type EcoOptions = { lite: boolean; reducedMotion: boolean; force: boolean };
 
-const BUNDLE_URL = "/js/hero3d.js";
+// Resolved next to this module so it works at the site root and under a sub-path (GitHub Pages).
+const BUNDLE_URL = new URL("./hero3d.js", import.meta.url).href;
 
 function webglAvailable(): boolean {
   try {

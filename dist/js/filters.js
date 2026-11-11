@@ -57,4 +57,3 @@ export function initFaqSearch() {
             status.textContent = q ? `${shown} of ${total} questions match “${input.value.trim()}”` : "";
     });
 }
-//# sourceMappingURL=filters.js.map

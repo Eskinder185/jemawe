@@ -8,7 +8,8 @@
  * Opt-outs (for testing or support):  ?eco=off   forces the fallback
  *                                     ?eco=force skips the device heuristics
  */
-const BUNDLE_URL = "/js/hero3d.js";
+// Resolved next to this module so it works at the site root and under a sub-path (GitHub Pages).
+const BUNDLE_URL = new URL("./hero3d.js", import.meta.url).href;
 function webglAvailable() {
     try {
         const canvas = document.createElement("canvas");
@@ -94,4 +95,3 @@ export function initEcosystem() {
     });
     io.observe(root);
 }
-//# sourceMappingURL=eco-loader.js.map

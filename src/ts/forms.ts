@@ -153,6 +153,7 @@ function setupForm(form: HTMLFormElement): void {
     true
   );
   form.addEventListener("input", (e) => {
+    delete form.dataset.requestId;
     const t = e.target as Control;
     if (fieldOf(t)?.classList.contains("is-invalid")) validate(t);
   });
@@ -231,7 +232,10 @@ function setupForm(form: HTMLFormElement): void {
     }
 
     const honeypot = form.querySelector<HTMLInputElement>("[data-honeypot] input");
-    if (honeypot && honeypot.value) return; // silently drop bot submissions
+    if (honeypot && honeypot.value) {
+      setStatus(form, "error", "Your request could not be accepted. Please try again.");
+      return;
+    }
 
     const endpoint = (form.dataset.endpoint || "").trim();
     if (!endpoint) {
@@ -255,15 +259,25 @@ function setupForm(form: HTMLFormElement): void {
         else data[key] = v;
       });
       data.form = form.dataset.form || "inquiry";
+      data.requestId = form.dataset.requestId ||= crypto.randomUUID();
+      data.turnstileToken = String(data["cf-turnstile-response"] || "");
+      delete data["cf-turnstile-response"];
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error(String(res.status));
-      window.location.assign(`/thank-you/?form=${encodeURIComponent(form.dataset.form || "inquiry")}`);
-    } catch {
-      setStatus(form, "error", "Your request could not be sent because the form service did not respond. Your answers are still here, so you can try again in a moment.");
+      if (!res.ok) {
+        const result = await res.json().catch(() => ({}));
+        throw new Error(typeof result.error === "string" ? result.error : "The service could not accept this request.");
+      }
+      const result = await res.json().catch(() => ({}));
+      if (result.accepted !== true || result.requestId !== data.requestId) throw new Error("The service did not confirm acceptance.");
+      window.location.assign(`${new URL("../thank-you/", import.meta.url).pathname}?form=${encodeURIComponent(form.dataset.form || "inquiry")}`);
+    } catch (error) {
+      (window as Window & { turnstile?: { reset: (element?: HTMLElement) => void } }).turnstile?.reset(form.querySelector<HTMLElement>(".cf-turnstile") || undefined);
+      const detail = error instanceof Error ? escapeHtml(error.message) : "The form service did not respond.";
+      setStatus(form, "error", `${detail} Your answers are still here. Please try again in a moment.`);
     } finally {
       submit?.classList.remove("is-loading");
       submit?.removeAttribute("aria-disabled");
