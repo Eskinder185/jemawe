@@ -7,6 +7,9 @@ Usage (from the project root, with the dev server running on :5500):
     npm run serve            # in another terminal
     python tests/qa_site.py [--axe path/to/axe.min.js] [--out qa-results]
 
+GitHub Pages build (served under /jemawe/ by `npm run preview:pages`):
+    BASE_URL=http://127.0.0.1:5500/jemawe python tests/qa_site.py
+
 Checks every built page in dist/ at 375, 390, 768, 1024, 1440, and 1920px wide,
 then runs interaction tests. Prints a summary and writes qa-results/results.json.
 Nothing here is mocked except where stated (the form endpoint tests intercept a
@@ -19,12 +22,13 @@ import os
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urljoin
 
 from playwright.async_api import async_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
-BASE = os.environ.get("BASE_URL", "http://127.0.0.1:5500")
+BASE = os.environ.get("BASE_URL", "http://127.0.0.1:5500").rstrip("/")  # e.g. http://127.0.0.1:5500/jemawe for a Pages build
 WIDTHS = [375, 390, 768, 1024, 1440, 1920]
 
 
@@ -118,7 +122,8 @@ async def link_check(browser, links, results):
     external = sorted({l for l in links if l.startswith("http")})
     bad = []
     for l in internal:
-        r = await ctx.request.get(BASE + l, max_redirects=0)
+        # urljoin keeps base-prefixed hrefs (e.g. /jemawe/about/) correct when BASE_URL has a path.
+        r = await ctx.request.get(urljoin(BASE + "/", l), max_redirects=0)
         if r.status != 200:
             bad.append(f"{l} -> {r.status}")
     await ctx.close()

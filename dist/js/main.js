@@ -20,4 +20,3 @@ if (document.readyState === "loading")
     document.addEventListener("DOMContentLoaded", start);
 else
     start();
-//# sourceMappingURL=main.js.map

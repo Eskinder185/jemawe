@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://eskinder185.github.io/jemawe/sitemap.xml

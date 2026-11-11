@@ -8,6 +8,7 @@
       "DOM.Iterable"
     ],
     "strict": true,
+    "types": [],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,

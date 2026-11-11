@@ -106,4 +106,3 @@ export function initPrintAndShare() {
         a.href = `${a.href}&body=${encodeURIComponent(window.location.href.split("#")[0])}`;
     });
 }
-//# sourceMappingURL=ui.js.map

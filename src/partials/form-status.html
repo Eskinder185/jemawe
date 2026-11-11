@@ -1,4 +1,5 @@
 <div class="form-status" data-form-status role="status" aria-live="polite"></div>
 <div data-honeypot aria-hidden="true" class="sr-only">
-  <label>Leave this field empty <input type="text" name="website_url" tabindex="-1" autocomplete="off"></label>
+  <label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
 </div>
+{{#if site.turnstileSiteKey}}<div class="cf-turnstile" data-sitekey="{{site.turnstileSiteKey}}" aria-label="Spam check"></div>{{/if}}

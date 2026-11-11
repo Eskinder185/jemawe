@@ -11,7 +11,10 @@
     "typecheck": "tsc --noEmit && tsc -p tsconfig.hero.json",
     "serve": "node scripts/serve.mjs",
     "dev": "node scripts/serve.mjs --watch",
-    "build:3d": "node scripts/build-3d.mjs"
+    "build:3d": "node scripts/build-3d.mjs",
+    "build:pages": "node scripts/build.mjs --clean && tsc --sourceMap false && node scripts/build-3d.mjs && node scripts/check-dist.mjs",
+    "check:dist": "node scripts/check-dist.mjs",
+    "preview:pages": "node scripts/build.mjs --clean --base=/jemawe && tsc --sourceMap false && node scripts/build-3d.mjs && node scripts/check-dist.mjs --base=/jemawe && node scripts/serve.mjs --base=/jemawe"
   },
   "devDependencies": {
     "@types/three": "^0.186.0",
