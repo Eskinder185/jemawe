@@ -10,6 +10,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 # Nothing by default; each job asks only for what it needs.
@@ -66,6 +68,7 @@ jobs:
           path: dist/
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 15
