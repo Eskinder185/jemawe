@@ -1,7 +1,7 @@
 {
   "name": "Jemawe",
   "tagline": "Technology that works for you.",
-  "siteUrl": null,
+  "siteUrl": "https://eskinder185.github.io/jemawe",
   "formEndpoint": null,
   "announcement": null,
   "contact": {
@@ -31,11 +31,6 @@
     {
       "label": "Support center",
       "href": "/support/"
-    },
-    {
-      "label": "Client portal",
-      "href": "/client-portal/",
-      "soon": true
     },
     {
       "label": "Schedule a consultation",
@@ -278,17 +273,13 @@
                 "href": "/our-story/"
               },
               {
-                "label": "Leadership",
-                "href": "/leadership/"
+                "label": "Our work",
+                "href": "/portfolio/"
               }
             ]
           },
           {
             "links": [
-              {
-                "label": "Our team",
-                "href": "/team/"
-              },
               {
                 "label": "Careers",
                 "href": "/careers/"
@@ -320,11 +311,6 @@
               {
                 "label": "Computer repair request",
                 "href": "/book-repair/"
-              },
-              {
-                "label": "Check ticket status",
-                "href": "/support/#ticket-status",
-                "soon": true
               }
             ]
           },
@@ -337,11 +323,6 @@
               {
                 "label": "Support plans",
                 "href": "/support-plans/"
-              },
-              {
-                "label": "Repair status",
-                "href": "/repair-status/",
-                "soon": true
               }
             ]
           }
@@ -427,20 +408,12 @@
             "href": "/our-story/"
           },
           {
-            "label": "Leadership",
-            "href": "/leadership/"
-          },
-          {
             "label": "Our work",
             "href": "/portfolio/"
           },
           {
             "label": "Careers",
             "href": "/careers/"
-          },
-          {
-            "label": "Contact",
-            "href": "/contact/"
           }
         ]
       },
@@ -468,8 +441,8 @@
             "href": "/technologies/"
           },
           {
-            "label": "System status",
-            "href": "/status/"
+            "label": "Contact",
+            "href": "/contact/"
           }
         ]
       }
