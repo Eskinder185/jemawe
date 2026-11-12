@@ -237,7 +237,7 @@ async def interactions(browser, results):
         await p.click("text=Review your request")
         on_review = await step() == 3
         review_text = await p.locator("[data-review-list]").inner_text()
-        await p.click("text=Back")
+        await p.locator(".form-step.is-current [data-step-back]").click()
         retained = await p.input_value("#q-email") == "test@example.com" and await p.input_value("#q-name") == "Test Person"
         await p.click("text=Review your request")
         await p.click("text=Send quote request")
