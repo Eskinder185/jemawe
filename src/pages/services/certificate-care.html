@@ -1,0 +1,311 @@
+---
+{
+  "title": "Managed TLS & Certificate Care",
+  "description": "Managed TLS and certificate care from Jemawe: certificate setup, renewal automation, deployment verification, expiration monitoring, and clearly defined support for websites and APIs.",
+  "section": "services",
+  "breadcrumb": "Certificate care",
+  "heading": "Keep secure connections working as your business grows.",
+  "lead": "We help keep your website and API connections working through certificate setup, renewal automation, monitoring, and clearly defined support.",
+  "actions": [["Request a certificate assessment", "/quote/?service=certificates", "light"], ["Explore what’s included", "#included", "secondary"]]
+}
+---
+<section class="section" id="included" aria-labelledby="scope-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="section-kicker">Service scope</span>
+        <h2 id="scope-title">What certificate care covers</h2>
+      </div>
+      <p>A scoped managed service focused on the certificates that protect connections to your websites, APIs, and web services.</p>
+    </div>
+
+    <div class="grid grid--4" data-reveal-group>
+      <div class="card">
+        {{icon:lock}}
+        <h3>HTTPS setup</h3>
+        <p>Review domain coverage and configure TLS certificates across your web addresses. We set up certificates through established providers such as Cloudflare, AWS Certificate Manager, or automated certificate authorities, ensuring modern protocols and correct redirection.</p>
+      </div>
+      <div class="card">
+        {{icon:refresh}}
+        <h3>Renewal automation</h3>
+        <p>Configure automated certificate replacement before expiration so your connections never lapse. We establish ACME pipelines or cloud provider renewal routines matched to your DNS and server infrastructure.</p>
+      </div>
+      <div class="card">
+        {{icon:pulse}}
+        <h3>Certificate monitoring</h3>
+        <p>Continuous checks for upcoming expiration, configuration issues, and connection health. Successful renewal must include verifying that the replacement certificate is actually deployed and actively served to visitors.</p>
+      </div>
+      <div class="card">
+        {{icon:checklist}}
+        <h3>Reporting and support</h3>
+        <p>Clear, scheduled reporting on certificate health, renewal-failure investigation if an automated renewal encounters an error, and agreed recovery procedures when an endpoint needs immediate attention.</p>
+      </div>
+    </div>
+
+    <div class="panel mt-5" aria-labelledby="lifecycle-title">
+      <h3 id="lifecycle-title">How managed certificate care works</h3>
+      <p class="muted">Conceptual overview of our management and verification cycle:</p>
+      <ol class="steps mt-4" style="--steps:4">
+        <li class="step">
+          <h3>Assess</h3>
+          <p>Inventory public domains, endpoints, host platforms, and current expiration dates.</p>
+        </li>
+        <li class="step">
+          <h3>Automate renewal</h3>
+          <p>Configure DNS or HTTP challenge automation to request replacement certificates early.</p>
+        </li>
+        <li class="step">
+          <h3>Verify deployment</h3>
+          <p>Confirm the web server, proxy, or CDN actually serves the new certificate to clients.</p>
+        </li>
+        <li class="step">
+          <h3>Monitor &amp; support</h3>
+          <p>Track certificate validity and connection health, with defined troubleshooting if issues arise.</p>
+        </li>
+      </ol>
+      <p class="muted mt-4 text-center"><small>Conceptual workflow diagram. Operational tasks follow the written scope agreed for your environment.</small></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="situations-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="section-kicker">Real-world applications</span>
+        <h2 id="situations-title">Suitable customer situations</h2>
+      </div>
+      <p>Certificate care adapts to organizations managing multiple web addresses, public interfaces, or community portals.</p>
+    </div>
+
+    <div class="grid grid--2" data-reveal-group>
+      <div class="card">
+        {{icon:globe}}
+        <h3>Business sites with subdomains</h3>
+        <p>A business operating its main website at <code>example.com</code>, a client portal at <code>portal.example.com</code>, and a marketing blog at <code>blog.example.com</code>. We ensure all hostnames maintain valid certificates and renew in sync without browser security warnings.</p>
+      </div>
+
+      <div class="card">
+        {{icon:utensils}}
+        <h3>Restaurant websites and menus</h3>
+        <p>A restaurant with its primary website, a mobile QR digital menu, and links to online ordering. We secure the domains you control and keep connections reliable. Third-party ordering, reservation, or payment platforms manage their own certificates.</p>
+      </div>
+
+      <div class="card">
+        {{icon:users}}
+        <h3>Nonprofit and member portals</h3>
+        <p>A nonprofit or association with an informational public site and a separate member application or donor portal. Consistent TLS configuration helps preserve donor trust and avoids disruptive browser certificate errors.</p>
+      </div>
+
+      <div class="card">
+        {{icon:code}}
+        <h3>Startup websites and APIs</h3>
+        <p>A startup running a customer-facing website alongside public API endpoints for mobile apps or integrations. We automate certificate renewal and verify endpoint deployment so developer and user traffic remains uninterrupted.</p>
+      </div>
+    </div>
+
+    <div class="notice mt-5">
+      {{icon:info}}
+      <div>
+        <strong>Third-party platform boundaries</strong>
+        <p>Third-party ordering, booking, CRM, and payment platforms manage their own security certificates. Jemawe’s certificate care applies to websites, domains, subdomains, and cloud endpoints that you own or authorize us to configure and monitor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="section-kicker">Delivery process</span>
+        <h2 id="process-title">How we deliver certificate care</h2>
+      </div>
+      <p>Delivery begins with a clear assessment and written scope. Every step is agreed upon before implementation begins.</p>
+    </div>
+
+    <ol class="steps" style="--steps:4">
+      <li class="step">
+        <h3>Assess environment</h3>
+        <p>We review your public domain names, DNS provider, web hosts, current certificates, and renewal mechanisms to identify any gaps.</p>
+      </li>
+      <li class="step">
+        <h3>Agree on scope</h3>
+        <p>We define in writing which hostnames are included, access boundaries, monitoring checks, alert contacts, and support responsibilities.</p>
+      </li>
+      <li class="step">
+        <h3>Configure and test</h3>
+        <p>We configure renewal automation and test issuance, renewal triggers, deployment verification, alert notifications, and recovery procedures.</p>
+      </li>
+      <li class="step">
+        <h3>Maintain and report</h3>
+        <p>We conduct regular expiration and connection monitoring, handle renewal-failure investigations, and provide clear customer reporting.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="pricing-scope-title">
+  <div class="container grid-12">
+    <div class="span-5">
+      <span class="section-kicker">Transparent scope</span>
+      <h2 id="pricing-scope-title">Clear pricing and what you pay for</h2>
+      <p class="lead">Many modern web hosting platforms and cloud providers already include TLS certificates and basic renewal tools at no extra charge.</p>
+    </div>
+    <div class="span-6 start-7">
+      <div class="panel">
+        <h3>What the service covers</h3>
+        <p class="muted">You are paying for the skilled technical management that keeps connections healthy:</p>
+        <ul class="check-list">
+          <li>{{icon:check}}<span><strong>Configuration:</strong> Setting up correct DNS validation, certificate parameters, and server bindings.</span></li>
+          <li>{{icon:check}}<span><strong>Deployment verification:</strong> Confirming replacement certificates are live and served, not just saved on disk.</span></li>
+          <li>{{icon:check}}<span><strong>Proactive monitoring:</strong> Detecting expiration risks, configuration drift, and connection errors before visitors see warnings.</span></li>
+          <li>{{icon:check}}<span><strong>Failure investigation:</strong> Diagnosing why an automated renewal failed (such as DNS token changes, rate limits, or server permission issues).</span></li>
+          <li>{{icon:check}}<span><strong>Reporting:</strong> Plain-language status summaries showing domain expiration dates and certificate health.</span></li>
+        </ul>
+        <h3 class="mt-4">How proposals are structured</h3>
+        <ul class="check-list">
+          <li>{{icon:info}}<span><strong>Initial setup:</strong> Assessment, automation configuration, and testing quoted based on endpoint count and environment.</span></li>
+          <li>{{icon:info}}<span><strong>Recurring care:</strong> Ongoing monitoring, regular verification, and included support hours agreed in writing.</span></li>
+          <li>{{icon:info}}<span><strong>Third-party charges:</strong> Any provider fees (such as specialized DNS or hosting plans) are billed directly by the provider.</span></li>
+        </ul>
+        <p class="muted mt-4">We do not publish vague flat fees. Setup, recurring management, and any third-party infrastructure requirements are identified in your written proposal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="responsibilities-title">
+  <div class="container grid-12">
+    <div class="span-5">
+      <span class="section-kicker">Account ownership</span>
+      <h2 id="responsibilities-title">Customer responsibilities and ownership</h2>
+      <p class="lead">You remain in control of your critical digital assets throughout our work together.</p>
+    </div>
+    <div class="span-6 start-7">
+      <ul class="check-list">
+        <li>{{icon:check}}<span><strong>You own your accounts:</strong> You maintain primary ownership of your domain registrar, DNS manager, and hosting accounts wherever practical.</span></li>
+        <li>{{icon:check}}<span><strong>Least-privilege access:</strong> You grant Jemawe only the authorized access required for certificate and DNS configuration.</span></li>
+        <li>{{icon:check}}<span><strong>Defined alert contacts:</strong> Your team provides designated technical or administrative contacts for domain verification and emergency notices.</span></li>
+        <li>{{icon:check}}<span><strong>Written boundaries:</strong> Documentation clearly outlines which endpoints Jemawe monitors and which items remain with your host.</span></li>
+        <li>{{icon:check}}<span><strong>Smooth handover:</strong> If the service arrangement concludes, all configuration details, renewal schedules, and access credentials are handed back cleanly.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="planned-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="section-kicker">Roadmap</span>
+        <h2 id="planned-title">Planned digital trust services</h2>
+      </div>
+      <p>As security requirements evolve, Jemawe is researching and developing advanced digital trust capabilities. These are future capabilities, not currently available production services.</p>
+    </div>
+
+    <div class="grid grid--3" data-reveal-group>
+      <div class="card card--soft">
+        {{icon:server}}
+        <h3>Private PKI &amp; device identity</h3>
+        <p>Certificates for controlled internal trust environments, microservices, and connected equipment. Requires dedicated certificate lifecycle management and distributing private root trust to authorized internal systems.</p>
+        <p class="card__more"><span class="badge badge--neutral">Planned capability</span></p>
+      </div>
+
+      <div class="card card--soft">
+        {{icon:shield}}
+        <h3>Mutual TLS (mTLS)</h3>
+        <p>Two-way authentication where both client and server exchange and verify certificates before communicating. Designed for sensitive internal applications, service-to-service APIs, and supported devices.</p>
+        <p class="card__more"><span class="badge badge--neutral">Planned capability</span></p>
+      </div>
+
+      <div class="card card--soft">
+        {{icon:code}}
+        <h3>Software &amp; container signing</h3>
+        <p>Signing application binaries and container images to verify software provenance. Signing must be paired with verification checks inside the customer’s build or deployment pipeline, depending on platform support.</p>
+        <p class="card__more"><span class="badge badge--neutral">Planned capability</span></p>
+      </div>
+
+      <div class="card card--soft">
+        {{icon:file}}
+        <h3>Content provenance</h3>
+        <p>Using open standards like Content Credentials (C2PA) to cryptographically sign digital media and document edit histories. Signed records help establish media history and detect changes; they do not independently prove factual truth or legal copyright ownership.</p>
+        <p class="card__more"><span class="badge badge--neutral">Planned capability</span></p>
+      </div>
+
+      <div class="card card--soft">
+        {{icon:cpu}}
+        <h3>Post-quantum cryptography readiness</h3>
+        <p>Readiness assessments that inventory cryptographic algorithms in use, evaluate platform and library compatibility, and plan migrations using standardized post-quantum algorithms. We focus on standardized technologies rather than ungrounded &ldquo;quantum-proof&rdquo; claims.</p>
+        <p class="card__more"><span class="badge badge--neutral">Planned capability</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="faq-title">
+  <div class="container grid-12">
+    <div class="span-4">
+      <span class="section-kicker">Questions &amp; answers</span>
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <p class="lead">Answers to common questions about TLS certificates, renewal automation, and website security.</p>
+    </div>
+
+    <div class="span-7 start-6">
+      <div class="faq">
+        <details>
+          <summary>Does my hosting provider already renew my certificate?{{icon:chevron-down}}</summary>
+          <div class="faq__answer">
+            <p>Many hosting platforms include automated renewal attempts, but renewals can fail without warning when DNS records change, challenge tokens expire, firewalls block validation traffic, or server software updates alter configuration files. Furthermore, renewal does not always mean deployment: a new certificate may be generated in cloud storage while the active web server continues serving an expiring one. Certificate care verifies both the renewal and the active deployment.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why would I need certificate care if certificates are free?{{icon:chevron-down}}</summary>
+          <div class="faq__answer">
+            <p>While public certificate authorities like Let’s Encrypt provide certificates at no software charge, the certificates do not configure, test, or troubleshoot themselves. You are paying for technical expertise: properly configuring DNS and server bindings, ensuring all subdomains are covered, testing renewal mechanisms, verifying deployment, monitoring endpoints proactively, and resolving failures before they cause site outages.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the CA/Browser Forum schedule for certificate lifetimes?{{icon:chevron-down}}</summary>
+          <div class="faq__answer">
+            <p>Under <a href="https://cabforum.org/posts/2025-04-18-ballot-sc-081-results/" rel="noopener" target="_blank">CA/Browser Forum Ballot SC-081</a> (officially adopted into the TLS Baseline Requirements), maximum certificate lifespans are being reduced in scheduled stages: dropping to 200 days in March 2026, 100 days in March 2027, and 47 days in March 2029 (with domain validation data reuse dropping to 10 days). Because certificates must soon be renewed every few weeks, manual calendar tracking is no longer practical, making renewal automation and verification essential.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do I need to move my website to AWS?{{icon:chevron-down}}</summary>
+          <div class="faq__answer">
+            <p>No. We support multiple providers and hosting environments, including Cloudflare, AWS, standard Linux servers, and conventional web hosts. We evaluate your current hosting setup and implement certificate management tools that fit your existing infrastructure.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can you review a website built by another developer?{{icon:chevron-down}}</summary>
+          <div class="faq__answer">
+            <p>Yes. We regularly review websites, DNS configurations, and hosting setups created by other teams or agencies. We start with an assessment of your public endpoints, DNS records, and hosting controls, then provide a written summary and proposed scope.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Does HTTPS make my whole website secure?{{icon:chevron-down}}</summary>
+          <div class="faq__answer">
+            <p>No. TLS certificates protect data in transit between a visitor&rsquo;s browser and your server, ensuring that transmitted data is encrypted and authenticated. TLS does not protect against vulnerabilities in your website code, weak administrative passwords, unpatched server operating systems, or compromised databases. A complete security posture requires application updates, access controls, regular backups, and ongoing maintenance.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What information should I include in my inquiry?{{icon:chevron-down}}</summary>
+          <div class="faq__answer">
+            <p>Please share your primary public website address, any subdomains or API endpoints you need covered, your current hosting or DNS providers (if known), and any recent certificate issues or upcoming project deadlines. Please do not send passwords, API tokens, private keys, or sensitive internal credentials.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> service-expectations cost="Pricing is based on the number of domains, endpoints, and environment complexity, agreed in writing before work begins." timing="Initial assessment takes a few business days; configuration and verification are scheduled within an agreed window." prepare="Share your public domain names, hosting provider, DNS manager, and any subdomains or APIs in scope." after="You receive verified deployment confirmation, monitoring records, and documented renewal procedures."}}
+
+{{> cta-band heading="Protect your site and API connections" text="Share your website address and hosting details. We will assess your certificate status and propose a clear, written scope." primary="Request a certificate assessment" primaryHref="/quote/?service=certificates" secondary="Explore website maintenance" secondaryHref="/services/website-maintenance/"}}

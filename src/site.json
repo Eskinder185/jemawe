@@ -39,11 +39,6 @@
   ],
   "nav": [
     {
-      "id": "home",
-      "label": "Home",
-      "href": "/"
-    },
-    {
       "id": "services",
       "label": "Services",
       "href": "/services/",
@@ -74,6 +69,11 @@
                 "label": "Website maintenance",
                 "href": "/services/website-maintenance/",
                 "desc": "Updates, backups, fixes"
+              },
+              {
+                "label": "Managed TLS & Certificate Care",
+                "href": "/services/certificate-care/",
+                "desc": "Setup, renewal automation, and monitoring"
               }
             ]
           },
@@ -131,61 +131,12 @@
       }
     },
     {
-      "id": "industries",
-      "label": "Industries",
-      "href": "/industries/",
-      "panel": {
-        "title": "Industries",
-        "text": "How our services apply to the kind of organization you run.",
-        "overview": "All industries",
-        "columns": [
-          {
-            "links": [
-              {
-                "label": "Restaurants and hospitality",
-                "href": "/industries/restaurants/"
-              },
-              {
-                "label": "Small businesses",
-                "href": "/industries/small-businesses/"
-              },
-              {
-                "label": "Education",
-                "href": "/industries/education/"
-              }
-            ]
-          },
-          {
-            "links": [
-              {
-                "label": "Nonprofits",
-                "href": "/industries/nonprofits/"
-              },
-              {
-                "label": "Startups",
-                "href": "/industries/startups/"
-              },
-              {
-                "label": "Professional services",
-                "href": "/industries/professional-services/"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "solutions",
-      "label": "Solutions",
-      "href": "/solutions/"
-    },
-    {
       "id": "work",
       "label": "Our work",
       "href": "/portfolio/",
       "panel": {
         "title": "Our work",
-        "text": "Projects the Jemawe team has designed and built, with the stacks behind them.",
+        "text": "Five featured projects with real screenshots, useful case studies, and public links where available.",
         "overview": "View the portfolio",
         "columns": [
           {
@@ -255,7 +206,7 @@
     },
     {
       "id": "company",
-      "label": "Company",
+      "label": "About",
       "href": "/about/",
       "panel": {
         "title": "Company",
@@ -294,42 +245,6 @@
       }
     },
     {
-      "id": "support",
-      "label": "Support",
-      "href": "/support/",
-      "panel": {
-        "title": "Support",
-        "text": "Get help with a computer, an error, or something we built for you.",
-        "overview": "Support center",
-        "columns": [
-          {
-            "links": [
-              {
-                "label": "Request IT support",
-                "href": "/support/new/"
-              },
-              {
-                "label": "Computer repair request",
-                "href": "/book-repair/"
-              }
-            ]
-          },
-          {
-            "links": [
-              {
-                "label": "Help center",
-                "href": "/help-center/"
-              },
-              {
-                "label": "Support plans",
-                "href": "/support-plans/"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "contact",
       "label": "Contact",
       "href": "/contact/"
@@ -352,6 +267,14 @@
           {
             "label": "Restaurant websites",
             "href": "/services/restaurant-solutions/"
+          },
+          {
+            "label": "Website maintenance",
+            "href": "/services/website-maintenance/"
+          },
+          {
+            "label": "Managed TLS & Certificate Care",
+            "href": "/services/certificate-care/"
           },
           {
             "label": "Remote IT support",

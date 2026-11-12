@@ -8,6 +8,7 @@ const base = { name: "Test Person", email: "person@example.invalid", consent: "y
 const cases = [
   ["contact", { topic: "general", message: "A general question for the team." }, "GENERAL_TO"],
   ["quote", { service: "web", description: "A business website with five pages.", timeline: "Flexible" }, "PROJECT_TO"],
+  ["quote-certificates", { form: "quote", service: "certificates", currentWebsite: "https://example.com", businessCategory: "Consulting", hostingProvider: "Cloudflare", description: "Need TLS certificate automation and monitoring across our subdomains.", timeline: "Within a month" }, "PROJECT_TO"],
   ["consultation", { type: "web", preferredDate1: "2099-01-01", timeOfDay: "Morning", format: "Video call" }, "PROJECT_TO"],
   ["web-inquiry", { websiteType: "Business", goals: "A site where people can request help.", timeline: "Flexible" }, "PROJECT_TO"],
   ["support-ticket", { category: "other", deviceType: "laptop", operatingSystem: "Windows", urgency: "normal", description: "My computer cannot connect to Wi-Fi." }, "SUPPORT_TO"],
@@ -20,7 +21,7 @@ for (const [kind, fields, destination] of cases) test(`${kind} accepts and route
   const original = globalThis.fetch;
   globalThis.fetch = async (url, options) => { calls.push({ url, options }); return Response.json({ id: "mail-123" }); };
   try {
-    const res = await worker.fetch(request({ ...base, ...fields, form: kind }), env);
+    const res = await worker.fetch(request({ ...base, ...fields, form: fields.form || kind }), env);
     assert.equal(res.status, 202);
     assert.equal((await res.json()).receipt, "mail-123");
     assert.equal(JSON.parse(calls[0].options.body).to[0], env[destination]);

@@ -1,7 +1,7 @@
 ---
 {
   "title": "Request a quote",
-  "description": "Request a quote from Jemawe for a website, custom software, restaurant digital menu, website maintenance, IT support, or computer repair.",
+  "description": "Request a quote from Jemawe for a website, custom software, restaurant digital menu, website maintenance, TLS and certificate care, IT support, or computer repair.",
   "section": "contact",
   "breadcrumb": "Request a quote",
   "heading": "Request a quote",
@@ -22,6 +22,7 @@
             <label class="choice"><input type="radio" name="service" value="software"><span class="choice__box"><span class="choice__title">Custom software</span><span class="choice__desc">Web app, dashboard, or portal</span></span></label>
             <label class="choice"><input type="radio" name="service" value="restaurant"><span class="choice__box"><span class="choice__title">Restaurant website or menu</span><span class="choice__desc">Digital menu with QR access</span></span></label>
             <label class="choice"><input type="radio" name="service" value="maintenance"><span class="choice__box"><span class="choice__title">Website maintenance</span><span class="choice__desc">Updates and changes to an existing site</span></span></label>
+            <label class="choice"><input type="radio" name="service" value="certificates"><span class="choice__box"><span class="choice__title">TLS &amp; certificate care</span><span class="choice__desc">Setup, renewal automation, and monitoring</span></span></label>
             <label class="choice"><input type="radio" name="service" value="it"><span class="choice__box"><span class="choice__title">IT support</span><span class="choice__desc">One-time help or a support plan</span></span></label>
             <label class="choice"><input type="radio" name="service" value="repair"><span class="choice__box"><span class="choice__title">Repair or upgrade</span><span class="choice__desc">Laptop or desktop hardware</span></span></label>
           </div>
@@ -32,7 +33,7 @@
       <fieldset class="form-step" data-step-title="Details">
         <legend>Tell us about the project</legend>
 
-        <div class="form-row form-row--2" data-show-when="service=web|restaurant|maintenance">
+        <div class="form-row form-row--2" data-show-when="service=web|restaurant|maintenance|certificates">
           <div class="field">
             <label for="q-site">Current website <span class="field__optional">(optional)</span></label>
             <input id="q-site" name="currentWebsite" type="url" inputmode="url" placeholder="https://" data-error="Enter the full address, starting with https://">
@@ -41,6 +42,11 @@
             <label for="q-category">Business category <span class="field__optional">(optional)</span></label>
             <input id="q-category" name="businessCategory" type="text" placeholder="For example: café, tutoring, accounting">
           </div>
+        </div>
+
+        <div class="field" data-show-when="service=certificates">
+          <label for="q-hosting">Hosting or DNS provider <span class="field__optional">(optional)</span></label>
+          <input id="q-hosting" name="hostingProvider" type="text" placeholder="For example: Cloudflare, AWS, GoDaddy, Namecheap">
         </div>
 
         <div class="field" data-show-when="service=web|restaurant">
@@ -133,7 +139,6 @@
       </fieldset>
     </form>
     <aside class="form-shell__aside">
-      {{> forms-not-connected}}
       <div class="aside-box mt-4">
         <p class="aside-box__title">Prefer to talk first?</p>
         <p>Book a consultation to discuss your needs before requesting a quote.</p>
