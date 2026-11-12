@@ -1,0 +1,59 @@
+---
+{
+  "title": "AstraFocus productivity workspace",
+  "description": "Explore AstraFocus, a live productivity workspace for tasks, priorities, calendars, projects, and focus sessions, with a sample task shown in screenshots.",
+  "section": "work",
+  "type": "project",
+  "breadcrumb": "AstraFocus",
+  "heading": "AstraFocus: plan work and protect focus time",
+  "lead": "A personal productivity workspace that connects task capture, priorities, scheduling, and focused work in one browser interface.",
+  "category": "web-app",
+  "projectLabel": "Productivity workspace",
+  "projectKind": "Public application · local workspace",
+  "status": "Live on GitHub Pages",
+  "featured": true,
+  "liveUrl": "https://eskinder185.github.io/AstraFocusNexus/",
+  "image": "astrafocus",
+  "imageAlt": "AstraFocus overview showing a fictional sample task, next action, and focus controls.",
+  "summary": "Move from captured tasks to priorities, calendar plans, and focus sessions in a browser workspace.",
+  "challenge": "Give a person a clear next action without scattering tasks, priorities, and focus tools across separate screens.",
+  "stack": ["React", "TypeScript", "Vite"],
+  "order": 5
+}
+---
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>What it is</h2>
+      <p>AstraFocus is a browser-based workspace for planning tasks and protecting focus time. The live interface includes an overview, task list, calendar, projects, focus studio, priority matrix, goals, and analytics.</p>
+      <h2>The problem it addresses</h2>
+      <p>A long task list can make it hard to choose what matters next. The overview offers a next best action, a suggested time slot, and a direct way to start a focus session.</p>
+      <h2>Visible product work</h2>
+      <ul>
+        <li>Task capture with priority and due-date options.</li>
+        <li>A next-action card with focus, detail, and scheduling controls.</li>
+        <li>Navigation between tasks, calendar, projects, matrix, goals, and focus tools, adapted for desktop and mobile.</li>
+      </ul>
+      <h2>Implementation choices</h2>
+      <p>The public package identifies React, TypeScript, and Vite. The interface says the workspace is saved on the device, so the screenshots were made in fresh browser sessions with the fictional task “Review sample project plan.” No personal workspace data was opened or changed.</p>
+      <p>The visible next-action suggestion shows how the workspace connects planning with doing. It does not establish any measured productivity outcome.</p>
+    </div>
+    <aside class="span-4">
+      <dl class="facts">
+        <div><dt>For</dt><dd>Individuals organizing personal work and focus time</dd></div>
+        <div><dt>Status</dt><dd>Public application on GitHub Pages</dd></div>
+        <div><dt>Verified stack</dt><dd>React, TypeScript, Vite</dd></div>
+        <div><dt>Screenshot data</dt><dd>Fictional sample task in an isolated browser session</dd></div>
+        <div><dt>Live site</dt><dd><a href="https://eskinder185.github.io/AstraFocusNexus/" rel="noopener noreferrer">Open AstraFocus</a></dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+{{> project-gallery name="AstraFocus" image="astrafocus" sourceUrl="https://eskinder185.github.io/AstraFocusNexus/" mobileHeight="1000" desktopAlt="AstraFocus desktop overview with a fictional sample task, next-action card, and navigation to focus and planning tools." mobileAlt="AstraFocus mobile overview with a fictional sample task and focus controls."}}
+
+<section class="section"><div class="container container--narrow prose"><h2>What this project demonstrates</h2><p>A task tool becomes more useful when a person can move from “what needs doing” to “when and how will I work on it.” AstraFocus puts capture, prioritization, scheduling, and a focus action close together while retaining a clear mobile navigation path.</p><p><a class="btn btn--primary" href="https://eskinder185.github.io/AstraFocusNexus/" rel="noopener noreferrer">Visit the live AstraFocus site</a></p></div></section>
+
+<section class="section section--soft" aria-labelledby="related"><div class="container"><h2 id="related" class="section-title">More work</h2><div class="grid grid--2">{{@list type="project" featured="true" exclude="self" limit="2" template="project-card"}}</div></div></section>
+
+{{> cta-band heading="Planning a useful internal tool?" text="Share the workflow and people it should support. We can help scope the first release." primary="Discuss a software project" primaryHref="/quote/?service=software" secondary="Custom software" secondaryHref="/services/software-development/"}}

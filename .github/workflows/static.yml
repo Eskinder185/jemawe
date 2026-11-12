@@ -1,55 +1,31 @@
-name: Deploy Jemawe to GitHub Pages
+name: Validate Jemawe pull requests
 
 on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
   pull_request:
-    branches: ["main"]
+    branches: [main]
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  build:
+  checks:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version-file: .nvmrc
           cache: npm
       - name: Install dependencies
         run: npm ci
       - name: Typecheck
         run: npm run typecheck
-      - name: Build fresh static site
-        run: npm run build
-      - name: Prepare project Pages routes
-        run: node scripts/prepare-pages.mjs
-      - name: Upload generated site only
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./dist"
-
-  deploy:
-    if: github.event_name != 'pull_request'
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Test enquiry handling
+        run: node --test tests/enquiries.test.mjs
+      - name: Build GitHub Pages preview
+        run: npm run build:pages
+        env:
+          BASE_PATH: /jemawe

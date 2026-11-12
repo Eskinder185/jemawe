@@ -68,11 +68,20 @@ async def run(args):
                              h1: document.querySelector('h1').textContent.trim(), links: document.querySelectorAll('[data-eco-target]').length,
                              sectionsAfterHero: document.querySelectorAll('main > section').length }} }})()""")
                 stats = await p.evaluate(f"{ROOT}.ecoDebug && {ROOT}.ecoDebug.stats()")
-                await p.screenshot(path=str(out / "screenshots" / f"home-3d_{w}.png"))
+                runtime_errors = errs[:]
+                runtime_failures = failed[:]
+                # SwiftShader can log its own ReadPixels stall while rendering WebGL in
+                # software. Keep it visible in the report, but do not count it as a site error.
+                software_warnings = [e for e in runtime_errors if "GL Driver Message" in e and "GPU stall due to ReadPixels" in e]
+                site_errors = [e for e in runtime_errors if e not in software_warnings]
                 ok = (resp.status == 200 and st == "ready" and geo["cssW"] == geo["stageW"] and geo["cssH"] == geo["stageH"]
-                      and abs(geo["bufW"] - round(geo["stageW"] * stats["dpr"])) <= 1 and not geo["overflow"] and not errs and not failed
+                      and abs(geo["bufW"] - round(geo["stageW"] * stats["dpr"])) <= 1 and not geo["overflow"] and not site_errors and not runtime_failures
                       and geo["links"] == 3 and geo["sectionsAfterHero"] >= 8)
-                rows.append({"width": w, "pass": ok, "state": st, **geo, "stats": stats, "consoleIssues": errs[:3], "failedRequests": failed[:3]})
+                await p.screenshot(path=str(out / "screenshots" / f"home-3d_{w}.png"))
+                rows.append({"width": w, "pass": ok, "state": st, **geo, "stats": stats,
+                             "consoleIssues": site_errors[:3], "softwareDriverWarnings": software_warnings[:3],
+                             "failedRequests": runtime_failures[:3],
+                             "captureWarnings": errs[len(runtime_errors):][:3]})
                 await ctx.close()
             return {"pass": all(r["pass"] for r in rows), "rows": rows}
         await check("initAndLayoutAllWidths", widths())

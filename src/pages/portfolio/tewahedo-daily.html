@@ -8,9 +8,13 @@
   "heading": "Tewahedo Daily: a daily companion for prayer, chant, and the Church calendar",
   "lead": "A progressive web app for Ethiopian Orthodox prayer, Mezmur chant practice, and the Church calendar, backed by a role-based editorial system.",
   "category": "web-app",
+  "projectLabel": "Faith and content platform",
+  "projectKind": "Public application",
+  "featured": true,
+  "liveUrl": "https://tewahedodaily.pages.dev/",
   "status": "Published on Cloudflare Pages",
   "image": "tewahedo-daily",
-  "imageAlt": "Tewahedo Daily home page with Bible, Hymns, Prayer, and Calendar shortcuts around today's date.",
+  "imageAlt": "Tewahedo Daily home page with the loaded calendar card, observance artwork, and Scripture and prayer shortcuts.",
   "summary": "Prayer, chant practice, and Church calendar app with multilingual search and a role-based editorial CMS.",
   "challenge": "Bring prayer, chant practice, and the Church calendar into one reliable daily app, with content managed by trusted editors.",
   "stack": ["React", "TypeScript", "Supabase", "Cloudflare Pages", "FastAPI"],
@@ -30,13 +34,13 @@
         <li>Support practice, with chant pages, persistent audio, and favorites for signed-in users.</li>
         <li>Give administrators a safe way to publish saints, feasts, prayers, and articles.</li>
       </ul>
-      <h2>The solution</h2>
-      <p>A Vite-built progressive web app hosted on Cloudflare Pages, with Pages Functions for server-side tasks. Supabase provides authentication, Postgres storage, and row level security, so the public can only read published content while all writes go through trusted server or command-line environments. A separate FastAPI service powers search assistance, and the app still works from bundled JSON data during local development.</p>
+      <h2>What is public and what the source documents</h2>
+      <p>The live Cloudflare Pages home screen shows the daily calendar, loaded observance artwork, and paths into Scripture, prayer, Mezmur, and the Church calendar. The project's public repository documents a React and TypeScript front end built with Vite, Cloudflare Pages Functions, Supabase-backed content and authentication, and a separate FastAPI service. Its README distinguishes local work from deployed features, so the broader editorial and search work below is presented as documented product work rather than verified live capability.</p>
     </div>
     <aside class="span-4">
       <dl class="facts">
         <div><dt>Audience</dt><dd>Ethiopian Orthodox faithful and learners</dd></div>
-        <div><dt>Type of work</dt><dd>Progressive web application and editorial CMS</dd></div>
+        <div><dt>Type of work</dt><dd>Public faith and content application</dd></div>
         <div><dt>Status</dt><dd>Published on Cloudflare Pages</dd></div>
         <div><dt>Stack</dt><dd>React, TypeScript, Vite, Supabase (Auth, Postgres, RLS), Cloudflare Pages Functions, FastAPI</dd></div>
         <div><dt>Languages</dt><dd>English and Amharic interface options</dd></div>
@@ -46,28 +50,12 @@
   </div>
 </section>
 
-<section class="section section--soft" aria-labelledby="td-gallery">
-  <div class="container">
-    <h2 id="td-gallery" class="section-title">Screens</h2>
-    <div class="gallery">
-      <figure>
-        <div class="browser"><div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
-          <img src="/assets/img/portfolio/tewahedo-daily-desktop-1440.webp" srcset="/assets/img/portfolio/tewahedo-daily-desktop-720.webp 720w, /assets/img/portfolio/tewahedo-daily-desktop-1440.webp 1440w" sizes="(min-width: 768px) 70vw, 100vw" width="1440" height="900" alt="Tewahedo Daily home page on desktop over a photo of a rock-hewn church, with daily shortcuts around a calendar card." loading="lazy" decoding="async">
-        </div>
-        <figcaption>Home page at 1440px, captured offline from the project build, so the day's observances show their loading state.</figcaption>
-      </figure>
-      <figure>
-        <div class="phone-shot"><img src="/assets/img/portfolio/tewahedo-daily-mobile-390.webp" width="390" height="844" alt="Tewahedo Daily home page on a phone." loading="lazy" decoding="async"></div>
-        <figcaption>Home page at 390px.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
+{{> project-gallery name="Tewahedo Daily" image="tewahedo-daily" sourceUrl="https://tewahedodaily.pages.dev/" mobileHeight="1000" desktopAlt="Tewahedo Daily desktop home page with a loaded Lalibela background, calendar card, and observance artwork." mobileAlt="Tewahedo Daily mobile home page with the loaded calendar card, observance artwork, and faith shortcuts."}}
 
 <section class="section">
   <div class="container grid-12">
     <div class="span-8 prose">
-      <h2>Features delivered</h2>
+      <h2>Documented product work</h2>
       <ul>
         <li>Daily home page with Ethiopian and Gregorian dates and previous, today, and next day navigation.</li>
         <li>Libraries for saints, feasts, prayers, and teachings, with published detail pages.</li>
@@ -91,7 +79,7 @@
 <section class="section section--soft" aria-labelledby="related">
   <div class="container">
     <h2 id="related" class="section-title">More projects</h2>
-    <div class="grid grid--2">{{@list type="project" exclude="self" template="project-card"}}</div>
+    <div class="grid grid--2">{{@list type="project" featured="true" exclude="self" limit="2" template="project-card"}}</div>
   </div>
 </section>
 

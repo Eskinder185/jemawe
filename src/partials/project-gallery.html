@@ -1,0 +1,29 @@
+<section class="section section--soft" aria-label="Screenshots of {{name}}">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <h2>Screens from the live site</h2>
+      <p>Captured November 11, 2026. Open either image to inspect the complete screenshot.</p>
+    </div>
+    <div class="gallery">
+      <figure>
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <a class="shot-link" data-screenshot href="/assets/img/portfolio/{{image}}-desktop-1440.webp" aria-label="View full-size desktop screenshot of {{name}}">
+            <img src="/assets/img/portfolio/{{image}}-desktop-720.webp" srcset="/assets/img/portfolio/{{image}}-desktop-720.webp 720w, /assets/img/portfolio/{{image}}-desktop-1440.webp 1440w" sizes="(min-width: 768px) 70vw, 100vw" width="1440" height="900" alt="{{desktopAlt}}" loading="lazy" decoding="async">
+            <span class="shot-link__label">View full-size image</span>
+          </a>
+        </div>
+        <figcaption>Desktop · 1440 × 900 · <a href="{{sourceUrl}}" rel="noopener noreferrer">Visit the live site</a></figcaption>
+      </figure>
+      <figure>
+        <div class="phone-shot">
+          <a class="shot-link" data-screenshot href="/assets/img/portfolio/{{image}}-mobile-390.webp" aria-label="View full-size mobile screenshot of {{name}}">
+            <img src="/assets/img/portfolio/{{image}}-mobile-390.webp" width="390" height="{{mobileHeight}}" alt="{{mobileAlt}}" loading="lazy" decoding="async">
+            <span class="shot-link__label">View full-size image</span>
+          </a>
+        </div>
+        <figcaption>Mobile · 390 × {{mobileHeight}}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

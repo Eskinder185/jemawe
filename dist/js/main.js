@@ -4,6 +4,7 @@ import { initReveal, initBackToTop, initYear, initTabs, initPrintAndShare } from
 import { initFilters, initFaqSearch } from "./filters.js";
 import { initForms } from "./forms.js";
 import { initEcosystem } from "./eco-loader.js";
+import { initScreenshotViewer } from "./screenshots.js";
 function start() {
     initNav();
     initReveal();
@@ -15,6 +16,7 @@ function start() {
     initFaqSearch();
     initForms();
     initEcosystem();
+    initScreenshotViewer();
 }
 if (document.readyState === "loading")
     document.addEventListener("DOMContentLoaded", start);

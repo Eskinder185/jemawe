@@ -13,12 +13,16 @@ npm run build        # HTML/CSS into dist/, TypeScript into dist/js, and the 3D 
 npm run serve        # http://127.0.0.1:5500/
 ```
 
+If PowerShell blocks `npm.ps1`, use `npm.cmd` in the commands above (for example, `npm.cmd run build`). `npm run serve` uses port 5500 by default; set `$env:PORT="5600"` to choose another port.
+
 While editing:
 
 ```powershell
-npm run dev          # serves dist/ and rebuilds HTML/CSS when src/ or assets/ change
+npm run dev          # builds a root preview, serves it, and rebuilds HTML/CSS on changes
 npx tsc --watch      # in a second terminal, recompiles TypeScript on save
 ```
+
+If port 5500 is busy, `npm run dev` uses the next available port and prints its URL. It leaves the existing server running. An explicitly set `PORT` is honored instead of automatically changed.
 
 **VS Code Live Server** also works: `.vscode/settings.json` points Live Server at `dist/`, so opening the folder and choosing "Go Live" serves the built site on port 5500. Run `npm run build` first.
 
@@ -96,25 +100,29 @@ Forms validate in the browser but **are not connected to any service yet**. On a
 ## Testing
 
 ```powershell
+npm.cmd run typecheck
+npm.cmd test                        # enquiry unit tests
 pip install playwright
 python -m playwright install chromium
-npm run serve                      # terminal 1
+npm.cmd run serve                  # terminal 1
 python tests/qa_site.py --axe path\to\axe.min.js   # terminal 2 (axe-core from npm: npm pack axe-core)
 ```
 
 For the 3D hero: `python tests/qa_eco.py --axe path\to\axe.min.js`.
 
-The latest results are in `docs/testing-report.md`.
+The latest site and hero results are in `docs/review.md`.
 
 ## Deployment (GitHub Pages)
 
-`.github/workflows/deploy.yml` builds and publishes `dist/` to https://eskinder185.github.io/jemawe/ on every push to `main`. One-time settings and details are in `docs/deployment-checklist.md`.
+`.github/workflows/deploy.yml` is the only Pages deployment workflow; it builds and publishes `dist/` to https://eskinder185.github.io/jemawe/ on every push to `main`. `.github/workflows/static.yml` checks pull requests without deploying. One-time settings and details are in `docs/deployment-checklist.md`.
 
 ```powershell
 npm run build:pages     # production build for the root (no source maps) + dist safety check
 npm run preview:pages   # build for /jemawe/ and serve it at http://127.0.0.1:5500/jemawe/
 npm run check:dist      # re-run the dist safety check
 ```
+
+`build:pages` bundles the 3D hero before cleaning `dist/`, so a hero bundling failure leaves the previous artifact intact. The older `node scripts/prepare-pages.mjs` command now calls the same production builder; it defaults to `/jemawe/` and honors `BASE_PATH` when set.
 
 Test the Pages build: run `npm run preview:pages`, then in a second terminal `$env:BASE_URL="http://127.0.0.1:5500/jemawe"; python tests/qa_site.py`.
 

@@ -5,16 +5,17 @@
   "description": "Jemawe public website: static HTML/CSS/TypeScript built with a zero-dependency generator.",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs && tsc && node scripts/build-3d.mjs",
+    "build": "node scripts/build-3d.mjs && node scripts/build.mjs && tsc",
     "build:html": "node scripts/build.mjs",
     "build:ts": "tsc",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.hero.json",
+    "test": "node --test tests/enquiries.test.mjs",
     "serve": "node scripts/serve.mjs",
-    "dev": "node scripts/serve.mjs --watch",
+    "dev": "node scripts/build.mjs --base= && tsc && node scripts/serve.mjs --watch --base=",
     "build:3d": "node scripts/build-3d.mjs",
-    "build:pages": "node scripts/build.mjs --clean && tsc --sourceMap false && node scripts/build-3d.mjs && node scripts/check-dist.mjs",
+    "build:pages": "node scripts/build-production.mjs",
     "check:dist": "node scripts/check-dist.mjs",
-    "preview:pages": "node scripts/build.mjs --clean --base=/jemawe && tsc --sourceMap false && node scripts/build-3d.mjs && node scripts/check-dist.mjs --base=/jemawe && node scripts/serve.mjs --base=/jemawe"
+    "preview:pages": "node scripts/build-production.mjs --base=/jemawe && node scripts/serve.mjs --base=/jemawe"
   },
   "devDependencies": {
     "@types/three": "^0.186.0",

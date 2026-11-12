@@ -35,8 +35,8 @@
   .span-6 { grid-column: span 6 !important; }
   .span-7 { grid-column: span 7 !important; }
   .span-8 { grid-column: span 8 !important; }
-  .start-8 { grid-column-start: 8 !important; }
-  .start-7 { grid-column-start: 7 !important; }
+  .span-5.start-8 { grid-column: 8 / span 5 !important; }
+  .span-6.start-7 { grid-column: 7 / span 6 !important; }
 }
 
 /* Simple auto grids */

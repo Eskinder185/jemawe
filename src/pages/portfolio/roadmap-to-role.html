@@ -8,13 +8,17 @@
   "heading": "Roadmap to Role: professional development for new graduates",
   "lead": "A browser-based career workspace that takes students and career changers from choosing a direction to applying with confidence.",
   "category": "web-app",
+  "projectLabel": "Career workspace",
+  "projectKind": "Published on GitHub Pages",
+  "featured": true,
   "status": "Published on GitHub Pages",
+  "liveUrl": "https://eskinder185.github.io/professionaldev/dashboard",
   "image": "roadmap-to-role",
-  "imageAlt": "Roadmap to Role home page with the headline Pick a direction. Build real proof. Get hired.",
+  "imageAlt": "CareerOS (Roadmap to Role) dashboard on desktop with the headline Your career, moving forward and navigation for Matches, Jobs, AutoApply, Tracker, and Documents.",
   "summary": "Career-development workspace with self-assessments, résumé preparation, interview practice, and application tracking.",
   "challenge": "Turn scattered career advice into a step-by-step workspace that produces evidence employers can see.",
   "stack": ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "PostgreSQL"],
-  "order": 2
+  "order": 1
 }
 ---
 <section class="section">
@@ -40,7 +44,7 @@
         <div><dt>Status</dt><dd>Published on GitHub Pages; API runs locally</dd></div>
         <div><dt>Stack</dt><dd>React 18, TypeScript, Vite, React Router, Tailwind CSS, Spring Boot, PostgreSQL, Flyway</dd></div>
         <div><dt>Testing</dt><dd>Vitest, Playwright, ESLint, GitHub Actions</dd></div>
-        <div><dt>Live app</dt><dd><a href="https://eskinder185.github.io/professionaldev/" rel="noopener">eskinder185.github.io/professionaldev</a></dd></div>
+        <div><dt>Live app</dt><dd><a href="https://eskinder185.github.io/professionaldev/dashboard" rel="noopener noreferrer">eskinder185.github.io/professionaldev/dashboard</a></dd></div>
       </dl>
     </aside>
   </div>
@@ -90,7 +94,7 @@
 <section class="section section--soft" aria-labelledby="related">
   <div class="container">
     <h2 id="related" class="section-title">More projects</h2>
-    <div class="grid grid--2">{{@list type="project" exclude="self" template="project-card"}}</div>
+    <div class="grid grid--2">{{@list type="project" featured="true" exclude="self" limit="2" template="project-card"}}</div>
   </div>
 </section>
 

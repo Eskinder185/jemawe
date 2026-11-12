@@ -18,6 +18,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
 const PORT = Number(process.env.PORT || 5500);
 const HOST = process.env.HOST || "127.0.0.1";
+const WATCH = process.argv.includes("--watch");
+const AUTO_PORT = WATCH && !process.env.PORT;
+let activePort = PORT;
 const BASE = (() => {
   const flag = process.argv.find((a) => a.startsWith("--base="))?.slice(7);
   const v = String(flag ?? process.env.BASE_PATH ?? "").replace(/^\/+|\/+$/g, "");
@@ -86,16 +89,45 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(file).pipe(res);
 });
 
-server.listen(PORT, HOST, () => console.log(`Jemawe dev server: http://${HOST}:${PORT}${BASE}/`));
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE" && AUTO_PORT && activePort < PORT + 20) {
+    activePort++;
+    server.listen(activePort, HOST);
+    return;
+  }
+  if (error.code === "EADDRINUSE") {
+    console.error(`Port ${activePort} is already in use. Stop the other server or set $env:PORT="5600" before starting Jemawe.`);
+  } else {
+    console.error(`Jemawe dev server failed: ${error.message}`);
+  }
+  process.exit(1);
+});
+server.on("listening", () => {
+  console.log(`Jemawe dev server: http://${HOST}:${activePort}${BASE}/`);
+  if (WATCH) startWatch();
+});
+server.listen(activePort, HOST);
 
-if (process.argv.includes("--watch")) {
+function startWatch() {
   let timer = null;
+  let building = false;
+  let pending = false;
+  const runBuild = () => {
+    if (building) { pending = true; return; }
+    building = true;
+    const p = spawn(process.execPath, [path.join(ROOT, "scripts", "build.mjs"), `--base=${BASE}`], { stdio: "inherit" });
+    const finish = (code) => {
+      if (!building) return;
+      building = false;
+      console.log(code === 0 ? "Rebuilt." : "Build failed — see above.");
+      if (pending) { pending = false; runBuild(); }
+    };
+    p.once("error", (error) => { console.error(`Rebuild could not start: ${error.message}`); finish(1); });
+    p.once("exit", finish);
+  };
   const rebuild = () => {
     clearTimeout(timer);
-    timer = setTimeout(() => {
-      const p = spawn(process.execPath, [path.join(ROOT, "scripts", "build.mjs")], { stdio: "inherit" });
-      p.on("exit", (code) => console.log(code === 0 ? "Rebuilt." : "Build failed — see above."));
-    }, 150);
+    timer = setTimeout(runBuild, 150);
   };
   for (const dir of ["src", "assets"]) {
     fs.watch(path.join(ROOT, dir), { recursive: true }, (_, file) => {

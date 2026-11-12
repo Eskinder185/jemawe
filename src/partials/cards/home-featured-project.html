@@ -1,0 +1,12 @@
+<article class="showcase-feature">
+  <a class="showcase-feature__media shot-link" data-screenshot href="/assets/img/portfolio/{{item.image}}-desktop-1440.webp" aria-label="View full-size screenshot of {{item.breadcrumb}}">
+    <img src="/assets/img/portfolio/{{item.image}}-desktop-720.webp" srcset="/assets/img/portfolio/{{item.image}}-desktop-720.webp 720w, /assets/img/portfolio/{{item.image}}-desktop-1440.webp 1440w" sizes="(min-width: 1024px) 55vw, 100vw" width="720" height="450" alt="{{item.imageAlt}}" loading="lazy" decoding="async">
+    <span class="shot-link__label">View screenshot</span>
+  </a>
+  <div class="showcase-feature__body">
+    <span class="section-kicker">Featured work · {{item.projectLabel}}</span>
+    <h3>{{item.breadcrumb}}</h3>
+    <strong>Mission</strong>
+    <p>{{item.summary}}</p>
+  </div>
+</article>

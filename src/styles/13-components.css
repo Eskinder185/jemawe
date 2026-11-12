@@ -104,7 +104,7 @@
 }
 .browser__bar { display: flex; align-items: center; gap: 6px; height: 30px; padding-inline: 12px; background: var(--gray-50); border-bottom: 1px solid var(--border); }
 .browser__bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--gray-300); }
-.browser img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.browser img { width: 100%; height: auto; object-fit: contain; }
 
 /* Featured work on the home page */
 .work-feature { display: grid; gap: var(--s-4); align-items: center; padding-block: var(--s-4); }

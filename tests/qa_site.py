@@ -177,14 +177,14 @@ async def interactions(browser, results):
         await p.keyboard.press("Escape")
         closed = await trig.get_attribute("aria-expanded") == "false"
         focus_back = await p.evaluate("document.activeElement.getAttribute('aria-controls')") == "panel-services"
-        await p.hover("[aria-controls=panel-industries]")
+        await p.hover("[aria-controls=panel-resources]")
         try:
-            await p.wait_for_function("document.querySelector('[aria-controls=panel-industries]').getAttribute('aria-expanded') === 'true'", timeout=2000)
+            await p.wait_for_function("document.querySelector('[aria-controls=panel-resources]').getAttribute('aria-expanded') === 'true'", timeout=2000)
         except Exception:
             pass
-        hover_open = await p.locator("#panel-industries").is_visible()
+        hover_open = await p.locator("#panel-resources").is_visible()
         await p.mouse.click(700, 800); await p.wait_for_timeout(100)
-        outside_close = not await p.locator("#panel-industries").is_visible()
+        outside_close = not await p.locator("#panel-resources").is_visible()
         await ctx.close()
         ok = all([opened, in_panel, closed, focus_back, hover_open, outside_close])
         return {"pass": ok, "enterOpens": opened, "arrowDownIntoPanel": in_panel, "escapeCloses": closed, "focusReturns": focus_back, "hoverOpens": hover_open, "outsideClickCloses": outside_close}
@@ -316,6 +316,31 @@ async def interactions(browser, results):
         await ctx.close()
         return {"pass": vis == 1 and pressed == "true" and pre == "true", "websitesShown": vis, "ariaPressed": pressed, "hashPreselects": pre == "true"}
     await check("filters", filters())
+
+    # Screenshot links are independent of case-study and live-site links.
+    async def screenshot_viewer():
+        ctx = await browser.new_context(viewport={"width": 390, "height": 844})
+        p = await ctx.new_page()
+        await p.goto(BASE + "/portfolio/")
+        cards = p.locator("#project-list .project-card")
+        count = await cards.count()
+        link = cards.nth(1).locator("a[data-screenshot]")
+        href = await link.get_attribute("href")
+        independent = await cards.nth(1).locator("a[href$='/portfolio/coderush/']").count() >= 2 and await cards.nth(1).locator("a[href^='https://eskinder185.github.io/CodeRush/']").count() == 1
+        await link.focus()
+        await p.keyboard.press("Enter")
+        dialog = p.locator("dialog.screenshot-dialog")
+        opened = await dialog.evaluate("el => el.open")
+        await p.wait_for_function("document.querySelector('dialog.screenshot-dialog img').naturalWidth > 0")
+        image_loaded = True
+        close_focused = await p.evaluate("document.activeElement.textContent.trim() === 'Close image'")
+        await p.keyboard.press("Escape")
+        closed = not await dialog.evaluate("el => el.open")
+        focus_restored = await link.evaluate("el => document.activeElement === el")
+        await ctx.close()
+        return {"pass": all([count == 6, href and href.endswith('.webp'), independent, opened, image_loaded, close_focused, closed, focus_restored]),
+                "featuredCards": count, "directImageHref": href, "independentLinks": independent, "opens": opened, "imageLoads": image_loaded, "closeFocused": close_focused, "escapeCloses": closed, "focusRestored": focus_restored}
+    await check("screenshotViewer", screenshot_viewer())
 
     # --- menu demo tabs ---
     async def tabs():

@@ -157,6 +157,7 @@ function icon(name, cls = "icon") {
 
 function listItems(attrs, page) {
   let items = pages.filter((p) => p.type === attrs.type && !p.draft);
+  if (attrs.featured === "true") items = items.filter((p) => p.featured === true);
   if (attrs.category) items = items.filter((p) => p.category === attrs.category);
   if (attrs.tag) items = items.filter((p) => (p.tags || []).includes(attrs.tag));
   if (attrs.exclude === "self") items = items.filter((p) => p.route !== page.route);
@@ -166,6 +167,7 @@ function listItems(attrs, page) {
   } else {
     items.sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || String(b.date || "").localeCompare(String(a.date || "")));
   }
+  if (attrs.skip) items = items.slice(Number(attrs.skip));
   if (attrs.limit) items = items.slice(0, Number(attrs.limit));
   return items;
 }

@@ -1,0 +1,64 @@
+---
+{
+  "title": "CodeRush technical learning case study",
+  "description": "Explore CodeRush, a public technical learning application with a live typing demo, programming practice, command labs, and progress tools.",
+  "section": "work",
+  "type": "project",
+  "breadcrumb": "CodeRush",
+  "heading": "CodeRush: learn technical skills by doing",
+  "lead": "A hands-on learning application that pairs technical lessons with typing practice, command exercises, and immediate feedback.",
+  "category": "web-app",
+  "projectLabel": "Technical learning application",
+  "projectKind": "Public application",
+  "status": "Live on GitHub Pages",
+  "featured": true,
+  "liveUrl": "https://eskinder185.github.io/CodeRush/",
+  "image": "coderush",
+  "imageAlt": "CodeRush home page showing a Python typing demo beside the technical learning introduction.",
+  "summary": "Learn programming, command lines, networking, and security through lessons and live typing practice.",
+  "challenge": "Turn technical study into active practice with feedback instead of passive reading.",
+  "stack": ["React", "TypeScript", "Vite", "Tailwind CSS"],
+  "order": 2
+}
+---
+<section class="section">
+  <div class="container grid-12">
+    <div class="span-8 prose">
+      <h2>What it is</h2>
+      <p>CodeRush is a browser-based learning workspace for people practicing programming syntax, technical typing, Linux, PowerShell, networking, and defensive cybersecurity. Its public home page lets a visitor start a small Python typing exercise immediately.</p>
+      <h2>The problem it addresses</h2>
+      <p>Reading commands and understanding how to type and use them are different skills. CodeRush combines explanations, recall, and hands-on exercises so learners can practice the actual keystrokes and workflows.</p>
+      <h2>Visible product work</h2>
+      <ul>
+        <li>A live code typing demo with line numbers, a cursor, accuracy and speed feedback, reset, and links to full practice.</li>
+        <li>Separate learning paths and navigation for lessons, skills lab, typing practice, command lab, and challenges.</li>
+        <li>A responsive interface that keeps the practice control usable on a phone.</li>
+      </ul>
+      <h2>Implementation choices</h2>
+      <p>The public package identifies React, TypeScript, Vite, and Tailwind CSS. The home page exposes a short exercise before a learner chooses a path, giving visitors a concrete sense of the interaction. Local practice does not require an account.</p>
+      <p>These screenshots show the live application with the Python demo started. They do not claim learner outcomes or usage numbers.</p>
+    </div>
+    <aside class="span-4">
+      <dl class="facts">
+        <div><dt>For</dt><dd>People learning technical commands and typing</dd></div>
+        <div><dt>Status</dt><dd>Public application on GitHub Pages</dd></div>
+        <div><dt>Verified stack</dt><dd>React, TypeScript, Vite, Tailwind CSS</dd></div>
+        <div><dt>Live site</dt><dd><a href="https://eskinder185.github.io/CodeRush/" rel="noopener noreferrer">Open CodeRush</a></dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+{{> project-gallery name="CodeRush" image="coderush" sourceUrl="https://eskinder185.github.io/CodeRush/" mobileHeight="1400" desktopAlt="CodeRush desktop home page with technical learning headline and an active Python typing demo." mobileAlt="CodeRush mobile home page with headline, learning options, and an active typing exercise."}}
+
+<section class="section">
+  <div class="container container--narrow prose">
+    <h2>What this project demonstrates</h2>
+    <p>Educational software works best when the first useful action is close to the explanation. Here, visitors can understand the learning paths and try the core typing interaction on the same screen. The technical subject matter stays approachable through plain language and visible feedback.</p>
+    <p><a class="btn btn--primary" href="https://eskinder185.github.io/CodeRush/" rel="noopener noreferrer">Visit the live CodeRush site</a></p>
+  </div>
+</section>
+
+<section class="section section--soft" aria-labelledby="related"><div class="container"><h2 id="related" class="section-title">More work</h2><div class="grid grid--2">{{@list type="project" featured="true" exclude="self" limit="2" template="project-card"}}</div></div></section>
+
+{{> cta-band heading="Building a learning tool?" text="Tell us who it should help and what they need to practice. We can scope a useful first version." primary="Discuss a software project" primaryHref="/quote/?service=software" secondary="Custom software" secondaryHref="/services/software-development/"}}

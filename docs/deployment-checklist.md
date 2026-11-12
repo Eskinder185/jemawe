@@ -1,6 +1,6 @@
 # Production deployment checklist
 
-Nothing here has been done. Every item needs the founder's approval. No deployment, domain purchase, or service connection was made during development.
+The existing GitHub Pages site is public. Use this checklist for future releases and owner-provided business details. A passing local build does not authorize deployment, domain purchases, or service connections.
 
 ## Before deploying
 - [ ] All items in `docs/content-todo.md` resolved, or the pages holding them hidden
@@ -13,9 +13,10 @@ Nothing here has been done. Every item needs the founder's approval. No deployme
 - [ ] `python tests/qa_site.py` passes on the final build
 - [ ] Manual check in Edge, Firefox, Safari (macOS and iOS), and Chrome on Android
 
-## GitHub Pages (prepared, not yet published)
+## GitHub Pages release
 The workflow `.github/workflows/deploy.yml` builds with `npm run build:pages` and publishes only `dist/` to
 **https://eskinder185.github.io/jemawe/**. It runs on every push to `main` (and manually from the Actions tab).
+`.github/workflows/static.yml` validates pull requests with typechecking, enquiry tests, and a Pages-path build; it has no deployment job or Pages write permission.
 
 One-time repository settings (github.com/Eskinder185/jemawe → Settings):
 - [ ] **Pages** → Build and deployment → Source: **GitHub Actions**

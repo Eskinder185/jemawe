@@ -14,6 +14,7 @@ Jemawe is a technology solutions company website. Public pages only for now. Cus
 - The one exception is the home page 3D hero (`src/ts/hero3d/`): Three.js bundled by esbuild into `dist/js/hero3d.js`, lazy-loaded by `src/ts/eco-loader.ts`. Keep it progressive enhancement: the HTML service links and SVG fallback must keep working without it. See `docs/hero-3d.md`.
 - Header, mega menu, mobile menu, breadcrumbs, and footer are generated from `src/site.json`. Change navigation there, not in pages.
 - CSS tokens live in `src/styles/00-tokens.css`. Use them; do not hard-code colors or spacing.
+- The site must work at `/` and under a sub-path (GitHub Pages: `/jemawe/`). Page HTML may use `/...` URLs, because the build prefixes them with `BASE_PATH`. TypeScript must resolve URLs from `import.meta.url`, and CSS must use relative `url()`s. `npm run preview:pages` serves the sub-path build locally.
 
 ## Rules
 - Never access or modify `AstraFocusNexus` or other unrelated projects.

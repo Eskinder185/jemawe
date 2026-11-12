@@ -8,13 +8,16 @@
   "heading": "Ethiopian Community Association in Atlanta",
   "lead": "A mobile-first community website for programs, membership, events, leadership, and documents, with a content editor so non-technical volunteers can update key pages.",
   "category": "website",
+  "projectLabel": "Community website",
+  "projectKind": "Project build; engagement unconfirmed",
+  "featured": false,
   "status": "Project build; deployment unconfirmed",
   "image": "ecaa",
   "imageAlt": "ECAA website home page with the headline Welcome Home, Ethiopians in Atlanta.",
   "summary": "Mobile-first community website with programs, membership, events, and a volunteer-friendly content editor.",
   "challenge": "Give a community association a modern website that volunteers can keep current without touching code.",
   "stack": ["React 19", "Vite", "Tailwind CSS", "Decap CMS"],
-  "order": 1
+  "order": 6
 }
 ---
 <section class="section">
@@ -52,12 +55,12 @@
     <div class="gallery">
       <figure>
         <div class="browser"><div class="browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
-          <img src="/assets/img/portfolio/ecaa-desktop-1440.webp" srcset="/assets/img/portfolio/ecaa-desktop-720.webp 720w, /assets/img/portfolio/ecaa-desktop-1440.webp 1440w" sizes="(min-width: 768px) 70vw, 100vw" width="1440" height="900" alt="ECAA home page on desktop: a welcome headline over a photo of the community center, with Become a Member and See Upcoming Events buttons." loading="lazy" decoding="async">
+          <a class="shot-link" data-screenshot href="/assets/img/portfolio/ecaa-desktop-1440.webp" aria-label="View full-size ECAA desktop screenshot"><img src="/assets/img/portfolio/ecaa-desktop-720.webp" srcset="/assets/img/portfolio/ecaa-desktop-720.webp 720w, /assets/img/portfolio/ecaa-desktop-1440.webp 1440w" sizes="(min-width: 768px) 70vw, 100vw" width="1440" height="900" alt="ECAA home page on desktop: a welcome headline over a photo of the community center, with Become a Member and See Upcoming Events buttons." loading="lazy" decoding="async"><span class="shot-link__label">View full-size image</span></a>
         </div>
         <figcaption>Home page at 1440px. Screenshot captured from the project build.</figcaption>
       </figure>
       <figure>
-        <div class="phone-shot"><img src="/assets/img/portfolio/ecaa-mobile-390.webp" width="390" height="844" alt="ECAA home page on a phone with a compact header and the welcome headline." loading="lazy" decoding="async"></div>
+        <div class="phone-shot"><a class="shot-link" data-screenshot href="/assets/img/portfolio/ecaa-mobile-390.webp" aria-label="View full-size ECAA mobile screenshot"><img src="/assets/img/portfolio/ecaa-mobile-390.webp" width="390" height="844" alt="ECAA home page on a phone with a compact header and the welcome headline." loading="lazy" decoding="async"><span class="shot-link__label">View full-size image</span></a></div>
         <figcaption>Home page at 390px.</figcaption>
       </figure>
     </div>
@@ -91,7 +94,7 @@
 <section class="section section--soft" aria-labelledby="related">
   <div class="container">
     <h2 id="related" class="section-title">More projects</h2>
-    <div class="grid grid--2">{{@list type="project" exclude="self" template="project-card"}}</div>
+    <div class="grid grid--2">{{@list type="project" featured="true" exclude="self" limit="2" template="project-card"}}</div>
   </div>
 </section>
 

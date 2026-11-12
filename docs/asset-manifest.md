@@ -17,7 +17,6 @@ Status key: **Done** = file exists and is used · **Prompt only** = not created.
 | — | Home "system map" | inline SVG in `src/pages/index.html` | 600×470 | Accessible `title` and `desc`. Now the fallback for the 3D hero |
 | — | 3D "Digital Ecosystem" models and textures | `src/ts/hero3d/` | ~9–10k triangles | Fully procedural: geometry built in code, textures drawn on canvas at runtime. No model or image files to download |
 | 3–17, 20–21 | Banner illustrations (16) | `assets/illustrations/*.svg` | 560×420 | services, web, software, restaurant, maintenance, support, business, os, repair, upgrade, education, community, startup, professional, about, contact. Regenerate with `python3 scripts/make-illustrations.py` |
-| — | Portfolio screenshots | `assets/img/portfolio/{ecaa,roadmap-to-role,tewahedo-daily}-{desktop-1440,desktop-720,mobile-390}.webp` | 1440×900, 720×450, 390×844 | **Real screenshots** captured with Playwright from each project's own `dist/` build on 2026-10-29. Tewahedo Daily was captured offline, so its "today" card shows a loading state |
 
 ## Prompt only (photography)
 
@@ -52,3 +51,18 @@ Use real photos of Jemawe's own work where possible. Never present generated peo
 - Founder and team photos (real, approved), for `/leadership/` and `/team/`
 - Study EOTC screenshots and details
 - Restaurant dish photos, if a real restaurant client approves using them
+
+## Portfolio screenshots refreshed 2026-11-11
+
+These are browser captures of the named public URLs, taken in isolated Playwright contexts at device scale 1. PNG originals are retained locally in ignored `qa-results/portfolio-captures/`; run `python scripts/capture-portfolio.py` to refresh the four primary sets after inspecting the live sites. Each desktop original is 1440 x 900 and has a 720 x 450 WebP derivative. Assets are in `assets/img/portfolio/` and retain the original viewport proportions.
+
+| Project | Source URL | WebP assets | Mobile viewport | Capture notes |
+|---|---|---|---|---|
+| ECAA | Existing project build; no verified public URL | `ecaa-desktop-{1440,720}.webp`, `ecaa-mobile-390.webp` | 390 x 844 | Existing images retained. Original capture 2026-10-29. |
+| CodeRush | https://eskinder185.github.io/CodeRush/ | `coderush-desktop-{1440,720}.webp`, `coderush-mobile-390.webp` | 390 x 1400 | Public home with Python typing demo started. |
+| Tewahedo Daily | https://tewahedodaily.pages.dev/ | `tewahedo-daily-desktop-{1440,720}.webp`, `tewahedo-daily-mobile-390.webp` | 390 x 1000 | Replaced offline/loading capture after calendar, background, and observance images loaded. |
+| NetShield | https://eskinder185.github.io/NetShield/ | `netshield-desktop-{1440,720}.webp`, `netshield-mobile-390.webp` | 390 x 1400 | Public preview notice remains visible. |
+| NetShield demo | https://eskinder185.github.io/NetShield/#/demo | `netshield-demo-desktop-{1440,720}.webp` | ? | Loaded demo dashboard with its synthetic-data notice. Captured separately at 1440 x 900. |
+| AstraFocus | https://eskinder185.github.io/AstraFocusNexus/ | `astrafocus-desktop-{1440,720}.webp`, `astrafocus-mobile-390.webp` | 390 x 1000 | Fresh browser context with fictional task ?Review sample project plan? created through the application UI. No owner's saved workspace data used. |
+
+The older Roadmap to Role assets remain for its preserved URL but do not appear in the featured showcase. The full-size WebP is the link target for each portfolio screenshot, including when JavaScript is unavailable.
