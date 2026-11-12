@@ -106,6 +106,20 @@ For the 3D hero: `python tests/qa_eco.py --axe path\to\axe.min.js`.
 
 The latest results are in `docs/testing-report.md`.
 
+## Deployment (GitHub Pages)
+
+`.github/workflows/deploy.yml` builds and publishes `dist/` to https://eskinder185.github.io/jemawe/ on every push to `main`. One-time settings and details are in `docs/deployment-checklist.md`.
+
+```powershell
+npm run build:pages     # production build for the root (no source maps) + dist safety check
+npm run preview:pages   # build for /jemawe/ and serve it at http://127.0.0.1:5500/jemawe/
+npm run check:dist      # re-run the dist safety check
+```
+
+Test the Pages build: run `npm run preview:pages`, then in a second terminal `$env:BASE_URL="http://127.0.0.1:5500/jemawe"; python tests/qa_site.py`.
+
+Never write root-relative URLs (`"/..."`) in TypeScript or CSS. In TypeScript use `new URL("./file.js", import.meta.url)`, and in CSS use paths relative to `css/main.css`. Root-relative URLs in page HTML are fine, because the build prefixes them.
+
 ## Rules for contributors and AI agents
 
 See `AGENTS.md`. In short: never invent company facts, never fake a working feature, edit `src/` (not `dist/`), and do not commit, push, or deploy without approval.

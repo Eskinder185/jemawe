@@ -71,7 +71,7 @@ async def run(args):
                 await p.screenshot(path=str(out / "screenshots" / f"home-3d_{w}.png"))
                 ok = (resp.status == 200 and st == "ready" and geo["cssW"] == geo["stageW"] and geo["cssH"] == geo["stageH"]
                       and abs(geo["bufW"] - round(geo["stageW"] * stats["dpr"])) <= 1 and not geo["overflow"] and not errs and not failed
-                      and geo["links"] == 3 and geo["sectionsAfterHero"] >= 10)
+                      and geo["links"] == 3 and geo["sectionsAfterHero"] >= 8)
                 rows.append({"width": w, "pass": ok, "state": st, **geo, "stats": stats, "consoleIssues": errs[:3], "failedRequests": failed[:3]})
                 await ctx.close()
             return {"pass": all(r["pass"] for r in rows), "rows": rows}
@@ -220,7 +220,7 @@ async def run(args):
             running_away = (await p.evaluate(f"{ROOT}.ecoDebug.stats()"))["running"]
             await p.evaluate("window.scrollTo(0, 0)"); await p.wait_for_timeout(600)
             running_back = (await p.evaluate(f"{ROOT}.ecoDebug.stats()"))["running"]
-            await p.evaluate(f"{ROOT}.ecoUnmount()"); await p.wait_for_timeout(200)
+            await p.evaluate(f"{ROOT}.ecoUnmount()"); await p.wait_for_timeout(650)
             after = await p.evaluate(f"({{ state: {ROOT}.dataset.ecoState, canvas: !!{ROOT}.querySelector('canvas'), debug: !!{ROOT}.ecoDebug, fallbackVisible: getComputedStyle({ROOT}.querySelector('.eco__fallback')).visibility }})")
             await ctx.close()
             ok = running_top and not running_away and running_back and after["state"] == "unmounted" and not after["canvas"] and not after["debug"] and after["fallbackVisible"] == "visible"

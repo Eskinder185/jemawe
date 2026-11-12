@@ -137,6 +137,9 @@ function syncConditionals(form: HTMLFormElement): void {
 
 function setupForm(form: HTMLFormElement): void {
   form.noValidate = true; // we validate with clearer, accessible messages
+  const startedAt = Date.now();
+  let submissionId = crypto.randomUUID();
+  let sending = false;
   const steps = Array.from(form.querySelectorAll<HTMLElement>(".form-step"));
   let current = 0;
 
@@ -216,6 +219,7 @@ function setupForm(form: HTMLFormElement): void {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (sending) return;
     setStatus(form, null);
     const invalid = validateScope(form);
     if (invalid) {
@@ -231,7 +235,10 @@ function setupForm(form: HTMLFormElement): void {
     }
 
     const honeypot = form.querySelector<HTMLInputElement>("[data-honeypot] input");
-    if (honeypot && honeypot.value) return; // silently drop bot submissions
+    if (honeypot && honeypot.value) {
+      setStatus(form, "error", "This request could not be submitted. Please check the form and try again.");
+      return;
+    }
 
     const endpoint = (form.dataset.endpoint || "").trim();
     if (!endpoint) {
@@ -244,6 +251,8 @@ function setupForm(form: HTMLFormElement): void {
     }
 
     const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    sending = true;
+    if (submit) submit.disabled = true;
     submit?.classList.add("is-loading");
     submit?.setAttribute("aria-disabled", "true");
     try {
@@ -255,16 +264,23 @@ function setupForm(form: HTMLFormElement): void {
         else data[key] = v;
       });
       data.form = form.dataset.form || "inquiry";
+      data.submissionId = submissionId;
+      data.startedAt = String(startedAt);
+      data.website = honeypot?.value || "";
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error(String(res.status));
-      window.location.assign(`/thank-you/?form=${encodeURIComponent(form.dataset.form || "inquiry")}`);
-    } catch {
-      setStatus(form, "error", "Your request could not be sent because the form service did not respond. Your answers are still here, so you can try again in a moment.");
+      const receipt = await res.json();
+      if (!res.ok || receipt.accepted !== true || !receipt.receipt) throw new Error(receipt.error || String(res.status));
+      window.location.assign(`${new URL("../thank-you/", import.meta.url).pathname}?form=${encodeURIComponent(form.dataset.form || "inquiry")}`);
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : "The form service did not respond.";
+      setStatus(form, "error", `${escapeHtml(detail)} Your answers are still here, so you can review them and try again.`);
     } finally {
+      sending = false;
+      if (submit) submit.disabled = false;
       submit?.classList.remove("is-loading");
       submit?.removeAttribute("aria-disabled");
     }

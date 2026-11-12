@@ -7,6 +7,9 @@ Usage (from the project root, with the dev server running on :5500):
     npm run serve            # in another terminal
     python tests/qa_site.py [--axe path/to/axe.min.js] [--out qa-results]
 
+GitHub Pages build (served under /jemawe/ by `npm run preview:pages`):
+    BASE_URL=http://127.0.0.1:5500/jemawe python tests/qa_site.py
+
 Checks every built page in dist/ at 375, 390, 768, 1024, 1440, and 1920px wide,
 then runs interaction tests. Prints a summary and writes qa-results/results.json.
 Nothing here is mocked except where stated (the form endpoint tests intercept a
@@ -19,13 +22,14 @@ import os
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urljoin
 
 from playwright.async_api import async_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
-BASE = os.environ.get("BASE_URL", "http://127.0.0.1:5500")
-WIDTHS = [375, 390, 768, 1024, 1440, 1920]
+BASE = os.environ.get("BASE_URL", "http://127.0.0.1:5500").rstrip("/")  # e.g. http://127.0.0.1:5500/jemawe for a Pages build
+WIDTHS = [375, 390, 430, 768, 1024, 1440, 1920]
 
 
 def routes():
@@ -118,7 +122,8 @@ async def link_check(browser, links, results):
     external = sorted({l for l in links if l.startswith("http")})
     bad = []
     for l in internal:
-        r = await ctx.request.get(BASE + l, max_redirects=0)
+        # urljoin keeps base-prefixed hrefs (e.g. /jemawe/about/) correct when BASE_URL has a path.
+        r = await ctx.request.get(urljoin(BASE + "/", l), max_redirects=0)
         if r.status != 200:
             bad.append(f"{l} -> {r.status}")
     await ctx.close()
@@ -172,7 +177,11 @@ async def interactions(browser, results):
         await p.keyboard.press("Escape")
         closed = await trig.get_attribute("aria-expanded") == "false"
         focus_back = await p.evaluate("document.activeElement.getAttribute('aria-controls')") == "panel-services"
-        await p.hover("[aria-controls=panel-industries]"); await p.wait_for_timeout(350)
+        await p.hover("[aria-controls=panel-industries]")
+        try:
+            await p.wait_for_function("document.querySelector('[aria-controls=panel-industries]').getAttribute('aria-expanded') === 'true'", timeout=2000)
+        except Exception:
+            pass
         hover_open = await p.locator("#panel-industries").is_visible()
         await p.mouse.click(700, 800); await p.wait_for_timeout(100)
         outside_close = not await p.locator("#panel-industries").is_visible()
@@ -228,6 +237,9 @@ async def interactions(browser, results):
         await p.click("text=Review your request")
         on_review = await step() == 3
         review_text = await p.locator("[data-review-list]").inner_text()
+        await p.click("text=Back")
+        retained = await p.input_value("#q-email") == "test@example.com" and await p.input_value("#q-name") == "Test Person"
+        await p.click("text=Review your request")
         await p.click("text=Send quote request")
         consent_required = await p.locator("#q-consent").get_attribute("aria-invalid") == "true"
         await p.check("#q-consent")
@@ -236,17 +248,18 @@ async def interactions(browser, results):
         status_text = await p.locator("[data-form-status]").inner_text()
         url_unchanged = p.url.endswith("/quote/")
         await ctx.close()
-        ok = all([blocked, on_details, os_hidden, site_shown, email_error, on_review, "Website" in review_text, consent_required, state == "info", "not" in status_text, url_unchanged])
+        ok = all([blocked, on_details, os_hidden, site_shown, email_error, on_review, retained, "Website" in review_text, consent_required, state == "info", "not" in status_text, url_unchanged])
         return {"pass": ok, "blocksEmptyStep": blocked, "advancesWhenValid": on_details, "irrelevantFieldsHiddenAndDisabled": os_hidden, "relevantFieldsShown": site_shown,
                 "invalidEmailFlagged": email_error, "emailMessage": msg, "reviewStepReached": on_review, "reviewShowsAnswers": "Website" in review_text,
-                "consentRequired": consent_required, "honestNotConnectedStatus": state == "info", "noFakeRedirect": url_unchanged}
+                "consentRequired": consent_required, "retainsInputsOnBack": retained, "honestNotConnectedStatus": state == "info", "noFakeRedirect": url_unchanged}
     await check("quoteForm", quote())
 
     # --- endpoint success / failure paths (fake endpoint intercepted) ---
     async def endpoint(status):
         ctx = await browser.new_context(viewport={"width": 1280, "height": 900})
         p = await ctx.new_page()
-        await p.route("**/__qa-endpoint", lambda r: r.fulfill(status=status, body="{}", content_type="application/json"))
+        body = '{"accepted":true,"receipt":"controlled-test-receipt"}' if status == 200 else '{"error":"Test service failure"}'
+        await p.route("**/__qa-endpoint", lambda r: r.fulfill(status=status, body=body, content_type="application/json"))
         await p.goto(BASE + "/contact/")
         await p.evaluate("document.querySelector('form[data-form]').dataset.endpoint = '/__qa-endpoint'")
         await p.fill("#ct-name", "Test Person"); await p.fill("#ct-email", "test@example.com")
@@ -256,13 +269,14 @@ async def interactions(browser, results):
         await p.wait_for_timeout(800)
         url = p.url
         state = await p.locator("[data-form-status]").get_attribute("data-state") if "/contact/" in url else None
+        retained = await p.input_value("#ct-message") == "Hello, this is a test message." if state == "error" else None
         await ctx.close()
-        return url, state
+        return url, state, retained
     async def endpoints():
-        ok_url, _ = await endpoint(200)
-        fail_url, fail_state = await endpoint(500)
-        ok = "/thank-you/" in ok_url and "/contact/" in fail_url and fail_state == "error"
-        return {"pass": ok, "successRedirectsToThankYou": "/thank-you/" in ok_url, "failureStaysWithError": fail_state == "error"}
+        ok_url, _, _ = await endpoint(200)
+        fail_url, fail_state, retained = await endpoint(500)
+        ok = "/thank-you/" in ok_url and "/contact/" in fail_url and fail_state == "error" and retained
+        return {"pass": ok, "successRedirectsToThankYou": "/thank-you/" in ok_url, "failureStaysWithError": fail_state == "error", "failureRetainsInputs": retained}
     await check("formEndpointPaths", endpoints())
 
     # --- prefill from URL ---

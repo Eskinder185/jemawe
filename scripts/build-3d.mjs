@@ -8,10 +8,14 @@ import { build } from "esbuild";
 import { statSync } from "node:fs";
 import { gzipSync } from "node:zlib";
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
 
-const out = "dist/js/hero3d.js";
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const out = resolve(root, "dist/js/hero3d.js");
 await build({
-  entryPoints: ["src/ts/hero3d/index.ts"],
+  absWorkingDir: root,
+  entryPoints: [resolve(root, "src/ts/hero3d/index.ts")],
   bundle: true,
   minify: true,
   format: "esm",
